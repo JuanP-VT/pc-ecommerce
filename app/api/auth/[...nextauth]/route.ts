@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import { AuthOptions } from "next-auth/core/types";
 import buscarEmailEnDb from "@/lib/buscarEmailEnDb";
 import crearUsuarioEnDb from "@/lib/crearUsuarioEnDb";
+import { JWT } from "next-auth/jwt";
 config();
 export const OPTIONS: AuthOptions = {
   providers: [
@@ -20,13 +21,7 @@ export const OPTIONS: AuthOptions = {
   callbacks: {
     async signIn({ user }) {
       //Verificamos email en base de datos, si el usuario autentificado no existe lo registramos
-      const email =
-        typeof user.email === "string"
-          ? user.email
-          : user.email === undefined
-          ? "undefined"
-          : "null";
-      const emailEnDb = await buscarEmailEnDb(email);
+      const emailEnDb = await buscarEmailEnDb(user.email);
       if (emailEnDb === null) {
         const newUser = {
           name: user.name,
@@ -37,6 +32,32 @@ export const OPTIONS: AuthOptions = {
         await crearUsuarioEnDb(newUser);
       }
       return true;
+    },
+    async session({ token, session }) {
+      if (token) {
+        session.user.id = token.id;
+        session.user.name = token.name;
+        session.user.email = token.email;
+        session.user.rol = token.rol;
+        session.user.image = token.picture;
+        session.user.dinero = token.dinero;
+      }
+      return session;
+    },
+    async jwt({ token, user }) {
+      const usuarioEnDb = await buscarEmailEnDb(token.email);
+      if (!usuarioEnDb) {
+        return token;
+      }
+      const newToken: JWT = {
+        id: usuarioEnDb._id,
+        name: usuarioEnDb.name,
+        email: usuarioEnDb.email,
+        picture: usuarioEnDb.image,
+        rol: usuarioEnDb.rol,
+        dinero: usuarioEnDb.dinero,
+      };
+      return newToken;
     },
   },
 };
