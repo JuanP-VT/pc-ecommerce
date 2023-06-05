@@ -4,25 +4,22 @@ import type { Product } from "@/types/product";
 export function validateNewProduct(newProduct: Product): String[] | [] {
   const errors = [];
 
-  if (!newProduct.name) {
+  if (typeof newProduct.name !== "string") {
     errors.push("Invalid Name");
   }
-  if (!newProduct.category) {
+  if (typeof newProduct.category !== "string") {
     errors.push("Invalid Category");
   }
-  if (!newProduct.img) {
+  if (typeof newProduct.img !== "string") {
     errors.push("Invalid Image");
   }
-  if (newProduct.stock === null || newProduct.stock === undefined) {
+  if (typeof newProduct.stock !== "number") {
     errors.push("Invalid Stock");
   }
-  if (newProduct.price === null || newProduct.price === undefined) {
+  if (typeof newProduct.price !== "number") {
     errors.push("Invalid Price");
   }
-  if (
-    newProduct.discountPercentage === null ||
-    newProduct.discountPercentage === undefined
-  ) {
+  if (typeof newProduct.discountPercentage !== "number") {
     errors.push("Invalid Discount");
   }
   return errors;
