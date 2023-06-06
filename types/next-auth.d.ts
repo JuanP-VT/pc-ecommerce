@@ -5,7 +5,8 @@ declare module "next-auth/jwt" {
   interface JWT {
     id: ObjectID;
     rol: "admin" | "user";
-    dinero: number;
+    cash: number;
+    items: [];
   }
 }
 
@@ -14,7 +15,8 @@ declare module "next-auth" {
     user: User & {
       id: string;
       rol: "admin" | "user";
-      dinero: number;
+      cash: number;
+      items: [];
     };
   }
 }

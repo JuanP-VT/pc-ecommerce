@@ -40,7 +40,7 @@ export const OPTIONS: AuthOptions = {
         session.user.email = token.email;
         session.user.rol = token.rol;
         session.user.image = token.picture;
-        session.user.dinero = token.dinero;
+        session.user.cash = token.cash;
       }
       return session;
     },
@@ -50,12 +50,13 @@ export const OPTIONS: AuthOptions = {
         return token;
       }
       const newToken: JWT = {
-        id: usuarioEnDb._id,
+        id: usuarioEnDb._id.toString(),
         name: usuarioEnDb.name,
         email: usuarioEnDb.email,
-        picture: usuarioEnDb.image,
+        picture: usuarioEnDb.img,
         rol: usuarioEnDb.rol,
-        dinero: usuarioEnDb.dinero,
+        cash: usuarioEnDb.cash,
+        items: usuarioEnDb.items,
       };
       return newToken;
     },
