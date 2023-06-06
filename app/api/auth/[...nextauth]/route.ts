@@ -41,6 +41,7 @@ export const OPTIONS: AuthOptions = {
         session.user.rol = token.rol;
         session.user.image = token.picture;
         session.user.cash = token.cash;
+        session.user.items = token.items;
       }
       return session;
     },
