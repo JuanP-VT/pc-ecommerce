@@ -18,7 +18,7 @@ export default async function RootLayout({
   const session = await getServerSession(OPTIONS);
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} relative `}>
         {" "}
         <Navigation session={session} />
         {children}
