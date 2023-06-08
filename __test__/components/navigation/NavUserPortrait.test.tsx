@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
-import NavUserPortrait from "../../../components/NavUserPortrait";
+import NavUserPortrait from "../../../components/navigation/NavUserPortrait";
 import { SessionProvider, signOut } from "next-auth/react";
 import { Session } from "next-auth";
 

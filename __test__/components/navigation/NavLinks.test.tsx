@@ -1,4 +1,4 @@
-import NavLink from "../../../components/NavLink";
+import NavLink from "../../../components/navigation/NavLink";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";

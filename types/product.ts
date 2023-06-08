@@ -8,11 +8,14 @@ export type Product = {
   stock: number;
   price: number;
   discountPercentage: number;
-  reviews: Review[];
 };
 
 type Review = {
   stars: 1 | 2 | 3 | 4 | 5;
   user: User;
   comment: string;
+};
+
+export type WithReview = {
+  reviews: Review[];
 };
