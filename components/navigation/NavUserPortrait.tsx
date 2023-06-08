@@ -3,7 +3,6 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 function NavUserPortrait() {
   const { data: session } = useSession();
-  console.log(session);
   if (session) {
     const nameAsArray = session?.user.name?.split(" ") as String[];
     const firstName = nameAsArray[0];
