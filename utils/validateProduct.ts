@@ -40,5 +40,9 @@ export default function validateNewProduct(product: Product) {
   if (discountPercentage < 0) {
     errors.push("Discount  cannot be negative");
   }
+  //Discount cannot be higher than 99
+  if (discountPercentage > 99) {
+    errors.push("Discount cannot be higher than 99");
+  }
   return errors;
 }

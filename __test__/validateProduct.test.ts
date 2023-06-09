@@ -49,6 +49,32 @@ test("return error if description is not an array", () => {
   );
 });
 
+test("return error if discount is higher than 99", () => {
+  // Define an invalid product
+  const product: any = {
+    name: 123, // Invalid: name must be a string
+    category: "Electronics",
+    price: "49.99", // Invalid: price must be a number
+    description: {}, // Invalid : price must be an array
+    img: "https://example.com/product.jpg",
+    stock: -10, // Invalid: stock cannot be negative
+    discountPercentage: 100, // Invalid, FREE ITEMS??,
+  };
+
+  const errors = validateNewProduct(product);
+
+  // Assert that errors array contains the expected error messages
+  expect(errors).toEqual(
+    expect.arrayContaining([
+      "Name must be a string",
+      "Price must be a number",
+      "Stock cannot be negative",
+      "Description must be an array",
+      "Discount cannot be higher than 99",
+    ])
+  );
+});
+
 test("validateNewProduct returns no errors for valid product", () => {
   // Define a valid product
   const product: Product = {
