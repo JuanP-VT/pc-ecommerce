@@ -3,7 +3,7 @@ import { User } from "./user";
 export type Product = {
   name: string;
   category: string;
-  description: string;
+  description: string[];
   img: string;
   stock: number;
   price: number;
