@@ -1,5 +1,6 @@
 //Validates if the request has correct data
-
+//It will return an array of messages if it finds an error
+// or an empty array if request is valid
 import { Product } from "@/types/product";
 
 export default function validateNewProduct(product: Product) {
@@ -12,8 +13,10 @@ export default function validateNewProduct(product: Product) {
   if (typeof category !== "string") {
     errors.push("Category must be a string");
   }
-  if (typeof description !== "string") {
-    errors.push("Description must be a string");
+  // Is array?
+  const isArray = Array.isArray(description);
+  if (!isArray) {
+    errors.push("Description must be an array");
   }
   if (typeof img !== "string") {
     errors.push("Image must be a string");
