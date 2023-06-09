@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { dbClient } from "../../../lib/db";
-import { validateNewProduct } from "@/utils/validateNewProduct";
 import { Product } from "@/types/product";
+import validateNewProduct from "@/utils/validateProduct";
 
 //Return all products from the database
 export async function GET(request: Request) {
@@ -28,6 +28,7 @@ export async function POST(request: Request) {
     name: res.name,
     category: res.category,
     img: res.img,
+    description: res.description,
     stock: res.stock,
     price: res.price,
     discountPercentage: res.discountPercentage,
