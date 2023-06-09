@@ -42,9 +42,9 @@ function FormDescription({ setDescription }: Props) {
   return (
     <div className="mb-4" data-testid="textAreas">
       <label className="block text-gray-700 text-sm font-bold mb-2">
-        Category
+        Description
         <button
-          className="bg-white hover:bg-gray-100 text-gray-800 font-semibold  px-4 border border-gray-400 rounded shadow"
+          className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  mb-4 ml-4 px-4 border border-gray-400 rounded shadow"
           onClick={(e) =>
             setNumberOfInputs((state) => {
               e.preventDefault();
@@ -55,7 +55,7 @@ function FormDescription({ setDescription }: Props) {
           Add
         </button>
         <button
-          className="bg-white hover:bg-gray-100 text-gray-800 font-semibold  px-4 border border-gray-400 rounded shadow"
+          className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  ml-3 px-4 border border-gray-400 rounded shadow"
           onClick={(e) => {
             e.preventDefault();
             if (numberOfInputs > 1) {
@@ -69,7 +69,7 @@ function FormDescription({ setDescription }: Props) {
             }
           }}
         >
-          Remove
+          Delete
         </button>
         {renderTextAreas()}
       </label>

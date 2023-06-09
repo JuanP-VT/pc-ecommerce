@@ -26,7 +26,7 @@ it("should render a new text area on 'Add' button click ", async () => {
 it("should not delete the textarea if there is only one ", async () => {
   const setDescriptionMock = jest.fn();
   const rnder = render(<FormDescription setDescription={setDescriptionMock} />);
-  const remButton = rnder.getByText("Remove");
+  const remButton = rnder.getByText("Delete");
   fireEvent.click(remButton);
   fireEvent.click(remButton);
   fireEvent.click(remButton);
