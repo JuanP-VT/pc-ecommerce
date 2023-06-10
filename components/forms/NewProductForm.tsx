@@ -1,12 +1,41 @@
+"use client";
+import { useEffect, useState } from "react";
+import handleSubmitProduct from "./handleSubmitProduct";
+import { Product } from "@/types/product";
+import FormDescription from "./FormDescription";
+import FormFeedback from "./FormFeedback";
+
 type Props = {};
 
 function NewProductForm({}: Props) {
+  const [descriptions, setDescriptions] = useState<string[]>([]);
+  const [newProduct, setNewProduct] = useState<Product>({
+    name: "",
+    category: "",
+    img: "",
+    description: [],
+    price: 0,
+    stock: 0,
+    discountPercentage: 0,
+  });
+
+  //The descriptions prop is stored in a separate state
+  //This hook updates the newProduct description prop
+  useEffect(() => {
+    setNewProduct((prevProduct) => ({
+      ...prevProduct,
+      description: descriptions,
+    }));
+  }, [descriptions]);
   return (
-    <div className="my-14 flex flex-col justify-center xl:px-96 ">
-      <h1 className="flex justify-center my-2 font-bold text-xl text-slate-700">
+    <div className="my-16 flex flex-col justify-center xl:px-96 ">
+      <h1 className="flex justify-center py-4 font-bold text-xl text-slate-700">
         Add New Product
       </h1>
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={(e) => handleSubmitProduct(e, newProduct)}
+      >
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Name
@@ -15,6 +44,12 @@ function NewProductForm({}: Props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Name"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                name: e.currentTarget.value,
+              })
+            }
           ></input>
         </div>
         <div className="mb-4">
@@ -25,22 +60,17 @@ function NewProductForm({}: Props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Category"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                category: e.currentTarget.value,
+              })
+            }
           ></input>
         </div>
 
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2 "
-            htmlFor="name"
-          >
-            Description
-          </label>
-          <textarea
-            id="message"
-            rows={4}
-            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          ></textarea>
-        </div>
+        <FormDescription setDescription={setDescriptions} />
+
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Image
@@ -49,6 +79,12 @@ function NewProductForm({}: Props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             placeholder="Image"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                img: e.currentTarget.value,
+              })
+            }
           ></input>
         </div>
 
@@ -59,7 +95,14 @@ function NewProductForm({}: Props) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
+            step="0.01"
             placeholder="Price"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                price: parseInt(e.currentTarget.value),
+              })
+            }
           ></input>
         </div>
         <div className="mb-4">
@@ -70,6 +113,12 @@ function NewProductForm({}: Props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             placeholder="Current Stock"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                stock: parseInt(e.currentTarget.value),
+              })
+            }
           ></input>
         </div>
         <div className="mb-4">
@@ -80,15 +129,27 @@ function NewProductForm({}: Props) {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="number"
             placeholder="0 if none"
+            onChange={(e) =>
+              setNewProduct({
+                ...newProduct,
+                discountPercentage: parseInt(e.currentTarget.value),
+              })
+            }
           ></input>
+          <div className="mt-4">
+            <FormFeedback newProduct={newProduct} />
+          </div>
           <div className="mt-6">
             <button
               className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-              type="button"
+              type="submit"
             >
               Add New Product
             </button>
           </div>
+          <p id="formSuccess" className="text-green-600 ml-2 bold hidden">
+            Success!!
+          </p>
         </div>
       </form>
     </div>
