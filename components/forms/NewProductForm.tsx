@@ -4,15 +4,17 @@ import handleSubmitProduct from "./handleSubmitProduct";
 import { Product } from "@/types/product";
 import FormDescription from "./FormDescription";
 import FormFeedback from "./FormFeedback";
+import FormImages from "./FormImages";
 
 type Props = {};
 
 function NewProductForm({}: Props) {
   const [descriptions, setDescriptions] = useState<string[]>([]);
+  const [images, setImages] = useState<string[]>([]);
   const [newProduct, setNewProduct] = useState<Product>({
     name: "",
     category: "",
-    img: "",
+    img: [],
     description: [],
     price: 0,
     stock: 0,
@@ -25,8 +27,10 @@ function NewProductForm({}: Props) {
     setNewProduct((prevProduct) => ({
       ...prevProduct,
       description: descriptions,
+      img: images,
     }));
-  }, [descriptions]);
+  }, [descriptions, images]);
+  console.log(newProduct);
   return (
     <div className="my-16 flex flex-col justify-center xl:px-96 ">
       <h1 className="flex justify-center py-4 font-bold text-xl text-slate-700">
@@ -70,24 +74,7 @@ function NewProductForm({}: Props) {
         </div>
 
         <FormDescription setDescription={setDescriptions} />
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Image
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="Image"
-            onChange={(e) =>
-              setNewProduct({
-                ...newProduct,
-                img: e.currentTarget.value,
-              })
-            }
-          ></input>
-        </div>
-
+        <FormImages setImages={setImages} />
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Price

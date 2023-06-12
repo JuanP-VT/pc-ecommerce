@@ -18,8 +18,8 @@ export default function validateNewProduct(product: Product) {
   if (!isArray) {
     errors.push("Description must be an array");
   }
-  if (typeof img !== "string") {
-    errors.push("Image must be a string");
+  if (!Array.isArray(img)) {
+    errors.push("Image must be an array");
   }
   if (typeof stock !== "number") {
     errors.push("Stock must be a number");

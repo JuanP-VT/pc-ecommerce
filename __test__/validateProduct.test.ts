@@ -31,7 +31,7 @@ test("return error if description is not an array", () => {
     category: "Electronics",
     price: "49.99", // Invalid: price must be a number
     description: {}, // Invalid : price must be an array
-    img: "https://example.com/product.jpg",
+    img: ["https://example.com/product.jpg"],
     stock: -10, // Invalid: stock cannot be negative
     discountPercentage: 20,
   };
@@ -56,7 +56,7 @@ test("return error if discount is higher than 99", () => {
     category: "Electronics",
     price: "49.99", // Invalid: price must be a number
     description: {}, // Invalid : price must be an array
-    img: "https://example.com/product.jpg",
+    img: "https://example.com/product.jpg", // invalid must be an array
     stock: -10, // Invalid: stock cannot be negative
     discountPercentage: 100, // Invalid, FREE ITEMS??,
   };
@@ -71,6 +71,7 @@ test("return error if discount is higher than 99", () => {
       "Stock cannot be negative",
       "Description must be an array",
       "Discount cannot be higher than 99",
+      "Image must be an array",
     ])
   );
 });
@@ -82,7 +83,7 @@ test("validateNewProduct returns no errors for valid product", () => {
     category: "Electronics",
     price: 499.99,
     description: [],
-    img: "https://example.com/product.jpg",
+    img: ["https://example.com/product.jpg"],
     stock: 100,
     discountPercentage: 10,
   };

@@ -11,7 +11,7 @@ it("should display nothing if there are no errors", () => {
     category: "Electronics",
     price: 49.99,
     description: [],
-    img: "https://example.com/product.jpg",
+    img: ["https://example.com/product.jpg"],
     stock: 10,
     discountPercentage: 20,
   };
@@ -32,7 +32,7 @@ it("should display all errors", () => {
   };
   const rnd = render(<FormFeedback newProduct={product} />);
   const list = screen.getByRole("list").querySelectorAll("li");
-  expect(list.length).toBe(3);
+  expect(list.length).toBe(4);
 });
 
 it("should display the correct error logs", async () => {
@@ -41,7 +41,7 @@ it("should display the correct error logs", async () => {
     category: "Electronics",
     price: -0.99,
     description: [],
-    img: "https://example.com/product.jpg",
+    img: ["https://example.com/product.jpg"],
     stock: -20, // cant be negative
     discountPercentage: -20, // cant be negative
   };
