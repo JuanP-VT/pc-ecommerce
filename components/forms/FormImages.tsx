@@ -26,7 +26,7 @@ function FormImages({ setImages }: Props) {
           }
           key={index}
           type="text"
-          className="block p-2.5 w-full text-sm text-gray-900
+          className="block p-2.5 w-full text-sm text-gray-900 font-normal
             bg-gray-50 rounded-lg border border-gray-300 
             focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
             dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
@@ -39,7 +39,7 @@ function FormImages({ setImages }: Props) {
   return (
     <div className="mb-4" data-testid="imagesInput">
       <label className="block text-gray-700 text-sm font-bold mb-2">
-        Description
+        Images
         <button
           className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  mb-4 ml-4 px-4 border border-gray-400 rounded shadow"
           onClick={(e) =>
