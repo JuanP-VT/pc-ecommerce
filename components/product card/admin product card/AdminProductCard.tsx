@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import AdminProductCardEdit from "./AdminProductCardEdit";
 import AdminProductCardDisplay from "./AdminProductCardDisplay";
