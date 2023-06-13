@@ -16,6 +16,14 @@ type Review = {
   comment: string;
 };
 
-export type WithReview = {
-  reviews: Review[];
+export type ProductWithId = {
+  _id: string;
+  name: string;
+  category: string;
+  description: string[];
+  img: string[];
+  stock: number;
+  price: number;
+  discountPercentage: number;
+  reviews?: Review[];
 };
