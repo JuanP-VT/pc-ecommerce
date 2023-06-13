@@ -2,18 +2,22 @@
 import { useState } from "react";
 import AdminProductCardEdit from "./AdminProductCardEdit";
 import AdminProductCardDisplay from "./AdminProductCardDisplay";
-import { Product } from "@/types/product";
+import { ProductWithId } from "@/types/product";
+
 type Props = {
-  productList: Product[];
+  product: ProductWithId;
 };
-function AdminProductCard({ productList }: Props) {
+function AdminProductCard({ product }: Props) {
   const [isOnEditMode, setIsOnEditMode] = useState(false);
   return (
     <>
       {isOnEditMode ? (
-        <AdminProductCardEdit productList={productList} />
+        <AdminProductCardEdit product={product} />
       ) : (
-        <AdminProductCardDisplay productList={productList} />
+        <AdminProductCardDisplay
+          product={product}
+          setIsOnEditMode={setIsOnEditMode}
+        />
       )}
     </>
   );

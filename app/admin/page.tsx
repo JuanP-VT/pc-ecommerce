@@ -7,7 +7,7 @@ async function Page({}: Props) {
   const data = await res.json();
   return (
     <div>
-      <AdminProductCard productList={data} />
+      <AdminProductCard product={data} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import { Product } from "@/types/product";
+import { ProductWithId } from "@/types/product";
 
 type Props = {
-  productList: Product[];
+  product: ProductWithId;
 };
 function AdminProductCardEdit({}: Props) {
   return <div>AdminProductCardEdit</div>;
