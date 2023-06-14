@@ -1,11 +1,13 @@
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen, fireEvent, getByText } from "@testing-library/react";
-import FormDescription from "@/components/forms/FormDescription";
+import FormDescription from "../../app/components/forms/FormDescription";
 
 it("should render with one textarea at start ", async () => {
   const setDescriptionMock = jest.fn();
-  const rnder = render(<FormDescription setDescription={setDescriptionMock} />);
+  const rnder = render(
+    <FormDescription setDescriptions={setDescriptionMock} />
+  );
   const textAreas = (await screen.findByTestId("textAreas")).querySelectorAll(
     "textarea"
   );
@@ -14,7 +16,9 @@ it("should render with one textarea at start ", async () => {
 
 it("should render a new text area on 'Add' button click ", async () => {
   const setDescriptionMock = jest.fn();
-  const rnder = render(<FormDescription setDescription={setDescriptionMock} />);
+  const rnder = render(
+    <FormDescription setDescriptions={setDescriptionMock} />
+  );
   const addButton = rnder.getByText("Add");
   fireEvent.click(addButton);
   const textAreas = (await screen.findByTestId("textAreas")).querySelectorAll(
@@ -25,7 +29,9 @@ it("should render a new text area on 'Add' button click ", async () => {
 
 it("should not delete the textarea if there is only one ", async () => {
   const setDescriptionMock = jest.fn();
-  const rnder = render(<FormDescription setDescription={setDescriptionMock} />);
+  const rnder = render(
+    <FormDescription setDescriptions={setDescriptionMock} />
+  );
   const remButton = rnder.getByText("Delete");
   fireEvent.click(remButton);
   fireEvent.click(remButton);
@@ -42,7 +48,7 @@ it("should handle text area change and update textAreas and setDescription", asy
   const setDescriptionMock = jest.fn();
 
   const { getByLabelText } = render(
-    <FormDescription setDescription={setDescriptionMock} />
+    <FormDescription setDescriptions={setDescriptionMock} />
   );
   const textArea = (await screen.findByTestId("textAreas")).querySelectorAll(
     "textarea"

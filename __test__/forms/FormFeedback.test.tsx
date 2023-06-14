@@ -1,8 +1,8 @@
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom/extend-expect";
 import { render, screen } from "@testing-library/react";
-import FormFeedback from "@/components/forms/FormFeedback";
-import { Product } from "@/types/product";
+import FormFeedback from "../../app/components/forms/FormFeedback";
+import { Product } from "../../app/types/product";
 
 //Displays nothing if there are no errors
 it("should display nothing if there are no errors", () => {
