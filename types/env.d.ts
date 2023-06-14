@@ -3,5 +3,7 @@ declare namespace NodeJS {
     GOOGLE_ID: string;
     GOOGLE_SECRET: string;
     MONGODB_URI: string;
+    GITHUB_ID: string;
+    GITHUB_SECRET: string;
   }
 }

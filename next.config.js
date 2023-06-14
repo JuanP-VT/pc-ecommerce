@@ -5,7 +5,7 @@ module.exports = nextConfig;
 
 module.exports = {
   images: {
-    domains: ["lh3.googleusercontent.com"],
+    domains: ["lh3.googleusercontent.com", "avatars.githubusercontent.com"],
   },
   env: {
     GOOGLE_ID: process.env.GOOGLE_ID,
