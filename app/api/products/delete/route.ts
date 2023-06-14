@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
     const res: WithId<Request> = await request.json();
-    const targetId = new ObjectId(res._id);
+    const targetId = new ObjectId(res._id.toString());
     const collection = dbClient.db("Cluster0").collection("products");
     await collection.findOneAndDelete({ _id: targetId });
     return NextResponse.json({ status: 200 });
