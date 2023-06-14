@@ -2,13 +2,19 @@
 // This array of string is going to be the property "descriptions" in a new product
 import { Dispatch, SetStateAction, useState } from "react";
 import handleTextAreaChange from "./handleTextAreaChange";
+import { ProductWithId } from "@/app/types/product";
 type Props = {
-  setDescription: Dispatch<SetStateAction<string[]>>;
+  setDescriptions: Dispatch<SetStateAction<string[]>>;
+  product?: ProductWithId;
 };
 
-function FormDescription({ setDescription }: Props) {
-  const [numberOfInputs, setNumberOfInputs] = useState(1);
-  const [textAreas, setTextAreas] = useState<string[]>([]);
+function FormDescription({ setDescriptions, product }: Props) {
+  const [numberOfInputs, setNumberOfInputs] = useState(
+    product?.description.length ?? 1
+  );
+  const [textAreas, setTextAreas] = useState<string[]>(
+    product?.description ?? []
+  );
 
   // For every "numberOfInputs" create a text area, each text area will save
   // its content value in the "textAreas" State
@@ -24,11 +30,12 @@ function FormDescription({ setDescription }: Props) {
               textAreas,
               setTextAreas,
               index,
-              setDescription
+              setDescriptions
             )
           }
           key={index}
           rows={2}
+          defaultValue={product?.img[index] ?? ""}
           className="block p-2.5 w-full text-sm text-gray-900 font-normal
             bg-gray-50 rounded-lg border border-gray-300 
             focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
@@ -58,14 +65,15 @@ function FormDescription({ setDescription }: Props) {
           className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  ml-3 px-4 border border-gray-400 rounded shadow"
           onClick={(e) => {
             e.preventDefault();
+            const updTextAreas = [...textAreas];
             if (numberOfInputs > 1) {
               setNumberOfInputs((state) => state - 1);
+              updTextAreas.pop();
             }
-            const updTextAreas = [...textAreas];
-            updTextAreas.pop();
+
             if (updTextAreas) {
               setTextAreas(updTextAreas);
-              setDescription(updTextAreas);
+              setDescriptions(updTextAreas);
             }
           }}
         >

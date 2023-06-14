@@ -58,3 +58,27 @@ it("should handle text area change and update textAreas and setDescription", asy
   expect(textArea.value).toBe("New description");
   expect(setDescriptionMock).toHaveBeenCalledWith(["New description"]);
 });
+
+it("should render the correct number of inputs if given a product", async () => {
+  const productMock = {
+    _id: "648a10a662f9e48825305b4c",
+    name: "AMD RTX 570",
+    category: "GPU",
+    description: ["VERY FAst", " 0% SLOW", "extra queso", "extra pepe"],
+    img: ["IMG1", "IMG 1-2"],
+    stock: 299,
+    price: 299,
+    discountPercentage: 10,
+  };
+  const setDescriptionMock = jest.fn();
+  const rnder = render(
+    <FormDescription
+      setDescriptions={setDescriptionMock}
+      product={productMock}
+    />
+  );
+  const textArea = (await screen.findByTestId("textAreas")).querySelectorAll(
+    "textarea"
+  );
+  expect(textArea.length).toBe(4);
+});
