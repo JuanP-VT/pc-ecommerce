@@ -6,6 +6,7 @@ import buscarEmailEnDb from "@/lib/buscarEmailEnDb";
 import crearUsuarioEnDb from "@/lib/crearUsuarioEnDb";
 import { JWT } from "next-auth/jwt";
 config();
+export const dynamic = "force-dynamic";
 export const OPTIONS: AuthOptions = {
   providers: [
     GoogleProvider({
