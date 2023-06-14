@@ -1,6 +1,5 @@
-import { Product } from "@/types/product";
-import validateNewProduct from "@/utils/validateProduct";
-import { error } from "console";
+import { Product } from "../../types/product";
+import validateNewProduct from "../../utils/validateProduct";
 import React from "react";
 
 type Props = {

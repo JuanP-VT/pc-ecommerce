@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { dbClient } from "../../../lib/db";
-import { Product } from "@/types/product";
-import validateNewProduct from "@/utils/validateProduct";
+import { dbClient } from "../../lib/db";
+import { Product } from "../../types/product";
+import validateNewProduct from "../../utils/validateProduct";
 export const dynamic = "force-dynamic";
 //Return all products from the database
 export async function GET(request: Request) {

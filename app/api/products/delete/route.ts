@@ -1,6 +1,6 @@
 import { ObjectId, WithId } from "mongodb";
 import { NextResponse } from "next/server";
-import { dbClient } from "../../../../lib/db";
+import { dbClient } from "../../../lib/db";
 export const dynamic = "force-dynamic";
 // Delete product from the collection
 export async function POST(request: Request) {

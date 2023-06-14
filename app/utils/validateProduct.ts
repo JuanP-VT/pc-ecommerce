@@ -1,7 +1,7 @@
 //Validates if the request has correct data
 //It will return an array of messages if it finds an error
 // or an empty array if request is valid
-import { Product } from "@/types/product";
+import { Product } from "../types/product";
 
 export default function validateNewProduct(product: Product) {
   const { name, category, price, description, img, stock, discountPercentage } =

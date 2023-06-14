@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import handleSubmitProduct from "./handleSubmitProduct";
-import { Product } from "@/types/product";
+import { Product } from "../../types/product";
 import FormDescription from "./FormDescription";
 import FormFeedback from "./FormFeedback";
 import FormImages from "./FormImages";

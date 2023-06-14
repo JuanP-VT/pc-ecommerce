@@ -3,10 +3,10 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { config } from "dotenv";
 import { AuthOptions } from "next-auth/core/types";
-import buscarEmailEnDb from "@/lib/buscarEmailEnDb";
-import crearUsuarioEnDb from "@/lib/crearUsuarioEnDb";
+import buscarEmailEnDb from "../../../lib/buscarEmailEnDb";
+import crearUsuarioEnDb from "../../../lib/crearUsuarioEnDb";
 import { JWT } from "next-auth/jwt";
-import searchUserInDb from "@/lib/searchUserInDb";
+import searchUserInDb from "../../../lib/searchUserInDb";
 
 config();
 export const dynamic = "force-dynamic";

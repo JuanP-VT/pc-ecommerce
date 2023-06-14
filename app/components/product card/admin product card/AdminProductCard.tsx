@@ -2,7 +2,7 @@
 import { useState } from "react";
 import AdminProductCardEdit from "./AdminProductCardEdit";
 import AdminProductCardDisplay from "./AdminProductCardDisplay";
-import { ProductWithId } from "@/types/product";
+import { ProductWithId } from "../../../types/product";
 
 type Props = {
   product: ProductWithId;

@@ -1,4 +1,4 @@
-import NewProductForm from "@/components/forms/NewProductForm";
+import NewProductForm from "../../components/forms/NewProductForm";
 export const dynamic = "force-dynamic";
 type Props = {};
 
