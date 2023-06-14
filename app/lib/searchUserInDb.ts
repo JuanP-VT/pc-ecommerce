@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 import { config } from "dotenv";
 config();
-export default async function searchUserInDb(name: string | undefined | null) {
+export default async function searchUserInDb(gitId: string | undefined | null) {
   const uri = process.env.MONGODB_URI;
   const dbName = "Cluster0";
   const collectionName = "users";
@@ -11,7 +11,7 @@ export default async function searchUserInDb(name: string | undefined | null) {
     //Buscar usuario en db
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
-    const user = await collection.findOne({ name });
+    const user = await collection.findOne({ gitId });
     return user;
   } finally {
     await client.close();

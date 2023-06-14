@@ -14,16 +14,17 @@ export default async function crearUsuarioEnDb(user: IUser) {
   const client = new MongoClient(uri);
   try {
     await client.connect();
-    //Creamos nuevo usuario
+    //Create new user
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
     const newUser = {
       name: user.name,
       email: user.email,
       image: user.image,
-      cash: 10000,
+      cash: 10000, // Free cash so new users can test my app
       rol: "user",
       gitId: user.gitId ?? null,
+      items: [],
     };
     await collection.insertOne(newUser);
   } finally {

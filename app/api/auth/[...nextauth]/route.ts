@@ -46,8 +46,7 @@ export const OPTIONS: AuthOptions = {
       }
       //If no email provided it means the user is logging form github
       const searchUser = await searchUserInDb(user.id);
-
-      if (searchUser == null) {
+      if (searchUser === null) {
         const newUser = {
           name: user.name,
           email: user.email,
