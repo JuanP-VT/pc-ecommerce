@@ -73,7 +73,7 @@ function NewProductForm({}: Props) {
           ></input>
         </div>
 
-        <FormDescription setDescription={setDescriptions} />
+        <FormDescription setDescriptions={setDescriptions} />
         <FormImages setImages={setImages} />
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">

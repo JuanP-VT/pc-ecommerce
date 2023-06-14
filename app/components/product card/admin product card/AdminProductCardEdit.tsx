@@ -1,7 +1,9 @@
 "use client";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ProductWithId } from "../../../types/product";
 import CardHeader from "../CardHeader";
+import FormDescription from "../../forms/FormDescription";
+import FormImages from "../../forms/FormImages";
 
 type Props = {
   product: ProductWithId;
@@ -9,6 +11,8 @@ type Props = {
 };
 //This component render a card with input fields related to the props of the object it represents
 function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
+  const [descriptions, setDescriptions] = useState(product.description);
+  const [imgList, setImgList] = useState(product.img);
   const [editedProduct, setEditedProduct] = useState<ProductWithId>({
     _id: product._id,
     name: product.name,
@@ -19,6 +23,14 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
     price: product.price,
     discountPercentage: product.discountPercentage,
   });
+  //Update edited product state when description list or image list updates
+  useEffect(() => {
+    setEditedProduct((prevProd) => ({
+      ...prevProd,
+      description: descriptions,
+      img: imgList,
+    }));
+  }, [descriptions, imgList]);
   console.log(editedProduct);
   return (
     <div className="w-80 flex flex-col border ">
@@ -62,7 +74,11 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             }
           />
         </div>
-
+        <FormDescription
+          setDescriptions={setDescriptions}
+          product={editedProduct}
+        />
+        <FormImages setImages={setImgList} product={editedProduct} />
         <div className="mb-2 flex ">
           <label
             className="text-gray-700 flex w-1/4 justify-start items-center text-sm font-bold "
