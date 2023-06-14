@@ -1,5 +1,5 @@
-import validateNewProduct from "@/utils/validateProduct";
-import { Product } from "@/types/product";
+import validateNewProduct from "../app/utils/validateProduct";
+import { Product } from "../app/types/product";
 test("returns errors for invalid product", () => {
   // Define an invalid product
   const product: any = {
