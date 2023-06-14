@@ -1,5 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb";
-
+import { config } from "dotenv";
+config();
 // Database connection module
 const uri = process.env.MONGODB_URI;
 const dbClient = new MongoClient(uri, {
