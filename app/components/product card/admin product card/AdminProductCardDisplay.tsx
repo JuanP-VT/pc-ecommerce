@@ -1,3 +1,4 @@
+"use client";
 import { Product, ProductWithId } from "../../../types/product";
 import CardHeader from "../CardHeader";
 import { Dispatch, SetStateAction } from "react";

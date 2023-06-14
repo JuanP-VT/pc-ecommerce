@@ -5,6 +5,7 @@ type Props = {};
 async function Page({}: Props) {
   const res = await fetch("https://store-juanp-vt.vercel.app/api/products");
   const data = await res.json();
+
   return (
     <div>
       <AdminProductCard product={data} />
