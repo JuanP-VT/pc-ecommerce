@@ -12,13 +12,6 @@ export const OPTIONS: AuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
     }),
   ],
   session: {
@@ -35,7 +28,7 @@ export const OPTIONS: AuthOptions = {
           name: user.name,
           email: user.email,
           image: user.image,
-          dinero: 100,
+          cash: 100,
         };
         await crearUsuarioEnDb(newUser);
       }

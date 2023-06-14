@@ -7,7 +7,6 @@ module.exports = {
   images: {
     domains: ["lh3.googleusercontent.com"],
   },
-  headers: { "Powered-By": "Next.js" },
   env: {
     GOOGLE_ID: process.env.GOOGLE_ID,
     GOOGLE_SECRET: process.env.GOOGLE_SECRET,

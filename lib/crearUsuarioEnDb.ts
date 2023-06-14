@@ -20,7 +20,7 @@ export default async function crearUsuarioEnDb(user: IUser) {
       name: user.name,
       email: user.email,
       image: user.image,
-      dinero: 10000,
+      cash: 10000,
       rol: "user",
     };
     await collection.insertOne(newUser);
