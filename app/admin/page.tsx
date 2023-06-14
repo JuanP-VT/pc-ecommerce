@@ -1,5 +1,5 @@
 import AdminProductCard from "@/components/product card/admin product card/AdminProductCard";
-
+export const dynamic = "force-dynamic";
 type Props = {};
 
 async function Page({}: Props) {
