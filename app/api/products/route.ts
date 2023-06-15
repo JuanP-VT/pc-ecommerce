@@ -14,7 +14,6 @@ export async function GET(request: Request) {
   }
 }
 
-//Add new product to database
 export async function POST(request: Request) {
   const res: Product = await request.json();
   //Validate request
