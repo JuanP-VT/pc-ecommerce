@@ -12,7 +12,7 @@ function CardHeader({ id, setIsOnEditMode }: Props) {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className="flex relative justify-end w-full p-2 gap-2">
+    <div className="flex relative justify-end w-full p-2 gap-2 shadow-md">
       <div>
         <BackspaceIcon
           className="w-7 hover:scale-105 transition-transform cursor-pointer"
