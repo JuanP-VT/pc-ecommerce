@@ -8,8 +8,8 @@ export async function POST(request: Request) {
     const res: WithId<Request> = await request.json();
     const targetId = new ObjectId(res._id.toString());
     const collection = dbClient.db("Cluster0").collection("products");
-    await collection.findOneAndDelete({ _id: targetId });
-    return NextResponse.json({ status: 200 });
+    const user = await collection.findOneAndDelete({ _id: targetId });
+    return NextResponse.json(user, { status: 200 });
   } catch (error) {
     console.log("error has occurred", error);
     return NextResponse.json({ status: 400 });
