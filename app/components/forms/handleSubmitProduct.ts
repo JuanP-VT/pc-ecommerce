@@ -1,11 +1,20 @@
 import type { Product } from "../../types/product";
-import { FormEvent } from "react";
+import { Dispatch, FormEvent, SetStateAction } from "react";
 import validateNewProduct from "../../utils/validateProduct";
+//This function is called in the NewProductForm component
+//It takes a product and sends it to the API
+//If given a setIsLoading react hook function it will
+// set to loading when the function is called and stop when the fetch is done
+// At the end i use a querySelector to hide and show div feedback
 export default async function handleSubmitProduct(
   e: FormEvent<HTMLFormElement>,
-  product: Product
+  product: Product,
+  setIsLoading?: Dispatch<SetStateAction<boolean>>
 ) {
   e.preventDefault();
+  if (setIsLoading) {
+    setIsLoading(true);
+  }
   // Create New Product Object
   const newProduct: Product = {
     name: product.name,
@@ -29,6 +38,9 @@ export default async function handleSubmitProduct(
   });
   const data = await res.json();
   //Send feedback, old school query selector
+  if (setIsLoading) {
+    setIsLoading(false);
+  }
   if (res.status !== 400) {
     const pElement = document.querySelector(
       "#formSuccess"

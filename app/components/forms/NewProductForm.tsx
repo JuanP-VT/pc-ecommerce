@@ -5,6 +5,7 @@ import { Product } from "../../types/product";
 import FormDescription from "./FormDescription";
 import FormFeedback from "./FormFeedback";
 import FormImages from "./FormImages";
+import LoadingButton from "../buttons/LoadingButton";
 
 type Props = {};
 
@@ -30,7 +31,9 @@ function NewProductForm({}: Props) {
       img: images,
     }));
   }, [descriptions, images]);
-  console.log(newProduct);
+
+  //Button animation state
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="my-16 flex flex-col justify-center xl:px-96 ">
       <h1 className="flex justify-center py-4 font-bold text-xl text-slate-700">
@@ -38,7 +41,7 @@ function NewProductForm({}: Props) {
       </h1>
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        onSubmit={(e) => handleSubmitProduct(e, newProduct)}
+        onSubmit={(e) => handleSubmitProduct(e, newProduct, setIsLoading)}
       >
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -127,14 +130,13 @@ function NewProductForm({}: Props) {
             <FormFeedback newProduct={newProduct} />
           </div>
           <div className="mt-6">
-            <button
-              className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+            <LoadingButton
               type="submit"
-            >
-              Add New Product
-            </button>
+              text="Create New Product"
+              isLoading={isLoading}
+            />
           </div>
-          <p id="formSuccess" className="text-green-600 ml-2 bold hidden">
+          <p id="formSuccess" className="text-green-600 ml-2 font-bold hidden">
             Success!!
           </p>
         </div>
