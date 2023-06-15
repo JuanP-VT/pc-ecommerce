@@ -159,7 +159,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             }
           />
         </div>
-        <LoadingButton isLoading={isLoading} type="submit" />
+        <LoadingButton text="Update" isLoading={isLoading} type="submit" />
       </form>
     </div>
   );
