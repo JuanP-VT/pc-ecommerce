@@ -35,7 +35,7 @@ function FormDescription({ setDescriptions, product }: Props) {
           }
           key={index}
           rows={2}
-          defaultValue={product?.img[index] ?? ""}
+          defaultValue={product?.description[index] ?? ""}
           className="block p-2.5 w-full text-sm text-gray-900 font-normal
             bg-gray-50 rounded-lg border border-gray-300 
             focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700

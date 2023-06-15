@@ -4,6 +4,7 @@ import { ProductWithId } from "../../../types/product";
 import CardHeader from "../CardHeader";
 import FormDescription from "../../forms/FormDescription";
 import FormImages from "../../forms/FormImages";
+import handleEditProduct from "./handleEditProduct";
 
 type Props = {
   product: ProductWithId;
@@ -35,10 +36,14 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
   return (
     <div className="w-80 flex flex-col border ">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
-      <form className="p-2">
+      <form
+        className="p-2"
+        onSubmit={(e) => handleEditProduct(e, editedProduct)}
+      >
         <div className="mb-2 flex">
           <label
-            className="text-gray-700 w-1/4 flex justify-start items-center text-sm font-bold "
+            className="text-gray-700 w-1/4 flex justify-start items-center 
+            text-sm font-bold "
             htmlFor="name"
           >
             Name
@@ -64,7 +69,8 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             Category
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-sm border rounded w-3/4 p-2
+             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="category"
             type="text"
             defaultValue={product.category}
@@ -81,13 +87,15 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
         <FormImages setImages={setImgList} product={editedProduct} />
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center text-sm font-bold "
+            className="text-gray-700 flex w-1/4 justify-start items-center 
+            text-sm font-bold "
             htmlFor="stock"
           >
             Stock
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-sm border rounded w-3/4 p-2
+             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="stock"
             type="number"
             defaultValue={product.stock}
@@ -103,13 +111,15 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
 
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center text-sm font-bold "
+            className="text-gray-700 flex w-1/4 justify-start items-center 
+            text-sm font-bold "
             htmlFor="price"
           >
             Price
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-sm border rounded w-3/4 p-2
+             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="price"
             type="number"
             step={0.001}
@@ -132,7 +142,8 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             Discount
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none text-sm border rounded w-3/4 p-2
+             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="discount"
             type="number"
             defaultValue={product.discountPercentage}
@@ -145,6 +156,13 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             }
           />
         </div>
+        <button
+          className="flex-shrink-0 bg-teal-500 hover:bg-teal-700
+           border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="submit"
+        >
+          Update
+        </button>
       </form>
     </div>
   );
