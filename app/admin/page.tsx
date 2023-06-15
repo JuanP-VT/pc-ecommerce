@@ -8,7 +8,7 @@ async function Page({}: Props) {
   const data = (await res.json()) as ProductWithId[];
 
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-10 border shadow-lg">
       {data.map((item, index) => (
         <AdminProductCard product={item} key={`aItm${index}`} />
       ))}
