@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import LoadingButton from "@/app/components/buttons/LoadingButton";
 it("should render a  button in normal mode", () => {
   const { getByText, queryByTestId } = render(
-    <LoadingButton isLoading={false} type="button" />
+    <LoadingButton text="Update" isLoading={false} type="button" />
   );
 
   // Assert that the button is rendered
@@ -15,10 +15,16 @@ it("should render a  button in normal mode", () => {
   const loadingIcon = queryByTestId("loading-icon");
   expect(loadingIcon).toBeNull();
 });
-
+it("renders text correctly", async () => {
+  const { getByText, queryByTestId } = render(
+    <LoadingButton text="Sholo" isLoading={false} type="button" />
+  );
+  const text = await screen.findByText("Sholo");
+  expect(text).toBeInTheDocument();
+});
 it("should render the loading icon in loading mode", () => {
   const { getByText, queryByTestId } = render(
-    <LoadingButton isLoading={true} type="button" />
+    <LoadingButton text="Update" isLoading={true} type="button" />
   );
 
   // Assert that the loading icon is rendered
@@ -29,7 +35,7 @@ it("should render the loading icon in loading mode", () => {
 describe("it should render different button types", () => {
   it("should render  button type", () => {
     const { getByText } = render(
-      <LoadingButton isLoading={false} type="button" />
+      <LoadingButton text="Update" isLoading={false} type="button" />
     );
 
     // Assert that the button is rendered
@@ -41,7 +47,7 @@ describe("it should render different button types", () => {
   });
   it("should render submit  type", () => {
     const { getByText } = render(
-      <LoadingButton isLoading={false} type="submit" />
+      <LoadingButton text="Update" isLoading={false} type="submit" />
     );
 
     // Assert that the button is rendered
@@ -53,7 +59,7 @@ describe("it should render different button types", () => {
   });
   it("should render submit  type", () => {
     const { getByText } = render(
-      <LoadingButton isLoading={false} type="reset" />
+      <LoadingButton text="Update" isLoading={false} type="reset" />
     );
 
     // Assert that the button is rendered

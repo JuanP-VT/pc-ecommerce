@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
+import { text } from "stream/consumers";
 //This component will have two states  a "normal mode" and a "loading"
 //Parent component can change this state
 type Props = {
+  text: string;
   isLoading: boolean;
   type: "button" | "submit" | "reset";
 };
 
-function LoadingButton({ isLoading, type }: Props) {
+function LoadingButton({ isLoading, type, text }: Props) {
   return (
     <>
       {isLoading ? (
@@ -22,7 +24,7 @@ function LoadingButton({ isLoading, type }: Props) {
           py-1 px-2 rounded"
           type={type}
         >
-          Update
+          {text}
         </button>
       )}
     </>
