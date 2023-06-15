@@ -5,6 +5,7 @@ import CardHeader from "../CardHeader";
 import FormDescription from "../../forms/FormDescription";
 import FormImages from "../../forms/FormImages";
 import handleEditProduct from "./handleEditProduct";
+import LoadingButton from "../../buttons/LoadingButton";
 
 type Props = {
   product: ProductWithId;
@@ -32,13 +33,15 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
       img: imgList,
     }));
   }, [descriptions, imgList]);
-  console.log(editedProduct);
+
+  //Button loading animation
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="w-80 flex flex-col border ">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
       <form
         className="p-2"
-        onSubmit={(e) => handleEditProduct(e, editedProduct)}
+        onSubmit={(e) => handleEditProduct(e, editedProduct, setIsLoading)}
       >
         <div className="mb-2 flex">
           <label
@@ -156,13 +159,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             }
           />
         </div>
-        <button
-          className="flex-shrink-0 bg-teal-500 hover:bg-teal-700
-           border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-          type="submit"
-        >
-          Update
-        </button>
+        <LoadingButton isLoading={isLoading} type="submit" />
       </form>
     </div>
   );
