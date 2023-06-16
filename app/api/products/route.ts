@@ -23,10 +23,7 @@ export async function POST(request: Request) {
     return NextResponse.json(errors);
   }
   //if no errors save product in database
-  interface ExtendedProduct extends Product {
-    reviews: [];
-  }
-  const newProduct: ExtendedProduct = {
+  const newProduct: Product = {
     name: res.name,
     category: res.category,
     img: res.img,
@@ -34,7 +31,6 @@ export async function POST(request: Request) {
     stock: res.stock,
     price: res.price,
     discountPercentage: res.discountPercentage,
-    reviews: [], //Starts with no user reviews
   };
   try {
     const productCollection = dbClient.db("Cluster0").collection("products");
