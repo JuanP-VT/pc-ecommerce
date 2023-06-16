@@ -16,12 +16,11 @@ function AdminProductCardDisplay({ product, setIsOnEditMode }: Props) {
         <p className="mt-4 h-20 px-2 text-justify text-xl font-bold">
           {product.name}
         </p>
-        <Image
+        <img
           src={product.img[0]}
           alt="Image of the product"
-          width={250}
-          height={250}
-          className="right-0.  absolute bottom-0 rounded-lg border-slate-300  "
+          style={{ objectFit: "contain" }}
+          className="right-0.  absolute bottom-0 h-52 w-52 rounded-lg border-slate-300  "
         />
       </div>
     </div>
