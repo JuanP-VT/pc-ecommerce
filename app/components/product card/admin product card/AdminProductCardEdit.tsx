@@ -37,7 +37,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
   //Button loading animation
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <div className="w-80 flex flex-col border ">
+    <div className="flex w-80 flex-col border ">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
       <form
         className="p-2"
@@ -45,16 +45,16 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
       >
         <div className="mb-2 flex">
           <label
-            className="text-gray-700 w-1/4 flex justify-start items-center 
-            text-sm font-bold "
+            className="flex w-1/4 items-center justify-start text-sm 
+            font-bold text-gray-700 "
             htmlFor="name"
           >
             Name
           </label>
           <input
-            className="shadow appearance-none text-sm  border rounded  p-2
-             text-gray-700 leading-tight focus:outline-none focus:shadow-outline
-             w-3/4"
+            className="focus:shadow-outline w-3/4 appearance-none  rounded border  p-2
+             text-sm leading-tight text-gray-700 shadow
+             focus:outline-none"
             id="name"
             type="text"
             defaultValue={product.name}
@@ -66,14 +66,14 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
         </div>
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center text-sm font-bold "
+            className="flex w-1/4 items-center justify-start text-sm font-bold text-gray-700 "
             htmlFor="category"
           >
             Category
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2
-             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-3/4 appearance-none rounded border p-2 text-sm
+             leading-tight text-gray-700 shadow focus:outline-none"
             id="category"
             type="text"
             defaultValue={product.category}
@@ -90,15 +90,15 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
         <FormImages setImages={setImgList} product={editedProduct} />
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center 
-            text-sm font-bold "
+            className="flex w-1/4 items-center justify-start text-sm 
+            font-bold text-gray-700 "
             htmlFor="stock"
           >
             Stock
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2
-             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-3/4 appearance-none rounded border p-2 text-sm
+             leading-tight text-gray-700 shadow focus:outline-none"
             id="stock"
             type="number"
             defaultValue={product.stock}
@@ -114,15 +114,15 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
 
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center 
-            text-sm font-bold "
+            className="flex w-1/4 items-center justify-start text-sm 
+            font-bold text-gray-700 "
             htmlFor="price"
           >
             Price
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2
-             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-3/4 appearance-none rounded border p-2 text-sm
+             leading-tight text-gray-700 shadow focus:outline-none"
             id="price"
             type="number"
             step={0.001}
@@ -139,14 +139,14 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
 
         <div className="mb-2 flex ">
           <label
-            className="text-gray-700 flex w-1/4 justify-start items-center text-sm font-bold "
+            className="flex w-1/4 items-center justify-start text-sm font-bold text-gray-700 "
             htmlFor="discount"
           >
             Discount
           </label>
           <input
-            className="shadow appearance-none text-sm border rounded w-3/4 p-2
-             text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-3/4 appearance-none rounded border p-2 text-sm
+             leading-tight text-gray-700 shadow focus:outline-none"
             id="discount"
             type="number"
             defaultValue={product.discountPercentage}

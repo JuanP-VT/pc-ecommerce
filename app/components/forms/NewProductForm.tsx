@@ -36,19 +36,19 @@ function NewProductForm({}: Props) {
   const [isLoading, setIsLoading] = useState(false);
   return (
     <div className="my-16 flex flex-col justify-center xl:px-96 ">
-      <h1 className="flex justify-center py-4 font-bold text-xl text-slate-700">
+      <h1 className="flex justify-center py-4 text-xl font-bold text-slate-700">
         Add New Product
       </h1>
       <form
-        className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        className="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md"
         onSubmit={(e) => handleSubmitProduct(e, newProduct, setIsLoading)}
       >
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
             Name
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="text"
             placeholder="Name"
             onChange={(e) =>
@@ -60,11 +60,11 @@ function NewProductForm({}: Props) {
           ></input>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
             Category
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="text"
             placeholder="Category"
             onChange={(e) =>
@@ -79,11 +79,11 @@ function NewProductForm({}: Props) {
         <FormDescription setDescriptions={setDescriptions} />
         <FormImages setImages={setImages} />
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
             Price
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="number"
             step="0.01"
             placeholder="Price"
@@ -96,11 +96,11 @@ function NewProductForm({}: Props) {
           ></input>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
             Current Stock
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="number"
             placeholder="Current Stock"
             onChange={(e) =>
@@ -112,11 +112,11 @@ function NewProductForm({}: Props) {
           ></input>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
+          <label className="mb-2 block text-sm font-bold text-gray-700">
             Discount %
           </label>
           <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="number"
             placeholder="0 if none"
             onChange={(e) =>
@@ -136,7 +136,7 @@ function NewProductForm({}: Props) {
               isLoading={isLoading}
             />
           </div>
-          <p id="formSuccess" className="text-green-600 ml-2 font-bold hidden">
+          <p id="formSuccess" className="ml-2 hidden font-bold text-green-600">
             Success!!
           </p>
         </div>

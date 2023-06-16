@@ -7,7 +7,7 @@ function MenuButton({ containerRef }: Props) {
   return (
     <>
       <div
-        className="bg-slate-950 p-3 w-auto justify-center  flex sm:hidden cursor-pointer"
+        className="flex w-auto cursor-pointer justify-center  bg-slate-950 p-3 sm:hidden"
         onClick={() => {
           const container = containerRef.current as HTMLDivElement;
           if (container.classList.contains("-translate-y-96")) {

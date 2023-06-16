@@ -36,11 +36,11 @@ function FormDescription({ setDescriptions, product }: Props) {
           key={index}
           rows={2}
           defaultValue={product?.description[index] ?? ""}
-          className="block p-2.5 w-full text-sm text-gray-900 font-normal
-            bg-gray-50 rounded-lg border border-gray-300 
-            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700
-            dark:border-gray-600 dark:placeholder-gray-400 dark:text-white
-            dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block w-full rounded-lg border border-gray-300 bg-gray-50
+            p-2.5 text-sm font-normal text-gray-900 
+            focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600
+            dark:bg-gray-700 dark:text-white dark:placeholder-gray-400
+            dark:focus:border-blue-500 dark:focus:ring-blue-500"
         ></textarea>
       );
     }
@@ -48,10 +48,10 @@ function FormDescription({ setDescriptions, product }: Props) {
   };
   return (
     <div className="mb-4" data-testid="textAreas">
-      <label className="block text-gray-700 text-sm font-bold mb-2">
+      <label className="mb-2 block text-sm font-bold text-gray-700">
         Description
         <button
-          className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  mb-4 ml-4 px-4 border border-gray-400 rounded shadow"
+          className="mb-4 ml-4 rounded border border-gray-400  bg-white px-4 text-sm font-semibold text-gray-800 shadow hover:bg-gray-100"
           onClick={(e) =>
             setNumberOfInputs((state) => {
               e.preventDefault();
@@ -62,7 +62,7 @@ function FormDescription({ setDescriptions, product }: Props) {
           Add
         </button>
         <button
-          className="bg-white text-sm hover:bg-gray-100 text-gray-800 font-semibold  ml-3 px-4 border border-gray-400 rounded shadow"
+          className="ml-3 rounded border border-gray-400 bg-white  px-4 text-sm font-semibold text-gray-800 shadow hover:bg-gray-100"
           onClick={(e) => {
             e.preventDefault();
             const updTextAreas = [...textAreas];

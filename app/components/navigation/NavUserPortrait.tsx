@@ -7,7 +7,7 @@ function NavUserPortrait() {
     const nameAsArray = session?.user.name?.split(" ") as String[];
     const firstName = nameAsArray[0];
     return (
-      <div className="h-14 p-2 flex justify-center sm:bg-slate-950-300 sm:w-96 sm:justify-evenly">
+      <div className="sm:bg-slate-950-300 flex h-14 justify-center p-2 sm:w-96 sm:justify-evenly">
         <div className="hidden items-center justify-between  sm:flex ">
           <Image
             className="hidden rounded-full sm:flex"
@@ -19,14 +19,14 @@ function NavUserPortrait() {
             }
           />
         </div>
-        <p className="hidden justify-center items-center text-white underline sm:flex">
+        <p className="hidden items-center justify-center text-white underline sm:flex">
           Hi {firstName}
         </p>
         <button
           role="button"
           onClick={() => signOut()}
-          className="bg-transparent text-white hover:bg-slate-500 font-semibold
-         py-2 px-4 border border-slate-500 hover:border-transparent rounded"
+          className="rounded border border-slate-500 bg-transparent
+         px-4 py-2 font-semibold text-white hover:border-transparent hover:bg-slate-500"
         >
           Sign Out
         </button>
@@ -35,15 +35,15 @@ function NavUserPortrait() {
   }
   return (
     <>
-      <div className="h-14 p-2 flex justify-center sm:bg-slate-950-300 sm:w-96 sm:justify-evenly">
-        <div className="hidden whitespace-nowrap items-center justify-between text-slate-500 underline sm:flex ">
+      <div className="sm:bg-slate-950-300 flex h-14 justify-center p-2 sm:w-96 sm:justify-evenly">
+        <div className="hidden items-center justify-between whitespace-nowrap text-slate-500 underline sm:flex ">
           You are not Signed in
         </div>
         <button
           name="Sign In "
           onClick={() => signIn()}
-          className="bg-transparent text-white hover:bg-slate-500 font-semibold
-               py-2 px-4 border border-slate-500 hover:border-transparent rounded"
+          className="rounded border border-slate-500 bg-transparent
+               px-4 py-2 font-semibold text-white hover:border-transparent hover:bg-slate-500"
         >
           Sign In
         </button>

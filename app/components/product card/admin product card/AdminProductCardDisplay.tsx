@@ -10,10 +10,10 @@ type Props = {
 };
 function AdminProductCardDisplay({ product, setIsOnEditMode }: Props) {
   return (
-    <div className="w-80 h-96 flex flex-col border shadow-lg rounded-lg">
+    <div className="flex h-96 w-80 flex-col rounded-lg border shadow-lg">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
-      <div className="h-full flex flex-col items-center relative">
-        <p className="text-xl h-20 font-bold mt-4 px-2 text-justify">
+      <div className="relative flex h-full flex-col items-center">
+        <p className="mt-4 h-20 px-2 text-justify text-xl font-bold">
           {product.name}
         </p>
         <Image
@@ -21,7 +21,7 @@ function AdminProductCardDisplay({ product, setIsOnEditMode }: Props) {
           alt="Image of the product"
           width={250}
           height={250}
-          className="rounded-lg  absolute bottom-0 right-0. border-slate-300  "
+          className="right-0.  absolute bottom-0 rounded-lg border-slate-300  "
         />
       </div>
     </div>

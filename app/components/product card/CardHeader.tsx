@@ -12,10 +12,10 @@ function CardHeader({ id, setIsOnEditMode }: Props) {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
-    <div className="flex relative justify-end w-full p-2 gap-2 shadow-md rounded-md bg-slate-200">
+    <div className="relative flex w-full justify-end gap-2 rounded-md bg-slate-200 p-2 shadow-md">
       <div>
         <BackspaceIcon
-          className="w-7 hover:scale-105 transition-transform cursor-pointer"
+          className="w-7 cursor-pointer transition-transform hover:scale-105"
           onClick={() => setShowConfirmation((prevState) => !prevState)}
         />
         <div
@@ -30,7 +30,7 @@ function CardHeader({ id, setIsOnEditMode }: Props) {
       </div>
 
       <PencilSquareIcon
-        className="w-7 hover:scale-105 transition-transform cursor-pointer"
+        className="w-7 cursor-pointer transition-transform hover:scale-105"
         onClick={() => setIsOnEditMode((prevState) => !prevState)}
       />
     </div>

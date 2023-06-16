@@ -14,14 +14,14 @@ function LoadingButton({ isLoading, type, text }: Props) {
     <>
       {isLoading ? (
         <ArrowPathIcon
-          className="w-10 h-10 animate-spin self-center"
+          className="h-10 w-10 animate-spin self-center"
           data-testid="loading-icon"
         />
       ) : (
         <button
-          className="flex-shrink-0 bg-teal-500 hover:bg-teal-700
-         border-teal-500 hover:border-teal-700 text-sm border-4 text-white 
-          py-1 px-2 rounded"
+          className="flex-shrink-0 rounded border-4
+         border-teal-500 bg-teal-500 px-2 py-1 text-sm 
+          text-white hover:border-teal-700 hover:bg-teal-700"
           type={type}
         >
           {text}

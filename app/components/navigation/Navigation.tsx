@@ -21,13 +21,13 @@ function Navigation({ session }: Props) {
   return (
     <>
       <SessionProvider session={session}>
-        <div className="w-40 flex flex-col  sm:w-screen sm:mx-auto  justify-center ">
+        <div className="flex w-40 flex-col  justify-center sm:mx-auto  sm:w-screen ">
           <MenuButton containerRef={containerRef} />
           <div
             ref={containerRef}
-            className="  absolute w-40 px-3 flex flex-col justify-center top-10 -translate-y-96  bg-slate-950
-            transition  gap-x-10 
-            sm:flex-row sm:w-screen sm:relative  sm:-translate-y-0 sm:top-0 
+            className="  absolute top-10 flex w-40 -translate-y-96 flex-col justify-center gap-x-10  bg-slate-950
+            px-3  transition 
+            sm:relative sm:top-0 sm:w-screen  sm:-translate-y-0 sm:flex-row 
             lg:gap-x-32
             "
           >

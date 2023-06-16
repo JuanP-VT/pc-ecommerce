@@ -8,7 +8,7 @@ async function Page({}: Props) {
   const data = (await res.json()) as ProductWithId[];
 
   return (
-    <div className="flex flex-col justify-center  sm:grid  md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 p-10 border shadow-lg gap-3">
+    <div className="flex flex-col justify-center  gap-3  border p-10  shadow-lg sm:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
       {data.map((item, index) => (
         <AdminProductCard product={item} key={`aItm${index}`} />
       ))}

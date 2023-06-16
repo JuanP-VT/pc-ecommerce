@@ -15,7 +15,7 @@ type Props = {
 function NavLink({ href, icon, description }: Props) {
   return (
     <>
-      <Link href={href} className="my-3 flex justify-center w-auto">
+      <Link href={href} className="my-3 flex w-auto justify-center">
         <span className="tooltip" data-tooltip={description}>
           {React.createElement(icon, {
             title: description,
