@@ -27,3 +27,17 @@ export type ProductWithId = {
   discountPercentage: number;
   reviews?: Review[];
 };
+
+export type Filter = {
+  name?: string;
+  category?: string;
+  stockRange?: {
+    min: number;
+    max: number;
+  };
+  priceRange?: {
+    min: number;
+    max: number;
+  };
+  haveDiscount?: boolean;
+};
