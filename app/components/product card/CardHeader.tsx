@@ -2,6 +2,7 @@ import { BackspaceIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
 import { Dispatch, SetStateAction, useRef, useState } from "react";
 import LoadingButton from "../buttons/LoadingButton";
 import handleDeleteProduct from "./admin product card/handleDeleteProduct";
+import { useRouter } from "next/navigation";
 type Props = {
   id: string;
   setIsOnEditMode: Dispatch<SetStateAction<boolean>>;
@@ -10,7 +11,7 @@ type Props = {
 function CardHeader({ id, setIsOnEditMode }: Props) {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const router = useRouter();
   return (
     <div className="relative flex w-full justify-end gap-2 rounded-md bg-slate-200 p-2 shadow-md">
       <div>
@@ -23,7 +24,7 @@ function CardHeader({ id, setIsOnEditMode }: Props) {
             display: showConfirmation ? "flex" : "none",
             position: "absolute",
           }}
-          onClick={(e) => handleDeleteProduct(e, id, setIsLoading)}
+          onClick={(e) => handleDeleteProduct(e, id, setIsLoading, router)}
         >
           <LoadingButton text="Delete" isLoading={isLoading} type="button" />
         </div>

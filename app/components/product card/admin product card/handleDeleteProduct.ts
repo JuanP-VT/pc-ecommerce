@@ -1,13 +1,14 @@
-import { ProductWithId } from "@/app/types/product";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { Dispatch, MouseEvent, SetStateAction } from "react";
-//This function is called in the AdminProductCardEdit component
-//It takes a product and sends it to the API
-//If given a setIsLoading react hook function it will
-// set to loading when the function is called and stop when the fetch is done
+/**
+ * Calls API endpoint with object {_id:dbId} to delete product from database
+ * setIsLoading is for other React UI components ,
+ */
 export default async function handleDeleteProduct(
   e: MouseEvent,
   dbId: string,
-  setIsLoading?: Dispatch<SetStateAction<boolean>>
+  setIsLoading?: Dispatch<SetStateAction<boolean>>,
+  router?: AppRouterInstance
 ) {
   e.preventDefault();
   //Start loading animation if one is provided
@@ -25,5 +26,8 @@ export default async function handleDeleteProduct(
   //stop animation once fetch is done
   if (setIsLoading) {
     setIsLoading(false);
+  }
+  if (router) {
+    router.refresh();
   }
 }
