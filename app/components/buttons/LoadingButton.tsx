@@ -19,7 +19,7 @@ function LoadingButton({ isLoading, type, text }: Props) {
         />
       ) : (
         <button
-          className="flex-shrink-0 rounded border-4
+          className="z-10 flex-shrink-0 rounded border-4
          border-teal-500 bg-teal-500 px-2 py-1 text-sm 
           text-white hover:border-teal-700 hover:bg-teal-700"
           type={type}
