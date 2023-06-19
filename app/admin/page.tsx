@@ -1,3 +1,4 @@
+import AdminSidebar from "../components/admin sidebar/AdminSidebar";
 import AdminProductCard from "../components/product card/admin product card/AdminProductCard";
 import { ProductWithId } from "../types/product";
 export const dynamic = "force-dynamic";
@@ -8,10 +9,13 @@ async function Page({}: Props) {
   const data = (await res.json()) as ProductWithId[];
 
   return (
-    <div className="flex flex-col justify-center  gap-3  border p-10  shadow-lg sm:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-      {data.map((item, index) => (
-        <AdminProductCard product={item} key={`aItm${index}`} />
-      ))}
+    <div className="relative flex">
+      <AdminSidebar />
+      <div className="flex flex-col justify-center  gap-3  border p-10  shadow-lg sm:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        {data.map((item, index) => (
+          <AdminProductCard product={item} key={`aItm${index}`} />
+        ))}
+      </div>
     </div>
   );
 }
