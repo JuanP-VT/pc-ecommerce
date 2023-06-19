@@ -31,13 +31,9 @@ export type ProductWithId = {
 export type Filter = {
   name?: string;
   category?: string;
-  stockRange?: {
-    min: number;
-    max: number;
-  };
-  priceRange?: {
-    min: number;
-    max: number;
-  };
+  minPrice?: number;
+  maxPrice?: number;
+  minStock?: number;
+  maxStock?: number;
   haveDiscount?: boolean;
 };
