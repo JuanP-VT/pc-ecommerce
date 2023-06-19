@@ -28,25 +28,25 @@ it("Should filter by category correctly", () => {
 });
 describe("Filters by price range", () => {
   it("Should filter setting a max price", () => {
-    const filter: Filter = { priceRange: { min: 0, max: 49 } };
+    const filter: Filter = { minPrice: 0, maxPrice: 49 };
     const findByName = filterProductList(productList, filter);
     expect(findByName.length).toBe(3);
   });
 
   it("Should filter by price range", () => {
-    const filter: Filter = { priceRange: { min: 50, max: 100 } };
+    const filter: Filter = { minPrice: 50, maxPrice: 100 };
     const findByName = filterProductList(productList, filter);
     expect(findByName.length).toBe(8);
   });
 
   it("Should filter by max price", () => {
-    const filter: Filter = { priceRange: { min: 0, max: 200 } };
+    const filter: Filter = { minPrice: 0, maxPrice: 200 };
     const findByName = filterProductList(productList, filter);
     expect(findByName.length).toBe(14);
   });
 
   it("Should return empty array if range is incoherent", () => {
-    const filter: Filter = { priceRange: { min: 1400, max: 0 } };
+    const filter: Filter = { minPrice: 1400, maxPrice: 0 };
     const findByName = filterProductList(productList, filter);
     expect(findByName.length).toBe(0);
   });
@@ -54,26 +54,26 @@ describe("Filters by price range", () => {
 
 describe("Filters by price stock", () => {
   it("Should filter setting a max stock", () => {
-    const filter: Filter = { stockRange: { min: 0, max: 49 } };
+    const filter: Filter = { minStock: 0, maxStock: 49 };
     const findByStock = filterProductList(productList, filter);
 
     expect(findByStock.length).toBe(15);
   });
 
   it("Should filter by stock range", () => {
-    const filter: Filter = { stockRange: { min: 50, max: 100 } };
+    const filter: Filter = { minStock: 50, maxStock: 100 };
     const findByStock = filterProductList(productList, filter);
     expect(findByStock.length).toBe(3);
   });
 
   it("Should filter by max stock", () => {
-    const filter: Filter = { stockRange: { min: 0, max: 200 } };
+    const filter: Filter = { minStock: 0, maxStock: 200 };
     const findByStock = filterProductList(productList, filter);
     expect(findByStock.length).toBe(21);
   });
 
   it("Should return empty array if range is incoherent", () => {
-    const filter: Filter = { stockRange: { min: 1400, max: 0 } };
+    const filter: Filter = {  minStock: 1400, maxStock: 0  };
     const findByStock = filterProductList(productList, filter);
     expect(findByStock.length).toBe(0);
   });
