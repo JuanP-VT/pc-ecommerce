@@ -11,8 +11,12 @@ export default function filterProductList(
   //Create different matches for the filter, if the product meets all matches it is returned by the function
   //All props in object Filter are optional therefore return true if a prop is not provided
   const filteredProduct = list.filter((product) => {
-    const nameMatch = product.name.includes(filter.name ?? ""); // always return true if no name is provided
-    const isCategoryMatch = product.category.includes(filter.category ?? ""); // always returns true if category is not provided
+    const nameMatch = product.name
+      .toLowerCase()
+      .includes(filter.name?.toLowerCase() ?? ""); // always return true if no name is provided
+    const isCategoryMatch = product.category
+      .toLowerCase()
+      .includes(filter.category?.toLowerCase() ?? ""); // always returns true if category is not provided
     const minPriceMatch = filter.minPrice
       ? product.price > filter.minPrice
       : true;
