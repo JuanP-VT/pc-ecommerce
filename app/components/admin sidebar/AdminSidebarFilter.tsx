@@ -12,7 +12,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
       <div className="my-3">
         <label className="block text-sm font-bold text-gray-700">Name</label>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline w-full appearance-none  rounded border 
+          px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
           type="text"
           placeholder="Name"
           onChange={(e) =>
@@ -31,7 +32,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
           Category
         </label>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline w-full appearance-none rounded border px-3 
+          py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
           type="text"
           placeholder="Category"
           onChange={(e) =>
@@ -50,7 +52,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
           Price Range
         </label>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline mb-1 w-full appearance-none rounded border
+          px-3 py-2 text-sm  leading-tight text-gray-700 shadow focus:outline-none"
           type="number"
           placeholder="min price"
           onChange={(e) =>
@@ -64,7 +67,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
           }
         ></input>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline w-full  appearance-none rounded border 
+          px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
           type="number"
           placeholder="max price"
           onChange={(e) =>
@@ -83,7 +87,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
           Stock Range
         </label>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline mb-1 w-full  appearance-none rounded border
+          px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
           type="number"
           placeholder="min stock"
           onChange={(e) =>
@@ -97,7 +102,8 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
           }
         ></input>
         <input
-          className=" focus:shadow-outline w-full  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
+          className=" focus:shadow-outline  w-full appearance-none rounded border 
+          px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
           type="number"
           placeholder="max stock"
           onChange={(e) =>

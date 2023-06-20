@@ -11,10 +11,10 @@ type Props = {
 // Create product filter object
 function AdminSidebar({ filter, setFilter }: Props) {
   return (
-    <div className="absolute left-0 top-0 z-10 flex h-screen w-44 flex-col border bg-green-100 p-2">
+    <div className="left-0 top-0 z-10 flex h-screen w-52 flex-col bg-slate-100 p-3">
       <Link
         href="/admin/addproduct"
-        className="rounded border border-gray-400 bg-white px-4 py-2 text-center font-semibold text-gray-800 shadow hover:bg-gray-100"
+        className="rounded border  bg-white px-4 py-2 text-center font-semibold text-gray-800 shadow hover:bg-gray-100"
       >
         Register Item
       </Link>
