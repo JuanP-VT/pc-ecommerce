@@ -29,6 +29,12 @@ export default function filterProductList(
     const maxStockMatch = filter.maxStock
       ? product.stock < filter.maxStock
       : true;
+
+    //Check if product discount is higher than 0
+    let haveDiscount = true;
+    if (filter.haveDiscount === true) {
+      haveDiscount = product.discountPercentage > 0 ? true : false;
+    }
     // return product object that meets all matches
     return (
       nameMatch &&
@@ -36,7 +42,8 @@ export default function filterProductList(
       minPriceMatch &&
       maxPriceMatch &&
       minStockMatch &&
-      maxStockMatch
+      maxStockMatch &&
+      haveDiscount
     );
   });
   return filteredProduct;

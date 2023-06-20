@@ -73,8 +73,35 @@ describe("Filters by price stock", () => {
   });
 
   it("Should return empty array if range is incoherent", () => {
-    const filter: Filter = {  minStock: 1400, maxStock: 0  };
+    const filter: Filter = { minStock: 1400, maxStock: 0 };
     const findByStock = filterProductList(productList, filter);
     expect(findByStock.length).toBe(0);
+  });
+});
+
+describe("Filter products by discount", () => {
+  it("Should return filtered array by discount", () => {
+    const filter: Filter = { haveDiscount: true };
+    const findByStock = filterProductList(productList, filter);
+    expect(findByStock.length).toBe(19);
+  });
+
+  it("Should return all objects if not discount specified", () => {
+    const filter: Filter = { haveDiscount: undefined };
+    const findByStock = filterProductList(productList, filter);
+    expect(findByStock.length).toBe(24);
+  });
+});
+
+describe("should handle multiple queries", () => {
+  it("handle multiple queries", () => {
+    const filter: Filter = {
+      category: "GPU",
+      maxPrice: 300,
+      haveDiscount: true,
+    };
+    const findByStock = filterProductList(productList, filter);
+    console.log(findByStock);
+    expect(findByStock.length).toBe(3);
   });
 });
