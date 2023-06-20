@@ -10,7 +10,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
   return (
     <div className="flex flex-col">
       <div className="my-3">
-        <label className="block text-sm font-bold text-gray-700">Name</label>
+        <label className="block text-sm font-bold text-gray-700 mb-1">Name</label>
         <input
           className=" focus:shadow-outline w-full appearance-none  rounded border 
           px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
@@ -28,7 +28,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700">
+        <label className="block text-sm font-bold text-gray-700 mb-1">
           Category
         </label>
         <input
@@ -48,7 +48,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700">
+        <label className="block text-sm font-bold text-gray-700 mb-1">
           Price Range
         </label>
         <input
@@ -83,7 +83,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700">
+        <label className="block text-sm font-bold text-gray-700 mb-1">
           Stock Range
         </label>
         <input
@@ -119,7 +119,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
       </div>
 
       <div className="my-1 flex gap-4">
-        <label className="block text-sm font-bold text-gray-700">
+        <label className="block text-sm font-bold text-gray-700 mb-1">
           On Discount
         </label>
         <input
