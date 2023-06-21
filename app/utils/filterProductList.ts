@@ -17,12 +17,16 @@ export default function filterProductList(
     const isCategoryMatch = product.category
       .toLowerCase()
       .includes(filter.category?.toLowerCase() ?? ""); // always returns true if category is not provided
-    const minPriceMatch = filter.minPrice
-      ? product.price > filter.minPrice
-      : true;
-    const maxPriceMatch = filter.maxPrice
-      ? product.price < filter.maxPrice
-      : true;
+    //For the real price we have to calculate the discount on the price
+    let realPrice = product.price;
+    if (product.discountPercentage > 0) {
+      realPrice = parseFloat(
+        ((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)
+      );
+    }
+
+    const minPriceMatch = filter.minPrice ? realPrice > filter.minPrice : true;
+    const maxPriceMatch = filter.maxPrice ? realPrice < filter.maxPrice : true;
     const minStockMatch = filter.minStock
       ? product.stock > filter.minStock
       : true;
