@@ -15,7 +15,7 @@ type Props = {
 function PriceButton({ filter, setFilter, text, minPrice, maxPrice }: Props) {
   return (
     <button
-      className="flex text-sm tracking-wide hover:text-yellow-600"
+      className="flex cursor-pointer text-sm tracking-wide hover:text-yellow-600"
       onClick={() =>
         setFilter({ ...filter, maxPrice: maxPrice, minPrice: minPrice })
       }
