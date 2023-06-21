@@ -101,7 +101,6 @@ describe("should handle multiple queries", () => {
       haveDiscount: true,
     };
     const findByStock = filterProductList(productList, filter);
-    console.log(findByStock);
     expect(findByStock.length).toBe(3);
   });
 });
