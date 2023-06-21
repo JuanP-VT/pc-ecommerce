@@ -131,7 +131,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             onChange={(e) =>
               setEditedProduct({
                 ...editedProduct,
-                price: parseInt(e.target.value),
+                price: parseFloat(e.target.value),
               })
             }
           />

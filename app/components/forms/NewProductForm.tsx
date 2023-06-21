@@ -85,12 +85,12 @@ function NewProductForm({}: Props) {
           <input
             className="focus:shadow-outline w-full appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
             type="number"
-            step="0.01"
+            step={0.001}
             placeholder="Price"
             onChange={(e) =>
               setNewProduct({
                 ...newProduct,
-                price: parseInt(e.currentTarget.value),
+                price: parseFloat(e.currentTarget.value),
               })
             }
           ></input>
