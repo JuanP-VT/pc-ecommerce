@@ -9,7 +9,6 @@ type Props = {
 
 function PriceTag({ price }: Props) {
   const formattedPrice = formatPrice(price);
-  console.log(formattedPrice);
   //price is fractional "eg 10.99"
   if (formattedPrice.length === 2) {
     return (
