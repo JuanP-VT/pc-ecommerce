@@ -9,7 +9,7 @@ type Props = {
 
 function StoreProductCard({ product }: Props) {
   return (
-    <div className="flex  w-screen border p-2">
+    <div className="flex border p-2">
       <img src={product.img[0]} alt="Product Image " className="h-44 w-44" />
 
       <div className="ml-3 flex flex-col p-2">
