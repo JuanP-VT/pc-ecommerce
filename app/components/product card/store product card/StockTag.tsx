@@ -11,18 +11,18 @@ type Props = {
 
 function StockTag({ stock }: Props) {
   if (stock === 0) {
-    return <p className="font-bold text-slate-600">Out Of Stock</p>;
+    return <p className="text-xl font-bold text-slate-600">Out Of Stock</p>;
   }
   if (stock < 22) {
     return (
-      <p className="font-bold text-red-900">
+      <p className="text-xl font-bold text-red-900">
         Only {stock} units left in stock!
       </p>
     );
   }
   return (
     <div className="flex">
-      <p className="font-bold text-green-500">Stock</p>
+      <p className="text-xl font-bold text-green-500">Stock</p>
     </div>
   );
 }

@@ -13,7 +13,7 @@ function PriceTag({ price }: Props) {
   if (formattedPrice.length === 2) {
     return (
       <div className="relative flex text-xl font-bold">
-        <span>{formattedPrice[0]}</span>
+        <span className="text-3xl">{formattedPrice[0]}</span>
         <span className="text-xs font-semibold ">{formattedPrice[1]}</span>
       </div>
     );
