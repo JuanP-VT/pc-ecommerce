@@ -13,5 +13,7 @@ export default async function searchProductInDb(
     return find;
   } catch (err) {
     return null;
+  } finally {
+    await dbClient.close();
   }
 }
