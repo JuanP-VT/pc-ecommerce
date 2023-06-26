@@ -21,8 +21,8 @@ function CardPrice({ price, discountPercentage }: Props) {
           <span className="p-2 text-2xl font-extralight text-red-600">{`-${discountPercentage}%`}</span>
           <PriceTag price={realPrice} />
         </div>
-        <div className="text-xs text-slate-600">
-          <span>List Price:</span>
+        <div className="mb-2 text-xs text-slate-600">
+          <span className="">List Price:</span>
           <span className="line-through">{`$${price}`}</span>
         </div>
       </div>
