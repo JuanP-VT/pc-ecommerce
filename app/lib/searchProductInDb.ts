@@ -1,10 +1,11 @@
 import { ObjectId } from "mongodb";
-import { dbClient } from "./db";
+import { dbClient, dbClose, dbConnect } from "./db";
 import { ProductWithId } from "../types/product";
 export default async function searchProductInDb(
   id: string
 ): Promise<ProductWithId | null> {
   try {
+    await dbConnect();
     const prodId = new ObjectId(id);
     const collection = dbClient.db("Cluster0").collection("products");
     const find = (await collection.findOne({
@@ -14,6 +15,6 @@ export default async function searchProductInDb(
   } catch (err) {
     return null;
   } finally {
-    await dbClient.close();
+    await dbClose();
   }
 }
