@@ -16,7 +16,7 @@ function FrameButton({ currentIndex, image, setCurrentIndex, index }: Props) {
   if (currentIndex === index) {
     return (
       <img
-        className="mb-2  h-16  w-16 cursor-pointer overflow-hidden rounded-md 
+        className="sticky  mb-2  h-16 w-16 cursor-pointer overflow-hidden rounded-md
             border border-sky-500 object-contain hover:border-sky-500 hover:shadow-sm
             hover:shadow-sky-300"
         src={image}
