@@ -31,6 +31,7 @@ export async function POST(request: Request) {
     stock: res.stock,
     price: res.price,
     discountPercentage: res.discountPercentage,
+    specs: res.specs,
   };
   try {
     const productCollection = dbClient.db("Cluster0").collection("products");
