@@ -4,27 +4,26 @@ import SpecInput from "./SpecInput";
 
 type Props = {
   setSpecs: Dispatch<SetStateAction<Spec[]>>;
-  specs: Spec[];
   product?: Product;
 };
 
-function FormSpecs({ product, setSpecs, specs }: Props) {
+function FormSpecs({ product, setSpecs }: Props) {
   const [numberOfInputs, setNumberOfInputs] = useState(
-    product?.specs.length ?? 1
+    product?.specs?.length ?? 1
   );
   const [productSpecs, setProductSpecs] = useState<Spec[]>(
     product?.specs ?? []
   );
-
   const renderSpecInputs = () => {
     const items = [];
     for (let index = 0; index < numberOfInputs; index++) {
       items.push(
         <SpecInput
+          productSpecs={productSpecs}
           index={index}
-          specs={specs}
           setSpecs={setSpecs}
-          key={`specx${index}`}
+          setProductSpecs={setProductSpecs}
+          key={`specxz${index}`}
         />
       );
     }
@@ -53,7 +52,7 @@ function FormSpecs({ product, setSpecs, specs }: Props) {
           px-4 text-sm font-semibold text-gray-800 shadow hover:bg-gray-100"
         onClick={(e) => {
           e.preventDefault();
-          const updInputValue = [...specs];
+          const updInputValue = [...productSpecs];
           if (numberOfInputs > 1) {
             setNumberOfInputs((state) => state - 1);
             updInputValue.pop();
