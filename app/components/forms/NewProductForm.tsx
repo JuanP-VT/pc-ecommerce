@@ -1,17 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import handleSubmitProduct from "./handleSubmitProduct";
-import { Product } from "../../types/product";
+import { Product, Spec } from "../../types/product";
 import FormDescription from "./FormDescription";
 import FormFeedback from "./FormFeedback";
 import FormImages from "./FormImages";
 import LoadingButton from "../buttons/LoadingButton";
+import FormSpecs from "./FormSpecs";
 
 type Props = {};
 
 function NewProductForm({}: Props) {
   const [descriptions, setDescriptions] = useState<string[]>([]);
   const [images, setImages] = useState<string[]>([]);
+  const [specs, setSpecs] = useState<Spec[]>([]);
   const [newProduct, setNewProduct] = useState<Product>({
     name: "",
     category: "",
@@ -20,8 +22,8 @@ function NewProductForm({}: Props) {
     price: 0,
     stock: 0,
     discountPercentage: 0,
+    specs: [],
   });
-
   //The descriptions prop is stored in a separate state
   //This hook updates the newProduct description prop
   useEffect(() => {
@@ -29,11 +31,13 @@ function NewProductForm({}: Props) {
       ...prevProduct,
       description: descriptions,
       img: images,
+      specs: specs,
     }));
-  }, [descriptions, images]);
-
+  }, [descriptions, images, specs]);
+  console.log(newProduct);
   //Button animation state
   const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div className="my-16 flex flex-col justify-center xl:px-96 ">
       <h1 className="flex justify-center py-4 text-xl font-bold text-slate-700">
@@ -75,7 +79,7 @@ function NewProductForm({}: Props) {
             }
           ></input>
         </div>
-
+        <FormSpecs setSpecs={setSpecs} mode="row" />
         <FormDescription setDescriptions={setDescriptions} />
         <FormImages setImages={setImages} />
         <div className="mb-4">
