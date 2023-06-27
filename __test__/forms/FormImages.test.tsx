@@ -48,6 +48,7 @@ it("should render the correct number of inputs if given a product", async () => 
     stock: 299,
     price: 299,
     discountPercentage: 10,
+    specs: [{ key: "a", value: "b" }],
   };
   const setImagesMock = jest.fn();
   const rnder = render(
