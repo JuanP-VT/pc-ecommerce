@@ -8,5 +8,5 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (product) {
     return <ProductPage product={product} />;
   }
-  return <div>product not found</div>;
+  return <div>page not found</div>;
 }

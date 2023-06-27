@@ -1,4 +1,10 @@
 import { ProductWithId } from "@/app/types/product";
+import ImageFrame from "./ImageFrame";
+import CardPrice from "../product card/store product card/CardPrice";
+import ProductAbout from "./ProductAbout";
+import StockTag from "../product card/store product card/StockTag";
+import AddToCart from "./AddToCart";
+import Description from "./Description";
 
 type Props = {
   product: ProductWithId;
@@ -6,12 +12,12 @@ type Props = {
 
 function ProductPage({ product }: Props) {
   return (
-    <div className="flex flex-col sm:flex-row">
-      <div className="flex w-4/5 flex-col lg:flex-row">
-        <div className="w-full lg:w-1/2 ">Img Frame</div>
-        <div className="w-full lg:w-1/2">Info</div>
+    <div className=" flex w-full flex-col md:flex-row">
+      <div className=" relative  flex flex-col md:w-4/6 lg:w-3/4 lg:flex-row">
+        <ImageFrame images={product.img} />
+        <Description product={product} />
       </div>
-      <div className="w-1/4 lg:w-1/5">pay</div>
+      <AddToCart product={product} />
     </div>
   );
 }
