@@ -24,6 +24,7 @@ export default async function handleSubmitProduct(
     price: product.price,
     stock: product.stock,
     discountPercentage: product.discountPercentage,
+    specs: product.specs,
   };
   const errors = validateNewProduct(newProduct);
   if (errors.length > 0) {
