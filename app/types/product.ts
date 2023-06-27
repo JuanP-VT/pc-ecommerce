@@ -1,5 +1,8 @@
 import { User } from "./user";
-
+export type Spec = {
+  key: string;
+  value: string;
+};
 export type Product = {
   name: string;
   category: string;
@@ -8,6 +11,7 @@ export type Product = {
   stock: number;
   price: number;
   discountPercentage: number;
+  specs: Spec[];
 };
 
 type Review = {
@@ -25,6 +29,7 @@ export type ProductWithId = {
   stock: number;
   price: number;
   discountPercentage: number;
+  specs: Spec[];
   reviews?: Review[];
 };
 
