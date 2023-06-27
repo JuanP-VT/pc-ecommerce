@@ -13,9 +13,12 @@ function StoreProductCard({ product }: Props) {
       <img src={product.img[0]} alt="Product Image " className="h-44 w-44" />
 
       <div className="ml-3 flex flex-col p-2">
-        <p className="mb-2 overflow-hidden text-xl font-semibold">
+        <a
+          href={`/${product._id}`}
+          className="mb-2 overflow-hidden text-xl font-semibold"
+        >
           {product.name}
-        </p>
+        </a>
         <CardPrice
           price={product.price}
           discountPercentage={product.discountPercentage}
