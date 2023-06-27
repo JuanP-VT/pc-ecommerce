@@ -6,6 +6,7 @@ import FormDescription from "../../forms/FormDescription";
 import FormImages from "../../forms/FormImages";
 import handleEditProduct from "./handleEditProduct";
 import LoadingButton from "../../buttons/LoadingButton";
+import FormSpecs from "../../forms/FormSpecs";
 
 type Props = {
   product: ProductWithId;
@@ -15,6 +16,7 @@ type Props = {
 function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
   const [descriptions, setDescriptions] = useState(product.description);
   const [imgList, setImgList] = useState(product.img);
+  const [specs, setSpecs] = useState(product.specs);
   const [editedProduct, setEditedProduct] = useState<ProductWithId>({
     _id: product._id,
     name: product.name,
@@ -24,6 +26,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
     stock: product.price,
     price: product.price,
     discountPercentage: product.discountPercentage,
+    specs: product.specs,
   });
   //Update edited product state when description list or image list updates
   useEffect(() => {
@@ -31,11 +34,12 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
       ...prevProd,
       description: descriptions,
       img: imgList,
+      specs: specs,
     }));
-  }, [descriptions, imgList]);
-
+  }, [descriptions, imgList, specs]);
   //Button loading animation
   const [isLoading, setIsLoading] = useState(false);
+  console.log(editedProduct);
   return (
     <div className="flex w-80 flex-col border ">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
@@ -53,7 +57,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
           </label>
           <input
             className="focus:shadow-outline w-3/4 appearance-none  rounded border  p-2
-             text-sm leading-tight text-gray-700 shadow
+             text-sm leading-tight text-gray-700 shadow 
              focus:outline-none"
             id="name"
             type="text"
@@ -83,6 +87,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
             }
           />
         </div>
+        <FormSpecs setSpecs={setSpecs} product={editedProduct} mode="col" />
         <FormDescription
           setDescriptions={setDescriptions}
           product={editedProduct}

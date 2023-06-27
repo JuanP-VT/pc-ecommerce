@@ -5,9 +5,10 @@ import SpecInput from "./SpecInput";
 type Props = {
   setSpecs: Dispatch<SetStateAction<Spec[]>>;
   product?: Product;
+  mode: "col" | "row";
 };
 
-function FormSpecs({ product, setSpecs }: Props) {
+function FormSpecs({ product, setSpecs, mode }: Props) {
   const [numberOfInputs, setNumberOfInputs] = useState(
     product?.specs?.length ?? 1
   );
@@ -23,15 +24,16 @@ function FormSpecs({ product, setSpecs }: Props) {
           index={index}
           setSpecs={setSpecs}
           setProductSpecs={setProductSpecs}
-          key={`specxz${index}`}
+          key={`spec${index}`}
+          mode={mode}
         />
       );
     }
     return items;
   };
   return (
-    <div className="mb-4" data-testid="specs">
-      <label className="mb-2 block text-sm font-bold text-gray-700">
+    <div className="mb-4" data-testid="specs flex">
+      <label className="mb-2 inline-block p-1 text-sm font-bold text-gray-700">
         Specs
       </label>
 

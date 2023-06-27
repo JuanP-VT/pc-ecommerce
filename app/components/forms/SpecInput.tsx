@@ -6,9 +6,16 @@ type Props = {
   setSpecs: React.Dispatch<React.SetStateAction<Spec[]>>;
   productSpecs: Spec[];
   setProductSpecs: React.Dispatch<React.SetStateAction<Spec[]>>;
+  mode: "col" | "row";
 };
 
-function SpecInput({ index, setSpecs, productSpecs, setProductSpecs }: Props) {
+function SpecInput({
+  index,
+  setSpecs,
+  productSpecs,
+  setProductSpecs,
+  mode,
+}: Props) {
   const [newSpec, setNewSpec] = useState<Spec>({
     key: productSpecs[index]?.key ?? "",
     value: productSpecs[index]?.value ?? "",
@@ -32,21 +39,26 @@ function SpecInput({ index, setSpecs, productSpecs, setProductSpecs }: Props) {
   };
 
   return (
-    <div className="flex">
-      <input
-        className="focus:shadow-outline  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-        type="text"
-        placeholder="key"
-        onChange={(e) => handleKeyChange(e)}
-        defaultValue={productSpecs[index]?.key ?? ""}
-      />
-      <input
-        className="focus:shadow-outline  appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
-        type="text"
-        placeholder="value"
-        onChange={(e) => handleValueChange(e)}
-        defaultValue={productSpecs[index]?.value ?? ""}
-      />
+    <div className={`flex flex-col text-sm font-semibold`}>
+      <label className="block">Spec</label>
+      <div className={`flex flex-${mode} p-1`}>
+        <input
+          className="focus:shadow-outline  appearance-none rounded border px-3 py-2 text-sm leading-tight text-gray-700 shadow 
+          placeholder:text-sm focus:outline-none"
+          type="text"
+          placeholder="key"
+          onChange={(e) => handleKeyChange(e)}
+          defaultValue={productSpecs[index]?.key ?? ""}
+        />
+        <input
+          className="focus:shadow-outline appearance-none rounded border px-3 py-2 text-sm leading-tight  text-gray-700 shadow 
+          focus:outline-none"
+          type="text"
+          placeholder="value"
+          onChange={(e) => handleValueChange(e)}
+          defaultValue={productSpecs[index]?.value ?? ""}
+        />
+      </div>
     </div>
   );
 }

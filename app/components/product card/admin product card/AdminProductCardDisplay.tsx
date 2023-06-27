@@ -13,7 +13,7 @@ function AdminProductCardDisplay({ product, setIsOnEditMode }: Props) {
     <div className="flex h-80 w-64 flex-col rounded-lg border shadow-lg">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
       <div className="relative flex h-full flex-col items-center">
-        <p className="text-md mt-4 h-20 px-2 text-justify font-bold">
+        <p className="text-md mt-4 h-11 overflow-hidden px-2 text-justify font-bold">
           {product.name}
         </p>
         <img
