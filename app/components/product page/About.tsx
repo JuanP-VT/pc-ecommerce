@@ -4,7 +4,7 @@ type Props = {
   description: string;
 };
 
-function Spec({ description }: Props) {
+function About({ description }: Props) {
   return (
     <li className="text-md mb-1 text-justify font-sans font-medium">
       {description}
@@ -12,4 +12,4 @@ function Spec({ description }: Props) {
   );
 }
 
-export default Spec;
+export default About;
