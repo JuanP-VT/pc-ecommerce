@@ -28,7 +28,7 @@ function ImageFrame({ images }: Props) {
         <img
           src={images[currentIndex]}
           alt="product image"
-          className="sticky top-14 h-min w-min object-contain"
+          className="sticky top-20 h-min w-min object-contain"
         />
       </div>
     </div>
