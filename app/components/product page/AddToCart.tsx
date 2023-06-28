@@ -11,7 +11,7 @@ function AddToCart({ product }: Props) {
     ((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)
   );
   return (
-    <div className="px- flex w-auto flex-col rounded-md border p-5 lg:w-1/4">
+    <div className=" flex w-auto flex-col rounded-md  pt-14 lg:w-1/4">
       <PriceTag price={realPrice} />
       <p className="font-semibold">
         Free Delivery! <br />

@@ -1,4 +1,4 @@
-import Spec from "./Spec";
+import About from "./About";
 
 type Props = {
   description: string[];
@@ -6,11 +6,11 @@ type Props = {
 
 function ProductAbout({ description }: Props) {
   return (
-    <div className="mt-5 flex flex-col justify-center p-2">
-      <p className="p-1 text-xl font-bold">About This Item</p>
+    <div className="mt-3 flex flex-col justify-center p-2">
+      <p className="mb-2  font-semibold ">About This Item</p>
       <div className="flex flex-col">
         {description.map((str, index) => (
-          <Spec description={str} key={`spec${index}`} />
+          <About description={str} key={`spec${index}`} />
         ))}
       </div>
     </div>

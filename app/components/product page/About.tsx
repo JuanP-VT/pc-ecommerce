@@ -6,7 +6,7 @@ type Props = {
 
 function About({ description }: Props) {
   return (
-    <li className="text-md mb-1 text-justify font-sans font-medium">
+    <li className="font-sm mb-3 rounded-md bg-gray-200 text-justify font-sans text-sm">
       {description}
     </li>
   );
