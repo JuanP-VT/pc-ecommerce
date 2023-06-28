@@ -23,7 +23,7 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
     category: product.category,
     description: product.description,
     img: product.img,
-    stock: product.price,
+    stock: product.stock,
     price: product.price,
     discountPercentage: product.discountPercentage,
     specs: product.specs,
