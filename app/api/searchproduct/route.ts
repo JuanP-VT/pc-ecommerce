@@ -12,9 +12,9 @@ export async function POST(request: Request) {
     if (product) {
       return NextResponse.json(product, { status: 200 });
     }
-    return NextResponse.json("Not Found");
+    return NextResponse.json(null);
   } catch (error) {
     console.log("error has occurred", error);
-    return NextResponse.json({ status: 400 });
+    return NextResponse.json(null);
   }
 }
