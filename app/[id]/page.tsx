@@ -4,7 +4,6 @@ import { ProductWithId } from "../types/product";
 
 export default async function Page({ params }: { params: { id: string } }) {
   //Check if product exist
-  const id = params.id;
   const product = await searchProductInDb(params.id);
 
   if (product) {
