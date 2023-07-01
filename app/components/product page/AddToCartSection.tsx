@@ -4,6 +4,7 @@ import { ProductWithId } from "@/app/types/product";
 import PriceTag from "../product card/store product card/PriceTag";
 import StockTag from "../product card/store product card/StockTag";
 import { MapPinIcon } from "@heroicons/react/24/outline";
+import AddToCart from "./AddToCart";
 type Props = { product: ProductWithId };
 
 function AddToCartSection({ product }: Props) {
@@ -11,7 +12,7 @@ function AddToCartSection({ product }: Props) {
     ((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)
   );
   return (
-    <div className=" flex w-auto flex-col rounded-md  pt-14 lg:w-1/4">
+    <div className=" flex w-auto flex-col rounded-md  pl-8 pt-5 md:pt-14 lg:w-1/4">
       <PriceTag price={realPrice} />
       <p className="font-semibold">
         Free Delivery! <br />
@@ -22,6 +23,7 @@ function AddToCartSection({ product }: Props) {
         <p>send to location</p>
       </div>
       <StockTag stock={product.stock} />
+      <AddToCart product={product} />
     </div>
   );
 }
