@@ -6,7 +6,7 @@ import StockTag from "../product card/store product card/StockTag";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 type Props = { product: ProductWithId };
 
-function AddToCart({ product }: Props) {
+function AddToCartSection({ product }: Props) {
   const realPrice = parseFloat(
     ((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)
   );
@@ -26,4 +26,4 @@ function AddToCart({ product }: Props) {
   );
 }
 
-export default AddToCart;
+export default AddToCartSection;

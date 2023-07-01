@@ -3,7 +3,7 @@ import ImageFrame from "./ImageFrame";
 import CardPrice from "../product card/store product card/CardPrice";
 import ProductAbout from "./ProductAbout";
 import StockTag from "../product card/store product card/StockTag";
-import AddToCart from "./AddToCart";
+import AddToCartSection from "./AddToCartSection";
 import Description from "./Description";
 
 type Props = {
@@ -17,7 +17,7 @@ function ProductPage({ product }: Props) {
         <ImageFrame images={product.img} />
         <Description product={product} />
       </div>
-      <AddToCart product={product} />
+      <AddToCartSection product={product} />
     </div>
   );
 }
