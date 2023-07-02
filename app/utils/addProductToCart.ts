@@ -1,6 +1,7 @@
 /**
  * Adds or replaces a purchase order in the session cart array
  * Returns the updated cart
+ * Triggers custom event once finished so other components can subscribe
  */
 import { PurchaseOrder } from "../types/order";
 import getCartItems from "./getCartItems";
@@ -18,12 +19,16 @@ export default function addProductToCart(
     sessionStorage.setItem(cartKey, JSON.stringify(orderList));
     //return updated cart
     const updatedCart = getCartItems(cartKey);
+    const storageUpdateEvent = new Event("storageUpdate");
+    window.dispatchEvent(storageUpdateEvent);
     return updatedCart;
   }
   // add order if is not in the cart,
   orderList.push(order);
   sessionStorage.setItem(cartKey, JSON.stringify(orderList));
   const updatedCart = getCartItems(cartKey);
+  const storageUpdateEvent = new Event("storageUpdate");
+  window.dispatchEvent(storageUpdateEvent);
   return updatedCart;
   //return updated cart
 }
