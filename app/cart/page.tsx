@@ -15,12 +15,15 @@ function Page() {
     setCartList(list);
   }, []);
   return (
-    <div className="flex flex-col px-14">
+    <div className="flex flex-col px-5 lg:px-14">
       <h1 className="px-5 py-3 text-3xl font-semibold">Shopping Cart</h1>
       <div className="flex flex-col p-5">
         {cartList.map((order, index) => (
           <ShoppingCartCard order={order} key={`prdcrt${index}`} />
         ))}
+      </div>
+      <div className="flex">
+        <button className="flex">Pay</button>
       </div>
     </div>
   );
