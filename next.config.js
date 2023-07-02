@@ -16,5 +16,6 @@ module.exports = {
     GOOGLE_SECRET: process.env.GOOGLE_SECRET,
     MONGODB_URI: process.env.MONGODB_URI,
     SESSION_CART_KEY: process.env.SESSION_CART_KEY,
+    AUTH_HEADER_SECRET: process.env.AUTH_HEADER_SECRET,
   },
 };
