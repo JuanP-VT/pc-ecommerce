@@ -1,12 +1,17 @@
 /* eslint-disable @next/next/no-img-element */
 import { PurchaseOrder } from "@/app/types/order";
-import StockTag from "../product card/store product card/StockTag";
 
 type Props = {
   order: PurchaseOrder;
 };
 
 function ShoppingCartCard({ order }: Props) {
+  const realPrice = parseFloat(
+    (
+      (order.product.price * (100 - order.product.discountPercentage)) /
+      100
+    ).toFixed(2)
+  );
   return (
     <div className="flex w-full flex-col  rounded-md border sm:flex-row ">
       <img
@@ -23,7 +28,7 @@ function ShoppingCartCard({ order }: Props) {
           {order.product.name}
         </a>
         <p className="p-1 text-xs italic">{`Category: ${order.product.category}`}</p>
-        <p className="text-lg font-semibold">{`$${order.product.price}`}</p>
+        <p className="text-lg font-semibold">{`$${realPrice}`}</p>
         <span className="text-sm italic text-green-500">
           Available for Free Delivery!
         </span>
