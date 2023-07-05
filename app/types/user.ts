@@ -1,4 +1,4 @@
-import { Product } from "./product";
+import { ProductWithId } from "./product";
 
 export type User = {
   _id: string;
@@ -7,5 +7,5 @@ export type User = {
   rol: string;
   image: string;
   cash: number;
-  items: string[];
+  items: ProductWithId[];
 };

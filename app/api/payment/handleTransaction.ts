@@ -20,15 +20,15 @@ export async function handleTransaction(
   user: User
 ) {
   //Get purchased items IDS, and user item list
-  const IDList = purchaseOrder.map((order) => order.product._id);
+  const orderProductList = purchaseOrder.map((order) => order.product);
 
   if (user) {
-    const updateItemList = user.items;
+    const updatedItems = user.items;
     //Check if items from purchase order are not in the user item list
-    IDList.forEach((id) => {
-      const isInList = updateItemList.includes(id);
-      if (!isInList) {
-        updateItemList.push(id);
+    orderProductList.forEach((prod) => {
+      const find = updatedItems.find((item) => item._id === prod._id);
+      if (!find) {
+        updatedItems.push(prod);
       }
     });
     //Calculate new user balance cash
@@ -48,7 +48,7 @@ export async function handleTransaction(
       .collection("users") as Collection<User>;
     await users.findOneAndUpdate(
       { _id: user._id },
-      { $set: { items: updateItemList, cash: newBalance } }
+      { $set: { items: updatedItems, cash: newBalance } }
     );
     return NextResponse.json("Success", { status: 200 });
   }
