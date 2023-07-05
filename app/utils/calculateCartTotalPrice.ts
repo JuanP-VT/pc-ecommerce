@@ -1,10 +1,13 @@
 import { PurchaseOrder } from "../types/order";
 /**
- * The shopping cart is a purchaseOrder[],
- * purchase order is of type {product , quantity} so we have
- * to calculate the product price * quantity of all orders
- * Returns the total price of the shopping cart
+ *
+ * @param purchaseOrderList is an array of purchase orders ({product:{}, quantity:number})
+ * @returns a number that represent the value of the sum of all products
+ *
+ * We have to calculate the true value of each item (after discount), and multiply it by the quantity
+ * of each product
  */
+
 export default function calculateCartTotalPrice(
   purchaseOrderList: PurchaseOrder[]
 ) {
