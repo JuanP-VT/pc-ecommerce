@@ -7,5 +7,5 @@ export type User = {
   rol: string;
   image: string;
   cash: number;
-  items: Product[];
+  items: string[];
 };

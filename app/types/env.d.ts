@@ -5,5 +5,7 @@ declare namespace NodeJS {
     MONGODB_URI: string;
     GITHUB_ID: string;
     GITHUB_SECRET: string;
+    SESSION_CART_KEY: string;
+    ENCRYPTION_KEY: string;
   }
 }
