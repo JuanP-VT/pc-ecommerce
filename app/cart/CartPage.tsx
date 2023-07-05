@@ -6,12 +6,16 @@ import { PurchaseOrder } from "../types/order";
 import ShoppingCartCard from "../components/shopping cart/ShoppingCartCard";
 import handlePayment from "./handlePayment";
 import type { Session } from "next-auth";
+import LoadingButton from "../components/buttons/LoadingButton";
+import { useRouter } from "next/navigation";
 type Props = {
   session: Session;
 };
 
 function CartPage({ session }: Props) {
+  const router = useRouter();
   const [cartList, setCartList] = useState<PurchaseOrder[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   //Get cart list from session storage
   useEffect(() => {
     const key = process.env.SESSION_CART_KEY;
@@ -26,13 +30,13 @@ function CartPage({ session }: Props) {
           <ShoppingCartCard order={order} key={`prdcrt${index}`} />
         ))}
       </div>
-      <div className="flex">
-        <button
-          onClick={() => handlePayment(cartList, session.user.id)}
-          className="flex"
-        >
-          Pay
-        </button>
+      <div
+        className="flex px-5"
+        onClick={() =>
+          handlePayment(cartList, session.user.id, setIsLoading, router)
+        }
+      >
+        <LoadingButton text="Pay" isLoading={isLoading} type="button" />
       </div>
     </div>
   );
