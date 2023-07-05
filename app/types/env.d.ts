@@ -6,6 +6,6 @@ declare namespace NodeJS {
     GITHUB_ID: string;
     GITHUB_SECRET: string;
     SESSION_CART_KEY: string;
-    AUTH_HEADER_SECRET: string;
+    ENCRYPTION_KEY: string;
   }
 }
