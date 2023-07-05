@@ -1,24 +1,27 @@
 /**
- * Authorization header is composed of three strings
- * Bearer + userId + auth header secret in the form
- * Bearer userId:authSecret
- * First validate the auth secret, then connect to the database to check if
- * the provided id is valid
+ * @param authHeader is an object of type AuthHeader ({authorization: string})
+ * @returns Boolean if the argument is valid or not
+ *
+ * A correct string is of the form:
+ * "<ValidUserID>"
  */
-import { AuthHeader } from "../types/order";
-import { dbClient, dbConnect, dbClose } from "./db";
+import { dbClient } from "./db";
 import { ObjectId } from "mongodb";
-export default async function validateAuthHeader(authHeader: AuthHeader) {
-  const [userId, authSecret] = authHeader.authorization.split(":");
+import CryptoJS from "crypto-js";
+type AuthHeader = {
+  authorization: string;
+};
 
-  if (authSecret !== process.env.AUTH_HEADER_SECRET) {
-    return false;
-  }
+export default async function validateAuthHeader(authHeader: AuthHeader) {
+  //Extract and decrypt userID
+  const userID = authHeader.authorization.toString();
+  const decryptID = CryptoJS.AES.decrypt(userID, process.env.ENCRYPTION_KEY);
+  const stringifiedID = decryptID.toString(CryptoJS.enc.Utf8);
+  //find the user in database
   const collection = dbClient.db("Cluster0").collection("users");
   try {
-    await dbConnect();
-    const _id = new ObjectId(userId);
-    const find = collection.findOne({ _id });
+    const _id = new ObjectId(stringifiedID);
+    const find = await collection.findOne({ _id });
     if (find == null) {
       return false;
     }
@@ -27,7 +30,5 @@ export default async function validateAuthHeader(authHeader: AuthHeader) {
     throw new Error(
       "Failed connection to user database trying to validate header"
     );
-  } finally {
-    await dbClose();
   }
 }
