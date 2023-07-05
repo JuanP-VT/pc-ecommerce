@@ -32,7 +32,7 @@ function FormSpecs({ product, setSpecs, mode }: Props) {
     return items;
   };
   return (
-    <div className="mb-4" data-testid="specs flex">
+    <div className="mb-4" data-testid="specs">
       <label className="mb-2 inline-block p-1 text-sm font-bold text-gray-700">
         Specs
       </label>

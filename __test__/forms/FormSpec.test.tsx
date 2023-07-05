@@ -9,7 +9,7 @@ import { render, screen, fireEvent, getByText } from "@testing-library/react";
 it("should render with two inputs at start ", async () => {
   const setSpecsMock = jest.fn();
   const specsMock = [{ key: "a", value: "b" }] as Spec[];
-  render(<FormSpecs setSpecs={setSpecsMock} />);
+  render(<FormSpecs mode="row" setSpecs={setSpecsMock} />);
   const specsInputs = (await screen.findByTestId("specs")).querySelectorAll(
     "input"
   );
@@ -20,7 +20,9 @@ it("should render two new inputs  on 'Add' button click ", async () => {
   const setSpecsMock = jest.fn();
   const specsMock = [{ key: "a", value: "b" }] as Spec[];
 
-  const { getByText } = render(<FormSpecs setSpecs={setSpecsMock} />);
+  const { getByText } = render(
+    <FormSpecs mode="row" setSpecs={setSpecsMock} />
+  );
   const addButton = getByText("Add");
   fireEvent.click(addButton);
   const imageInputs = (await screen.findByTestId("specs")).querySelectorAll(
@@ -32,7 +34,9 @@ it("should render two new inputs  on 'Add' button click ", async () => {
 it("should not delete the input if there is only one ", async () => {
   const setSpecsMock = jest.fn();
   const specsMock = [{ key: "a", value: "b" }] as Spec[];
-  const { getByText } = render(<FormSpecs setSpecs={setSpecsMock} />);
+  const { getByText } = render(
+    <FormSpecs mode="row" setSpecs={setSpecsMock} />
+  );
   const remButton = getByText("Delete");
   fireEvent.click(remButton);
   fireEvent.click(remButton);
@@ -63,7 +67,9 @@ it("should render the correct number of inputs if given a product", async () => 
   };
   const secSpecsMock = jest.fn();
 
-  render(<FormSpecs setSpecs={secSpecsMock} product={productMock} />);
+  render(
+    <FormSpecs mode="row" setSpecs={secSpecsMock} product={productMock} />
+  );
   const specInputs = (await screen.findByTestId("specs")).querySelectorAll(
     "input"
   );
