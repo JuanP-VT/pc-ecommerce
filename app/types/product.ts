@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { User, UserRef } from "./user";
 export type Spec = {
   key: string;
   value: string;
@@ -18,9 +18,12 @@ export type Review = {
   stars: 1 | 2 | 3 | 4 | 5;
   title: string;
   comment: string;
-  user: User;
+  user: UserRef;
 };
 
+export interface ReviewRequest extends Review {
+  productId: string;
+}
 export type ProductWithId = {
   _id: string;
   name: string;
