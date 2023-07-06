@@ -14,10 +14,11 @@ export type Product = {
   specs: Spec[];
 };
 
-type Review = {
+export type Review = {
   stars: 1 | 2 | 3 | 4 | 5;
-  user: User;
+  title: string;
   comment: string;
+  user: User;
 };
 
 export type ProductWithId = {

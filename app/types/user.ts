@@ -8,5 +8,4 @@ export type User = {
   image: string;
   cash: number;
   items: ProductWithId[];
-  reviewedItems: ProductWithId[];
 };

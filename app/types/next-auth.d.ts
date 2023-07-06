@@ -4,22 +4,20 @@ import { ProductWithId } from "./product";
 
 declare module "next-auth/jwt" {
   interface JWT {
-    id: ObjectID;
+    _id: ObjectID;
     rol: "admin" | "user";
     cash: number;
     items: ProductWithId[];
-    reviewedItems: ProductWithId[];
   }
 }
 
 declare module "next-auth" {
   interface Session {
     user: User & {
-      id: string;
+      _id: string;
       rol: "admin" | "user";
       cash: number;
       items: ProductWithId[];
-      reviewedItems: ProductWithId[];
     };
   }
 }
