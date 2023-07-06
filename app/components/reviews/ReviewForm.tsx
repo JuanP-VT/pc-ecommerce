@@ -1,29 +1,31 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import StarInput from "./StarInput";
-import { Review } from "@/app/types/product";
+import { ProductWithId, Review, ReviewRequest } from "@/app/types/product";
 import { Session } from "next-auth";
-import { User } from "@/app/types/user";
+import { User, UserRef } from "@/app/types/user";
 import handleSendReview from "./handleSendReview";
 import LoadingButton from "../buttons/LoadingButton";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 
 type Props = {
   session: Session;
+  product: ProductWithId;
+  router: AppRouterInstance;
 };
 
-function ReviewForm({ session }: Props) {
+function ReviewForm({ session, product, router }: Props) {
   const [starRating, setStarRating] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const user: User = {
+  const user: UserRef = {
     _id: session.user._id ?? "",
-    cash: session.user.cash,
     email: session.user.email ?? "",
     image: session.user.image ?? "",
-    items: session.user.items ?? [],
     name: session.user.name ?? "",
-    rol: session.user.name ?? "user",
+    rol: session.user.rol ?? "user",
   };
-  const [review, setReview] = useState<Review>({
+  const [review, setReview] = useState<ReviewRequest>({
+    productId: product._id,
     stars: 1,
     title: "",
     comment: "",
@@ -45,7 +47,7 @@ function ReviewForm({ session }: Props) {
     <div className="ml-20 mt-5 flex ">
       <form
         className="flex flex-col"
-        onSubmit={() => handleSendReview(review, setIsLoading)}
+        onSubmit={(e) => handleSendReview(e, review, setIsLoading, router)}
       >
         <StarInput starRating={starRating} setStarRating={setStarRating} />
         <div className="mb-4 ">
