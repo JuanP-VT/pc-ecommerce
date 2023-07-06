@@ -25,6 +25,7 @@ export default async function crearUsuarioEnDb(user: IUser) {
       rol: "user",
       gitId: user.gitId ?? null,
       items: [],
+      reviewedItems: [],
     };
     await collection.insertOne(newUser);
   } finally {

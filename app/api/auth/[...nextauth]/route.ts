@@ -67,6 +67,7 @@ export const OPTIONS: AuthOptions = {
         session.user.image = token.picture;
         session.user.cash = token.cash;
         session.user.items = token.items;
+        session.user.reviewedItems = token.reviewedItems;
       }
       return session;
     },
@@ -83,6 +84,7 @@ export const OPTIONS: AuthOptions = {
         rol: usuarioEnDb.rol,
         cash: usuarioEnDb.cash,
         items: usuarioEnDb.items,
+        reviewedItems: usuarioEnDb.reviewedItems,
       };
       return newToken;
     },

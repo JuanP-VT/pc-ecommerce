@@ -1,12 +1,14 @@
 import type { User } from "next-auth";
 import "next-auth/jwt";
+import { ProductWithId } from "./product";
 
 declare module "next-auth/jwt" {
   interface JWT {
     id: ObjectID;
     rol: "admin" | "user";
     cash: number;
-    items: [];
+    items: ProductWithId[];
+    reviewedItems: ProductWithId[];
   }
 }
 
@@ -16,7 +18,8 @@ declare module "next-auth" {
       id: string;
       rol: "admin" | "user";
       cash: number;
-      items: [];
+      items: ProductWithId[];
+      reviewedItems: ProductWithId[];
     };
   }
 }
