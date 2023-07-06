@@ -9,3 +9,11 @@ export type User = {
   cash: number;
   items: ProductWithId[];
 };
+
+export type UserRef = {
+  _id: string;
+  name: string;
+  email: string;
+  rol: string;
+  image: string;
+};
