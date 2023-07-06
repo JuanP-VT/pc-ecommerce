@@ -60,14 +60,13 @@ export const OPTIONS: AuthOptions = {
     },
     async session({ token, session }) {
       if (token) {
-        session.user.id = token.id;
+        session.user._id = token._id;
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.rol = token.rol;
         session.user.image = token.picture;
         session.user.cash = token.cash;
         session.user.items = token.items;
-        session.user.reviewedItems = token.reviewedItems;
       }
       return session;
     },
@@ -77,14 +76,13 @@ export const OPTIONS: AuthOptions = {
         return token;
       }
       const newToken: JWT = {
-        id: usuarioEnDb._id.toString(),
+        _id: usuarioEnDb._id.toString(),
         name: usuarioEnDb.name,
         email: usuarioEnDb.email,
         picture: usuarioEnDb.image,
         rol: usuarioEnDb.rol,
         cash: usuarioEnDb.cash,
         items: usuarioEnDb.items,
-        reviewedItems: usuarioEnDb.reviewedItems,
       };
       return newToken;
     },
