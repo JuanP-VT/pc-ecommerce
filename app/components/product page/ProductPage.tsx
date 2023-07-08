@@ -7,15 +7,16 @@ import { Session } from "next-auth";
 import userCanReview from "@/app/utils/userCanReview";
 import ReviewForm from "../reviews/ReviewForm";
 import { useRouter } from "next/navigation";
+import ProductReviewCard from "../reviews/ProductReviewCard";
 type Props = {
   product: ProductWithId;
   session?: Session | null;
 };
 
 function ProductPage({ product, session }: Props) {
-  console.log(product, session);
   const router = useRouter();
   const canReview = userCanReview(product, session);
+  const productHasReviews = product.reviews?.length === 0 ? false : true;
   return (
     <>
       <div className=" flex w-full flex-col md:flex-row">
@@ -30,7 +31,15 @@ function ProductPage({ product, session }: Props) {
           <ReviewForm router={router} product={product} session={session} />
         </div>
       ) : (
-        <div>Cannot review</div>
+        ""
+      )}
+      {productHasReviews ?? (
+        <div className="flex flex-col px-5 lg:px-20">
+          <h1 className="py-3 text-2xl font-bold">User Reviews</h1>
+          {product.reviews?.map((review, index) => (
+            <ProductReviewCard review={review} key={`reviewCard${index}`} />
+          ))}
+        </div>
       )}
     </>
   );
