@@ -8,11 +8,11 @@ type AuthHeader = {
 };
 
 import { config } from "dotenv";
-import { AES } from "crypto-js";
+import CryptoJS from "crypto-js";
 export default function createAuthHeader(userID: string): AuthHeader {
   config();
   const key = process.env.ENCRYPTION_KEY;
-  const encryptedID = AES.encrypt(userID, key);
+  const encryptedID = CryptoJS.AES.encrypt(userID, key);
   const stringifiedEncrypted = encryptedID.toString();
   const headers = {
     authorization: stringifiedEncrypted,

@@ -33,7 +33,7 @@ function CartPage({ session }: Props) {
       <div
         className="flex px-5"
         onClick={() =>
-          handlePayment(cartList, session.user.id, setIsLoading, router)
+          handlePayment(cartList, session.user._id, setIsLoading, router)
         }
       >
         <LoadingButton text="Pay" isLoading={isLoading} type="button" />
