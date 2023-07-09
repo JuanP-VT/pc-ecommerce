@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background-color: #3a3939;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #4285f4;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: #2c2929;
+  border-radius: 5px;
+}
+
 .tooltip {
   position: relative;
   display: inline-block;
@@ -26,4 +46,8 @@
 .tooltip:hover::after {
   opacity: 1;
   visibility: visible;
+}
+
+.imageContainer {
+  height: 730px;
 }
