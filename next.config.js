@@ -9,6 +9,7 @@ module.exports = {
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
       "m.media-amazon.com",
+      "i.ibb.co",
     ],
   },
   env: {
