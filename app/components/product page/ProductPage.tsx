@@ -27,19 +27,21 @@ function ProductPage({ product, session }: Props) {
         <AddToCartSection product={product} />
       </div>
       {canReview && session ? (
-        <div className="h-96">
+        <div className="flex ">
           <ReviewForm router={router} product={product} session={session} />
         </div>
       ) : (
         ""
       )}
-      {productHasReviews ?? (
+      {productHasReviews ? (
         <div className="flex flex-col px-5 lg:px-20">
           <h1 className="py-3 text-2xl font-bold">User Reviews</h1>
           {product.reviews?.map((review, index) => (
             <ProductReviewCard review={review} key={`reviewCard${index}`} />
           ))}
         </div>
+      ) : (
+        ""
       )}
     </>
   );

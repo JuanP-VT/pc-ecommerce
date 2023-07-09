@@ -14,7 +14,6 @@ export default function userCanReview(
   product: ProductWithId,
   session: Session | null | undefined
 ) {
-  console.log(product, session);
   //return if no session
   if (session === null || session === undefined) return false;
   const userItemList = session?.user.items;
