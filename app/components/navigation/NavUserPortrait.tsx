@@ -1,7 +1,7 @@
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 function NavUserPortrait() {
   const { data: session } = useSession();
   if (session) {
@@ -10,12 +10,8 @@ function NavUserPortrait() {
     return (
       <div className="sm:bg-slate-950-300 flex h-14 justify-center p-2 sm:w-96 sm:justify-evenly">
         <div className="hidden items-center justify-between  sm:flex ">
-          <div className="mr-3 flex items-center">
-            <CurrencyDollarIcon className="h-8 w-8 fill-white" />
-            <p className="font-bold text-white">{session.user.cash}</p>
-          </div>
           <Image
-            className="hidden rounded-full sm:flex"
+            className="hidden rounded-full object-contain sm:flex"
             width={40}
             height={40}
             alt="Your Profile Image"
@@ -24,9 +20,12 @@ function NavUserPortrait() {
             }
           />
         </div>
-        <p className="hidden items-center justify-center text-xs text-white underline sm:flex lg:text-base">
-          Hi {firstName}
-        </p>
+        <Link
+          href="user"
+          className="hidden items-center justify-center text-xs text-white underline sm:flex lg:text-base"
+        >
+          {firstName}
+        </Link>
         <button
           role="button"
           onClick={() => signOut()}
