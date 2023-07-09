@@ -8,6 +8,7 @@ import handlePayment from "./handlePayment";
 import type { Session } from "next-auth";
 import LoadingButton from "../components/buttons/LoadingButton";
 import { useRouter } from "next/navigation";
+import NotFound from "../components/unauthorized/NotFound";
 type Props = {
   session: Session;
 };
@@ -22,6 +23,10 @@ function CartPage({ session }: Props) {
     const list = getCartItems(key);
     setCartList(list);
   }, []);
+  const cartIsEmpty = cartList.length === 0 ? true : false;
+  if (cartIsEmpty) {
+    return <NotFound message="Cart Is Empty" />;
+  }
   return (
     <div className="flex flex-col px-5 lg:px-14">
       <h1 className="px-5 py-3 text-3xl font-semibold">Shopping Cart</h1>
