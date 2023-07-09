@@ -27,7 +27,7 @@ function ProductPage({ product, session }: Props) {
         <AddToCartSection product={product} />
       </div>
       {canReview && session ? (
-        <div className="h-96">
+        <div className="flex ">
           <ReviewForm router={router} product={product} session={session} />
         </div>
       ) : (
