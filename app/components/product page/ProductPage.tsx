@@ -19,7 +19,7 @@ function ProductPage({ product, session }: Props) {
   const productHasReviews = product.reviews?.length === 0 ? false : true;
   return (
     <>
-      <div className=" flex w-full flex-col md:flex-row">
+      <div className=" flex w-full flex-col  md:flex-row">
         <div className=" relative  flex flex-col md:w-4/6 lg:w-3/4 lg:flex-row">
           <ImageFrame images={product.img} />
           <Description product={product} />
@@ -34,7 +34,7 @@ function ProductPage({ product, session }: Props) {
         ""
       )}
       {productHasReviews ? (
-        <div className="flex flex-col px-5 lg:px-20">
+        <div className="flex flex-col px-20 ">
           <h1 className="py-3 text-2xl font-bold">User Reviews</h1>
           {product.reviews?.map((review, index) => (
             <ProductReviewCard review={review} key={`reviewCard${index}`} />

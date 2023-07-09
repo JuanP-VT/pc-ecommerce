@@ -7,7 +7,7 @@ type Props = {
 
 function ProductReviewCard({ review }: Props) {
   return (
-    <div className="w- flex flex-col border p-3 shadow-md">
+    <div className="flex flex-col rounded-md border p-3 shadow-md lg:px-20">
       <div className="ml-3 flex">
         <img
           alt="user profile picture"
@@ -28,7 +28,9 @@ function ProductReviewCard({ review }: Props) {
           {review.title}
         </p>
       </div>
-      <p className="px-2">{review.comment}</p>
+      <p className="px-2" style={{ whiteSpace: "pre-line" }}>
+        {review.comment}
+      </p>
     </div>
   );
 }
