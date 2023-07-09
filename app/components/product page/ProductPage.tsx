@@ -33,13 +33,15 @@ function ProductPage({ product, session }: Props) {
       ) : (
         ""
       )}
-      {productHasReviews ?? (
+      {productHasReviews ? (
         <div className="flex flex-col px-5 lg:px-20">
           <h1 className="py-3 text-2xl font-bold">User Reviews</h1>
           {product.reviews?.map((review, index) => (
             <ProductReviewCard review={review} key={`reviewCard${index}`} />
           ))}
         </div>
+      ) : (
+        ""
       )}
     </>
   );
