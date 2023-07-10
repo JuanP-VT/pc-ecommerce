@@ -25,8 +25,7 @@ export default async function Home() {
           subtile="MADE FOR ENTHUSIASTS"
           imageUrl="https://i.ibb.co/c6LksBF/amd-rx-6900.png"
         />
-        <div className="grid grid-cols-2 gap-6 bg-slate-900 p-6">
-          {" "}
+        <div className="grid gap-6 bg-slate-900 p-6 lg:grid-cols-2">
           <ImageContainer
             title="Razer Basilisk V3 Pro"
             subtile="THE POWER IN YOUR HANDS"

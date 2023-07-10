@@ -51,12 +51,10 @@ function ReviewForm({ session, product, router }: Props) {
       >
         <StarInput starRating={starRating} setStarRating={setStarRating} />
         <div className="mb-4 ">
-          <label className="mb-2 block text-sm  font-thin text-gray-700">
-            Title
-          </label>
+          <label className="mb-2 block text-sm  text-gray-700">Title</label>
           <input
             className="focus:shadow-outline w-full  appearance-none rounded
-             border px-3 py-2 font-thin leading-tight text-gray-700 shadow
+             border px-3 py-2 leading-tight text-gray-700 shadow
              focus:outline-none"
             type="text"
             placeholder="Use few words"
@@ -66,9 +64,7 @@ function ReviewForm({ session, product, router }: Props) {
           ></input>
         </div>
         <div className="mb-4 ">
-          <label className="mb-2 block text-sm  font-thin text-gray-700">
-            Review
-          </label>
+          <label className="mb-2 block text-sm  text-gray-700">Review</label>
           <textarea
             className="border p-2 shadow-md"
             name=""

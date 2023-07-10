@@ -24,7 +24,7 @@ export function StarOff({ setStarRating, starRating }: StarProps) {
   return (
     <StarIcon
       data-testid={`starOff${starRating}`}
-      className="h-8 w-8 cursor-pointer fill-yellow-100"
+      className="h-8 w-8 cursor-pointer fill-yellow-200"
       onClick={() => setStarRating(starRating)}
     />
   );
