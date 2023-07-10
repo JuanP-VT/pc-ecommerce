@@ -5,13 +5,17 @@ import PriceTag from "../product card/store product card/PriceTag";
 import StockTag from "../product card/store product card/StockTag";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import AddToCart from "./AddToCart";
-type Props = { product: ProductWithId };
+import { Session } from "next-auth";
+import NotFoundV2 from "../unauthorized/NotFoundV2";
+type Props = { product: ProductWithId; session: Session | null | undefined };
 
-function AddToCartSection({ product }: Props) {
+function AddToCartSection({ product, session }: Props) {
+  const isValidSession =
+    session !== null && session !== undefined ? true : false;
   const realPrice = parseFloat(
     ((product.price * (100 - product.discountPercentage)) / 100).toFixed(2)
   );
-  return (
+  return isValidSession ? (
     <div className=" flex w-auto flex-col rounded-md  pl-8 pt-5 md:pt-14 lg:w-1/4">
       <PriceTag price={realPrice} />
       <p className="font-semibold">
@@ -25,6 +29,8 @@ function AddToCartSection({ product }: Props) {
       <StockTag stock={product.stock} />
       <AddToCart product={product} />
     </div>
+  ) : (
+    <NotFoundV2 message="Sign in to use the cart!" />
   );
 }
 

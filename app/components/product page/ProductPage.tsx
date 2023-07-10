@@ -26,7 +26,7 @@ function ProductPage({ product, session }: Props) {
           <ImageFrame images={product.img} />
           <Description product={product} />
         </div>
-        <AddToCartSection product={product} />
+        <AddToCartSection product={product} session={session} />
       </div>
       {canReview && session ? (
         <div className="flex ">
