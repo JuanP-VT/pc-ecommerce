@@ -1,5 +1,6 @@
 import { Session } from "next-auth";
 import { ProductWithId } from "../types/product";
+import { User } from "../types/user";
 
 /**
  * @param product product object to be evaluated
@@ -12,11 +13,11 @@ import { ProductWithId } from "../types/product";
  */
 export default function userCanReview(
   product: ProductWithId,
-  session: Session | null | undefined
+  user: User | null
 ) {
   //return if no session
-  if (session === null || session === undefined) return false;
-  const userItemList = session?.user.items;
+  if (user === null || user === undefined) return false;
+  const userItemList = user.items;
   const prodReviews = product.reviews ?? [];
   if (userItemList) {
     const findInItemList = userItemList.find(
@@ -24,7 +25,7 @@ export default function userCanReview(
     );
     if (findInItemList) {
       const findUser = prodReviews.find(
-        (reviews) => reviews.user._id === session.user._id
+        (reviews) => reviews.user._id === user._id
       );
 
       if (!findUser) {

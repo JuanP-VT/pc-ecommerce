@@ -5,7 +5,7 @@ type IUser = {
   name: string | null | undefined;
   email: string | null | undefined;
   image: string | null | undefined;
-  gitId?: string;
+  gitID?: string;
 };
 export default async function crearUsuarioEnDb(user: IUser) {
   const uri = process.env.MONGODB_URI;
@@ -23,7 +23,7 @@ export default async function crearUsuarioEnDb(user: IUser) {
       image: user.image,
       cash: 10000, // Free cash so new users can test my app
       rol: "user",
-      gitId: user.gitId ?? null,
+      gitID: user.gitID ?? null,
       items: [],
     };
     await collection.insertOne(newUser);

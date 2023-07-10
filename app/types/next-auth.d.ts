@@ -8,6 +8,7 @@ declare module "next-auth/jwt" {
     rol: "admin" | "user";
     cash: number;
     items: ProductWithId[];
+    gitID?: string;
   }
 }
 

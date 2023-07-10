@@ -8,17 +8,32 @@ import userCanReview from "@/app/utils/userCanReview";
 import ReviewForm from "../reviews/ReviewForm";
 import { useRouter } from "next/navigation";
 import ProductReviewCard from "../reviews/ProductReviewCard";
+import { useEffect, useState } from "react";
+import { User } from "@/app/types/user";
 type Props = {
   product: ProductWithId;
   session?: Session | null;
 };
 
 function ProductPage({ product, session }: Props) {
+  const [canReview, setCanReview] = useState(false);
   const router = useRouter();
-  const canReview = userCanReview(product, session);
   const reviews = product.reviews;
   const productHasReviews =
     reviews !== undefined && reviews.length !== 0 ? true : false;
+  const reqUser = { _id: session?.user._id };
+  useEffect(() => {
+    async function callApi() {
+      const req = await fetch("/api/searchuser", {
+        method: "POST",
+        body: JSON.stringify(reqUser),
+      });
+      const res = (await req.json()) as User | null;
+      console.log(res);
+      setCanReview(userCanReview(product, res));
+    }
+    callApi();
+  }, [product, reqUser]);
   return (
     <>
       <div className=" flex w-full flex-col  md:flex-row">

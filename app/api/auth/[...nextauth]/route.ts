@@ -3,7 +3,6 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { config } from "dotenv";
 import { AuthOptions } from "next-auth/core/types";
-import buscarEmailEnDb from "../../../lib/buscarEmailEnDb";
 import crearUsuarioEnDb from "../../../lib/crearUsuarioEnDb";
 import { JWT } from "next-auth/jwt";
 import searchUserInDb from "../../../lib/searchUserInDb";
@@ -31,28 +30,18 @@ export const OPTIONS: AuthOptions = {
     async signIn({ user, credentials }) {
       //Google users are going to be identified by their email, since github does not always provide an email
       //Github users are going to be identified by their github id
-      if (user.email) {
-        const emailEnDb = await buscarEmailEnDb(user.email);
-        if (emailEnDb === null) {
-          const newUser = {
-            name: user.name,
-            email: user.email,
-            image: user.image,
-            cash: 10000,
-          };
-          await crearUsuarioEnDb(newUser);
-        }
-        return true;
-      }
-      //If no email provided it means the user is logging form github
-      const searchUser = await searchUserInDb(user.id);
-      if (searchUser === null) {
+
+      const findUser = await searchUserInDb({
+        email: user.email,
+        gitID: user.id,
+      });
+      if (findUser === null) {
         const newUser = {
           name: user.name,
           email: user.email,
+          gitID: user.id,
           image: user.image,
           cash: 10000,
-          gitId: user.id,
         };
         await crearUsuarioEnDb(newUser);
       }
@@ -66,23 +55,26 @@ export const OPTIONS: AuthOptions = {
         session.user.rol = token.rol;
         session.user.image = token.picture;
         session.user.cash = token.cash;
-        session.user.items = token.items;
       }
+
       return session;
     },
-    async jwt({ token, user }) {
-      const usuarioEnDb = await buscarEmailEnDb(token.email);
-      if (!usuarioEnDb) {
+    async jwt({ token }) {
+      const userDB = await searchUserInDb({
+        email: token.email,
+        gitID: token.sub,
+      });
+      if (!userDB) {
         return token;
       }
       const newToken: JWT = {
-        _id: usuarioEnDb._id.toString(),
-        name: usuarioEnDb.name,
-        email: usuarioEnDb.email,
-        picture: usuarioEnDb.image,
-        rol: usuarioEnDb.rol,
-        cash: usuarioEnDb.cash,
-        items: usuarioEnDb.items,
+        _id: userDB._id.toString(),
+        name: userDB.name,
+        email: userDB.email,
+        picture: userDB.image,
+        rol: userDB.rol,
+        cash: userDB.cash,
+        items: userDB.items,
       };
       return newToken;
     },
