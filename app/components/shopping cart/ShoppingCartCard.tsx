@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { PurchaseOrder } from "@/app/types/order";
+import deleteFromCart from "@/app/utils/deleteFromCart";
+import { Dispatch, SetStateAction } from "react";
 
 type Props = {
   order: PurchaseOrder;
+  setCartList: Dispatch<SetStateAction<PurchaseOrder[]>>;
 };
 
-function ShoppingCartCard({ order }: Props) {
+function ShoppingCartCard({ order, setCartList }: Props) {
   const realPrice = parseFloat(
     (
       (order.product.price * (100 - order.product.discountPercentage)) /
@@ -33,7 +36,10 @@ function ShoppingCartCard({ order }: Props) {
           Available for Free Delivery!
         </span>
         <p className="text-sm font-semibold">Quantity: {order.quantity}</p>
-        <button className="mt-2 w-32 text-xs text-blue-300  hover:border-b">
+        <button
+          className="mt-2 w-32 text-xs text-blue-300  hover:border-b"
+          onClick={() => deleteFromCart(order.product, setCartList)}
+        >
           Delete Item From Cart
         </button>
       </div>

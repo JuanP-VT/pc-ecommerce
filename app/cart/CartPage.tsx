@@ -32,7 +32,11 @@ function CartPage({ session }: Props) {
       <h1 className="px-5 py-3 text-3xl font-semibold">Shopping Cart</h1>
       <div className="flex flex-col p-5">
         {cartList.map((order, index) => (
-          <ShoppingCartCard order={order} key={`prdcrt${index}`} />
+          <ShoppingCartCard
+            order={order}
+            key={`prdcrt${index}`}
+            setCartList={setCartList}
+          />
         ))}
       </div>
       <div
