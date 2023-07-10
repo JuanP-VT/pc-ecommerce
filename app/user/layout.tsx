@@ -5,9 +5,7 @@ export default function userLayout({
 }) {
   return (
     <section className="relative">
-      <div className="absolute z-10 flex h-32 w-full rounded-xl border bg-sky-400"></div>
-      {/* Include shared UI here e.g. a header or sidebar */}
-      <nav></nav>
+      <div className="absolute z-10 flex h-32 w-full rounded-xl border bg-sky-800"></div>
 
       {children}
     </section>
