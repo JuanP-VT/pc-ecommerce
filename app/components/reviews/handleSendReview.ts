@@ -1,12 +1,14 @@
 import { ProductWithId, Review } from "@/app/types/product";
 import createAuthHeader from "@/app/utils/createAuthHeader";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
+import { Dispatch, SetStateAction } from "react";
 
 export default async function handleSendReview(
   e: React.FormEvent<HTMLFormElement>,
   review: Review,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  router: AppRouterInstance
+  router: AppRouterInstance,
+  setCanReview: Dispatch<SetStateAction<boolean>>
 ) {
   e.preventDefault();
   setIsLoading(true);
@@ -19,6 +21,8 @@ export default async function handleSendReview(
     },
     method: "POST",
   });
+  // once review is done
   await send.json();
+  setCanReview(false);
   router.refresh();
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import StarInput from "./StarInput";
 import { ProductWithId, Review, ReviewRequest } from "@/app/types/product";
 import { Session } from "next-auth";
@@ -12,9 +12,10 @@ type Props = {
   session: Session;
   product: ProductWithId;
   router: AppRouterInstance;
+  setCanReview: Dispatch<SetStateAction<boolean>>;
 };
 
-function ReviewForm({ session, product, router }: Props) {
+function ReviewForm({ session, product, router, setCanReview }: Props) {
   const [starRating, setStarRating] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const user: UserRef = {
@@ -46,7 +47,9 @@ function ReviewForm({ session, product, router }: Props) {
     <div className="ml-20 mt-5 flex ">
       <form
         className="flex flex-col"
-        onSubmit={(e) => handleSendReview(e, review, setIsLoading, router)}
+        onSubmit={(e) =>
+          handleSendReview(e, review, setIsLoading, router, setCanReview)
+        }
       >
         <StarInput starRating={starRating} setStarRating={setStarRating} />
         <div className="mb-4 ">

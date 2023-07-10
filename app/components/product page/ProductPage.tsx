@@ -33,7 +33,7 @@ function ProductPage({ product, session }: Props) {
       setCanReview(userCanReview(product, res));
     }
     callApi();
-  }, [product, reqUser]);
+  }, []);
   return (
     <>
       <div className=" flex w-full flex-col  md:flex-row">
@@ -45,7 +45,12 @@ function ProductPage({ product, session }: Props) {
       </div>
       {canReview && session ? (
         <div className="flex ">
-          <ReviewForm router={router} product={product} session={session} />
+          <ReviewForm
+            router={router}
+            product={product}
+            session={session}
+            setCanReview={setCanReview}
+          />
         </div>
       ) : (
         ""
