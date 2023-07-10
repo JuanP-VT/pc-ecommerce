@@ -16,7 +16,9 @@ type Props = {
 function ProductPage({ product, session }: Props) {
   const router = useRouter();
   const canReview = userCanReview(product, session);
-  const productHasReviews = product.reviews?.length === 0 ? false : true;
+  const reviews = product.reviews;
+  const productHasReviews =
+    reviews !== undefined && reviews.length !== 0 ? true : false;
   return (
     <>
       <div className=" flex w-full flex-col  md:flex-row">
