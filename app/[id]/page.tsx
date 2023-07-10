@@ -2,6 +2,7 @@ import ProductPage from "../components/product page/ProductPage";
 import searchProductInDb from "../lib/searchProductInDb";
 import { OPTIONS } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
+import NotFound from "../components/unauthorized/NotFound";
 export default async function Page({ params }: { params: { id: string } }) {
   const session = await getServerSession(OPTIONS);
   //Check if product exist
@@ -10,5 +11,5 @@ export default async function Page({ params }: { params: { id: string } }) {
   if (product) {
     return <ProductPage product={product} session={session} />;
   }
-  return <div>Product Not found</div>;
+  return <NotFound message="Page Not Found" />;
 }
