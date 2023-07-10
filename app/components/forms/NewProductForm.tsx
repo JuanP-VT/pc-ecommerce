@@ -34,7 +34,6 @@ function NewProductForm({}: Props) {
       specs: specs,
     }));
   }, [descriptions, images, specs]);
-  console.log(newProduct);
   //Button animation state
   const [isLoading, setIsLoading] = useState(false);
 
