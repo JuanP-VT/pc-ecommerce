@@ -7,13 +7,14 @@ import FormImages from "../../forms/FormImages";
 import handleEditProduct from "./handleEditProduct";
 import LoadingButton from "../../buttons/LoadingButton";
 import FormSpecs from "../../forms/FormSpecs";
-
+import { useRouter } from "next/navigation";
 type Props = {
   product: ProductWithId;
   setIsOnEditMode: Dispatch<SetStateAction<boolean>>;
 };
 //This component render a card with input fields related to the props of the object it represents
 function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
+  const router = useRouter();
   const [descriptions, setDescriptions] = useState(product.description);
   const [imgList, setImgList] = useState(product.img);
   const [specs, setSpecs] = useState(product.specs);
@@ -39,13 +40,14 @@ function AdminProductCardEdit({ product, setIsOnEditMode }: Props) {
   }, [descriptions, imgList, specs]);
   //Button loading animation
   const [isLoading, setIsLoading] = useState(false);
-  console.log(editedProduct);
   return (
     <div className="flex w-80 flex-col border ">
       <CardHeader id={product._id} setIsOnEditMode={setIsOnEditMode} />
       <form
         className="p-2"
-        onSubmit={(e) => handleEditProduct(e, editedProduct, setIsLoading)}
+        onSubmit={(e) =>
+          handleEditProduct(e, editedProduct, router, setIsLoading)
+        }
       >
         <div className="mb-2 flex">
           <label
