@@ -1,4 +1,5 @@
 import { ProductWithId } from "@/app/types/product";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 import { Dispatch, FormEvent, SetStateAction } from "react";
 //This function is called in the AdminProductCardEdit component
 //It takes a product and sends it to the API
@@ -7,6 +8,7 @@ import { Dispatch, FormEvent, SetStateAction } from "react";
 export default async function handleEditProduct(
   e: FormEvent<HTMLFormElement>,
   editedProduct: ProductWithId,
+  router: AppRouterInstance,
   setIsLoading?: Dispatch<SetStateAction<boolean>>
 ) {
   e.preventDefault();
@@ -26,4 +28,5 @@ export default async function handleEditProduct(
   if (setIsLoading) {
     setIsLoading(false);
   }
+  router.refresh();
 }
