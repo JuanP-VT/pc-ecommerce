@@ -38,6 +38,7 @@ function AddToCart({ product }: Props) {
       >
         Add To Cart
       </button>
+      <div id="feedback" className=" p-2 font-bold transition-all"></div>
     </div>
   );
 }

@@ -9,6 +9,7 @@
 import { PurchaseOrder } from "@/app/types/order";
 import { ProductWithId } from "@/app/types/product";
 import addProductToCart from "@/app/utils/addProductToCart";
+import displayFeedbackEffect from "./displayFeedbackEffect";
 export default function handleAddToCart(
   product: ProductWithId,
   quantity: number
@@ -24,4 +25,5 @@ export default function handleAddToCart(
   }
 
   addProductToCart(key, newOrder);
+  displayFeedbackEffect();
 }
