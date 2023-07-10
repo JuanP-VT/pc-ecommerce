@@ -42,7 +42,6 @@ function ReviewForm({ session, product, router }: Props) {
       setReview((prevState) => ({ ...prevState, stars: starRating }));
     }
   }, [starRating]);
-  console.log(review);
   return (
     <div className="ml-20 mt-5 flex ">
       <form
