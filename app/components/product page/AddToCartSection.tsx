@@ -16,11 +16,11 @@ function AddToCartSection({ product }: Props) {
       <PriceTag price={realPrice} />
       <p className="font-semibold">
         Free Delivery! <br />
-        Purchase NOW and get promotion
+        Purchase now and get promotion
       </p>
-      <div className="mt-2 flex font-thin italic">
+      <div className="mt-2 flex  italic">
         <MapPinIcon className="h-5 w-5" />
-        <p>send to location</p>
+        <p>Send to my location</p>
       </div>
       <StockTag stock={product.stock} />
       <AddToCart product={product} />

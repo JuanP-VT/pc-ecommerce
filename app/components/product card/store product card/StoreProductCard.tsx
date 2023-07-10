@@ -15,7 +15,7 @@ function StoreProductCard({ product }: Props) {
       <div className="ml-3 flex flex-col p-2">
         <a
           href={`/${product._id}`}
-          className="mb-2 overflow-hidden text-xl font-semibold"
+          className="mb-2 overflow-hidden text-xl font-semibold lg:pr-52"
         >
           {product.name}
         </a>
