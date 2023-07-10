@@ -3,7 +3,7 @@ export default async function searchProductInDb(
   id: string
 ): Promise<ProductWithId | null> {
   const res = await fetch(
-    "https://store-juanp-vt.vercel.app/store/api/searchproduct",
+    "https://store-juanp-vt.vercel.app/api/searchproduct",
     {
       cache: "no-store",
       method: "POST",
