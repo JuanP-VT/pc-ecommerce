@@ -68,6 +68,7 @@ it("should render the correct number of inputs if given a product", async () => 
     img: ["IMG1", "IMG 1-2"],
     stock: 299,
     price: 299,
+    specs: [],
     discountPercentage: 10,
   };
   const setDescriptionMock = jest.fn();

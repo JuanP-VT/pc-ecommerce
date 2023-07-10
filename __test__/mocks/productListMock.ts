@@ -22,6 +22,7 @@ export const productList: ProductWithId[] = [
     price: 399,
     discountPercentage: 5,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648a10a662f9e48825305b4c",
@@ -43,6 +44,7 @@ export const productList: ProductWithId[] = [
     price: 20,
     discountPercentage: 0,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648ba2dcab0afbc3426cfb51",
@@ -64,6 +66,7 @@ export const productList: ProductWithId[] = [
     price: 243,
     discountPercentage: 5,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648ba5e6ab0afbc3426cfb52",
@@ -86,6 +89,7 @@ export const productList: ProductWithId[] = [
     price: 190,
     discountPercentage: 10,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648ba7d8ab0afbc3426cfb53",
@@ -107,6 +111,7 @@ export const productList: ProductWithId[] = [
     price: 250,
     discountPercentage: 15,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bf918fdcfaf871509ef7c",
@@ -128,6 +133,7 @@ export const productList: ProductWithId[] = [
     price: 359,
     discountPercentage: 50,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bf974fdcfaf871509ef7d",
@@ -149,6 +155,7 @@ export const productList: ProductWithId[] = [
     price: 159,
     discountPercentage: 43,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bf9cffdcfaf871509ef7e",
@@ -169,6 +176,7 @@ export const productList: ProductWithId[] = [
     price: 273,
     discountPercentage: 10,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfa1afdcfaf871509ef7f",
@@ -188,6 +196,7 @@ export const productList: ProductWithId[] = [
     price: 219,
     discountPercentage: 0,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfa6efdcfaf871509ef80",
@@ -209,6 +218,7 @@ export const productList: ProductWithId[] = [
     price: 358,
     discountPercentage: 0,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfb2bfdcfaf871509ef81",
@@ -231,6 +241,7 @@ export const productList: ProductWithId[] = [
     price: 81,
     discountPercentage: 12,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfbb2fdcfaf871509ef82",
@@ -254,6 +265,7 @@ export const productList: ProductWithId[] = [
     price: 78,
     discountPercentage: 13,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfc0bfdcfaf871509ef83",
@@ -276,6 +288,7 @@ export const productList: ProductWithId[] = [
     price: 60,
     discountPercentage: 50,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfc54fdcfaf871509ef84",
@@ -299,6 +312,7 @@ export const productList: ProductWithId[] = [
     price: 119,
     discountPercentage: 8,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfcdbfdcfaf871509ef85",
@@ -321,6 +335,7 @@ export const productList: ProductWithId[] = [
     price: 52,
     discountPercentage: 6,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfd3bfdcfaf871509ef86",
@@ -347,6 +362,7 @@ export const productList: ProductWithId[] = [
     price: 59,
     discountPercentage: 0,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfe13fdcfaf871509ef87",
@@ -371,6 +387,7 @@ export const productList: ProductWithId[] = [
     price: 68,
     discountPercentage: 75,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfe5cfdcfaf871509ef88",
@@ -393,6 +410,7 @@ export const productList: ProductWithId[] = [
     price: 70,
     discountPercentage: 50,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfeaefdcfaf871509ef89",
@@ -415,6 +433,7 @@ export const productList: ProductWithId[] = [
     price: 22,
     discountPercentage: 10,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bff16fdcfaf871509ef8a",
@@ -438,6 +457,7 @@ export const productList: ProductWithId[] = [
     price: 289,
     discountPercentage: 45,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bff5cfdcfaf871509ef8b",
@@ -460,6 +480,7 @@ export const productList: ProductWithId[] = [
     price: 249,
     discountPercentage: 0,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bff9ffdcfaf871509ef8c",
@@ -482,6 +503,7 @@ export const productList: ProductWithId[] = [
     price: 29,
     discountPercentage: 12,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648bfff2fdcfaf871509ef8d",
@@ -505,6 +527,7 @@ export const productList: ProductWithId[] = [
     price: 89,
     discountPercentage: 25,
     reviews: [],
+    specs: [],
   },
   {
     _id: "648c0043fdcfaf871509ef8e",
@@ -527,5 +550,6 @@ export const productList: ProductWithId[] = [
     price: 310,
     discountPercentage: 55,
     reviews: [],
+    specs: [],
   },
 ];

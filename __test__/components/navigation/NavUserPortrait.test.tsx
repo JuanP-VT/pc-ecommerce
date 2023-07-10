@@ -10,11 +10,12 @@ describe("Render Signed In User ", () => {
   beforeEach(() => {
     sessionMock = {
       user: {
+        id: "",
         name: "Juan Pablo Valdez Torres",
         email: "cv.juanp@gmail.com",
         image:
           "https://lh3.googleusercontent.com/a/AAcHTtdThkU_GMGO7-WJeldMTjErKfash5fiq5tKPh2TGQ=s96-c",
-        id: "647f7e5cb6ad6267deb94993",
+        _id: "647f7e5cb6ad6267deb94993",
         rol: "user",
         cash: 8,
         items: [],

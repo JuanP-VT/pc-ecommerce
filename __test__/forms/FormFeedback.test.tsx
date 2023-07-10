@@ -14,6 +14,7 @@ it("should display nothing if there are no errors", () => {
     img: ["https://example.com/product.jpg"],
     stock: 10,
     discountPercentage: 20,
+    specs: [],
   };
   const rnd = render(<FormFeedback newProduct={product} />);
   const list = screen.getByRole("list").querySelectorAll("li");

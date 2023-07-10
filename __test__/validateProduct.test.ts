@@ -85,6 +85,7 @@ test("validateNewProduct returns no errors for valid product", () => {
     description: [],
     img: ["https://example.com/product.jpg"],
     stock: 100,
+    specs: [],
     discountPercentage: 10,
   };
 
