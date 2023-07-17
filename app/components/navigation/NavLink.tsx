@@ -18,7 +18,6 @@ function NavLink({ href, icon, description }: Props) {
       <Link href={href} className="my-3 flex w-auto justify-center">
         <span className="tooltip" data-tooltip={description}>
           {React.createElement(icon, {
-            title: description,
             className:
               "h-9 w-9 fill-slate-400 hover:animate-pulse fill-gray-300 tooltip",
           })}
