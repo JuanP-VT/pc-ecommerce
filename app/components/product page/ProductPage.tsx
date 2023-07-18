@@ -56,7 +56,7 @@ function ProductPage({ product, session }: Props) {
         ""
       )}
       {productHasReviews ? (
-        <div className="flex flex-col px-20 ">
+        <div className="flex flex-col px-5 sm:px-20 ">
           <h1 className="py-3 text-2xl font-bold">User Reviews</h1>
           {product.reviews?.map((review, index) => (
             <ProductReviewCard review={review} key={`reviewCard${index}`} />

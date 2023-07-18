@@ -32,7 +32,10 @@ function ProductReviewCard({ review }: Props) {
           {review.title}
         </p>
       </div>
-      <p className="p-3  " style={{ whiteSpace: "pre-wrap" }}>
+      <p
+        className="p-3  text-sm sm:text-base"
+        style={{ whiteSpace: "pre-wrap" }}
+      >
         {review.comment}
       </p>
     </div>

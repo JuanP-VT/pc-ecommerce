@@ -14,7 +14,13 @@ type Props = {
 function StoreProductCard({ product }: Props) {
   return (
     <div className="flex flex-col items-center border p-2 sm:flex-row">
-      <Image src={product.img[0]} alt="Product Image " className="h-44 w-44" />
+      <Image
+        src={product.img[0]}
+        alt="Product Image "
+        width={176}
+        height={176}
+        className="h-44 w-44"
+      />
 
       <div className="ml-3 flex flex-col p-2">
         <a
