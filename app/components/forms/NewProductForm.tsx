@@ -1,3 +1,14 @@
+/**
+ * The component renders a form with several input fields, labels, and buttons.
+ * The form has fields for the product name, category, price, stock, and discount percentage.
+ * It includes the FormSpecs, FormDescription, and FormImages components to handle specification,
+ * description, and image inputs, respectively.
+ * 
+ * 
+ * The useEffect hook is used to update the newProduct state whenever there are changes to the descriptions, images, or specs states.
+ * This ensures that the newProduct state stays in sync with the form inputs.
+
+ */
 "use client";
 import { useEffect, useState } from "react";
 import handleSubmitProduct from "./handleSubmitProduct";
@@ -7,10 +18,10 @@ import FormFeedback from "./FormFeedback";
 import FormImages from "./FormImages";
 import LoadingButton from "../buttons/LoadingButton";
 import FormSpecs from "./FormSpecs";
+import { useRouter } from "next/navigation";
 
-type Props = {};
-
-function NewProductForm({}: Props) {
+function NewProductForm() {
+  const router = useRouter();
   const [descriptions, setDescriptions] = useState<string[]>([]);
   const [images, setImages] = useState<string[]>([]);
   const [specs, setSpecs] = useState<Spec[]>([]);
@@ -44,7 +55,9 @@ function NewProductForm({}: Props) {
       </h1>
       <form
         className="mb-4 rounded bg-white px-8 pb-8 pt-6 shadow-md"
-        onSubmit={(e) => handleSubmitProduct(e, newProduct, setIsLoading)}
+        onSubmit={(e) =>
+          handleSubmitProduct(e, newProduct, router, setIsLoading)
+        }
       >
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">

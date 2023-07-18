@@ -1,6 +1,7 @@
 import type { Product } from "../../types/product";
 import { Dispatch, FormEvent, SetStateAction } from "react";
 import validateNewProduct from "../../utils/validateProduct";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context";
 //This function is called in the NewProductForm component
 //It takes a product and sends it to the API
 //If given a setIsLoading react hook function it will
@@ -9,6 +10,7 @@ import validateNewProduct from "../../utils/validateProduct";
 export default async function handleSubmitProduct(
   e: FormEvent<HTMLFormElement>,
   product: Product,
+  router: AppRouterInstance,
   setIsLoading?: Dispatch<SetStateAction<boolean>>
 ) {
   e.preventDefault();
@@ -49,7 +51,7 @@ export default async function handleSubmitProduct(
     pElement.classList.remove("hidden");
     setTimeout(() => {
       pElement.classList.add("hidden");
-      document.forms[0].reset();
-    }, 2000);
+      router.push("/admin");
+    }, 1000);
   }
 }
