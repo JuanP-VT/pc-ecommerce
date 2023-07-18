@@ -1,7 +1,8 @@
 "use client";
-/** Pagination will conditionally render based on the current page.
- *  1 - 7 Mode
- *  7++ Mode
+/**
+ * The component takes a numberOfPages prop, which is the total number of pages, and a currentPage prop,
+ *  which is the current page number. The component then renders a pagination bar with buttons that allow the user to navigate
+ *  to different pages.
  */
 import { Dispatch, SetStateAction } from "react";
 import PaginationButton from "./PaginationButton";

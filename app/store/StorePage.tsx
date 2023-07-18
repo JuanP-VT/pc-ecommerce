@@ -1,3 +1,10 @@
+/**
+ * The component takes a data prop, which is an array of product .
+ * The component then uses the filterProductList function
+ * to filter the product data based on the user's filter criteria.
+ * The filtered product data is then used to create a paginated list of products.
+ * The component also renders a sidebar that allows the user to filter the product data.
+ */
 "use client";
 import { useEffect, useState } from "react";
 import StoreProductCard from "../components/product card/store product card/StoreProductCard";
@@ -14,7 +21,7 @@ export default function StorePage({ data }: Props) {
   const [filter, setFilter] = useState<Filter>({});
   const [currentPage, setCurrentPage] = useState(1);
   const filteredList = filterProductList(data, filter);
-  const ItemsPerPage = 4; // Arbitrary value, I want 20 items per page
+  const ItemsPerPage = 4;
   const numOfPages = Math.ceil(filteredList.length / ItemsPerPage); // Always round fraction up
   const pagination: ProductWithId[][] = createPagination(
     filteredList,

@@ -1,9 +1,9 @@
-"use client";
 /**
  * This is the main navigation bar of the site, it is displayed in every page of this app.
  * It is always in the top of the screen and have links to other functionalities
  * (Store, ShoppingCart, Admin Controls, Sign In)
  */
+"use client";
 import NavLink from "./NavLink";
 import { useRef } from "react";
 import MenuButton from "./MenuButton";
@@ -23,11 +23,12 @@ type Props = {
 };
 
 function Navigation({ session }: Props) {
+  const rol = session?.user.rol;
   const containerRef = useRef(null);
   return (
     <>
       <SessionProvider session={session}>
-        <div className="z-20 flex w-40  flex-col justify-center  sm:w-full">
+        <div className="z-20 flex w-full  flex-col justify-center  bg-slate-950">
           <MenuButton containerRef={containerRef} />
           <div
             ref={containerRef}
@@ -41,8 +42,17 @@ function Navigation({ session }: Props) {
               icon={BuildingStorefrontIcon}
               description="Store"
             />
+
             <ShoppingCartLink />
-            <NavLink href="/admin" icon={CircleStackIcon} description="Admin" />
+            {rol === "admin" ? (
+              <NavLink
+                href="/admin"
+                icon={CircleStackIcon}
+                description="Admin"
+              />
+            ) : (
+              ""
+            )}
             <NavUserPortrait />
           </div>
         </div>

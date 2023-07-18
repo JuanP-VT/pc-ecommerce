@@ -7,7 +7,8 @@ export const dynamic = "force-dynamic";
 
 async function Page() {
   const session = await getServerSession(OPTIONS);
-  if (session) {
+  const rol = session?.user.rol;
+  if (session && rol === "admin") {
     const res = await fetch("https://store-juanp-vt.vercel.app/api/products");
     const data = (await res.json()) as ProductWithId[];
 
