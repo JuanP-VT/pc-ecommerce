@@ -1,3 +1,12 @@
+/**
+ * This is the ProductPage component that represents a page displaying details of a product.
+ *
+ * @param {Props} props - The props passed to the ProductPage component.
+ * @param {ProductWithId} props.product - The product object with additional ID field.
+ * @param {Session | null | undefined} [props.session] - The session object representing the user's authentication status.
+ *
+ * @returns {JSX.Element} Returns the JSX element representing the product page.
+ */
 "use client";
 import { ProductWithId } from "@/app/types/product";
 import ImageFrame from "./ImageFrame";
@@ -19,9 +28,14 @@ function ProductPage({ product, session }: Props) {
   const [canReview, setCanReview] = useState(false);
   const router = useRouter();
   const reviews = product.reviews;
+  // checks if the product has any reviews.
+  // If the reviews object is not undefined and it has at least one item,
+  // then the productHasReviews variable is set to true.
+  // Otherwise, it is set to false.
   const productHasReviews =
     reviews !== undefined && reviews.length !== 0 ? true : false;
   const reqUser = { _id: session?.user._id };
+  //Fetch product data
   useEffect(() => {
     async function callApi() {
       const req = await fetch("/api/searchuser", {
@@ -29,7 +43,6 @@ function ProductPage({ product, session }: Props) {
         body: JSON.stringify(reqUser),
       });
       const res = (await req.json()) as User | null;
-      console.log(res);
       setCanReview(userCanReview(product, res));
     }
     callApi();
