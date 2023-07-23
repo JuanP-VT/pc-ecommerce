@@ -1,3 +1,8 @@
+/**
+ * Component for displaying a "Not Found" message along with an image of a dog with a cart.
+ *
+ * @param {string} message - The message to be displayed.
+ */
 import Image from "next/image";
 import cartDog from "../../../public/images/cart.png";
 type Props = {
