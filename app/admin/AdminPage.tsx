@@ -1,8 +1,14 @@
 /**
- * The AdminPage component takes a data prop, which is an array of products.
- * The  component uses the filterProductList function to filter the products based on the current filter.
- * The component then uses the createPagination function to create a paginated list of products,
- * render the paginated list of products, as well as a pagination component that allows the user to navigate to different pages.
+ * The AdminPage component is responsible for displaying a paginated list of products with an admin sidebar for filtering.
+ * The component takes a `data` prop, which is an array of products with their corresponding IDs.
+ * The component uses the `filterProductList` function to filter the products based on the current filter settings.
+ * It then uses the `createPagination` function to create a paginated list of products based on the filtered products.
+ * The pagination component allows the user to navigate between different pages of the product list.
+ *
+ * @component
+ * @param {Props} props - Props passed to the AdminPage component.
+ * @param {ProductWithId[]} props.data - An array of products with their corresponding IDs.
+ * @returns {JSX.Element} - The rendered React component displaying the paginated list of products with the admin sidebar for filtering.
  */
 "use client";
 import { useEffect, useState } from "react";
