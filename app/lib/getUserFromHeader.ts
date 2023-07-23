@@ -1,16 +1,15 @@
+/**
+ * Retrieves a User object from the database based on the provided AuthHeader.
+ * @param header An object of type AuthHeader ({ authorization: string }).
+ * @returns User object or null if it does not find one.
+ * If given a valid auth string '<ValidUserID>', it searches for the user ID in the database and returns it,
+ * or returns null if it does not find a matching user.
+ */
 import { AuthHeader } from "../types/order";
 import { User } from "../types/user";
 import { dbClient } from "./db";
 import { ObjectId } from "mongodb";
 import CryptoJS from "crypto-js";
-/**
- *
- * @param header is an object of type AuthHeader ({authorization:string})
- * @returns User object or null if it does not find one
- *
- * If given a valid auth string   '<ValidUserID>'
- * Search for the user id in the database and returns it, or return null if it does not
- */
 
 export default async function getUserFromHeader(header: AuthHeader) {
   const decryptID = CryptoJS.AES.decrypt(

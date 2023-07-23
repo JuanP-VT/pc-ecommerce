@@ -1,9 +1,13 @@
 /**
- * @param authHeader is an object of type AuthHeader ({authorization: string})
- * @returns Boolean if the argument is valid or not
+ * Validates the authenticity of the provided authentication header.
+ * @param {object} authHeader - An object of type AuthHeader ({ authorization: string }).
+ * @returns {boolean} - A boolean indicating whether the authentication header is valid or not.
  *
- * A correct string is of the form:
- * "<ValidUserID>"
+ * A valid authentication header should be of the form: "<ValidUserID>"
+ * This function extracts and decrypts the userID from the authentication header.
+ * It then searches for the user in the "users" collection of the "Cluster0" database using the decrypted userID.
+ * If the user is found, it returns true, indicating that the authentication header is valid.
+ * If the user is not found or any error occurs during the process, it returns false.
  */
 import { dbClient } from "./db";
 import { ObjectId } from "mongodb";
