@@ -1,7 +1,52 @@
+/**
+ * Filter Product List
+ *
+ * This function takes a list of products and a product filter object and returns a list of products
+ * that meet the filter properties. The filter properties in the Filter object are optional,
+ * and if a property is not provided, it is considered as not filtering on that property.
+ *
+ * @function
+ * @param {ProductWithId[]} productList - An array of products with their respective IDs.
+ * @param {Filter} filter - An object representing the filter criteria for the product list.
+ * @returns {ProductWithId[]} An array of products that meet the filter criteria.
+ *
+ * @typedef {ProductWithId} - An object representing a product with an ID.
+ * @property {string} _id - The unique identifier of the product.
+ * @property {string} name - The name of the product.
+ * @property {string} category - The category of the product.
+ * @property {number} price - The original price of the product.
+ * @property {number} discountPercentage - The discount percentage applied to the product.
+ * @property {number} stock - The stock quantity of the product.
+ *
+ * @typedef {Filter}  - An object representing the filter criteria for the product list.
+ * @property {string | undefined} name - The name to filter the products by (case-insensitive).
+ * @property {string | undefined} category - The category to filter the products by (case-insensitive).
+ * @property {number | undefined} minPrice - The minimum price to filter the products by (inclusive).
+ * @property {number | undefined} maxPrice - The maximum price to filter the products by (inclusive).
+ * @property {number | undefined} minStock - The minimum stock quantity to filter the products by (inclusive).
+ * @property {number | undefined} maxStock - The maximum stock quantity to filter the products by (inclusive).
+ * @property {boolean | undefined} haveDiscount - A flag to filter products that have discounts (true) or not (false).
+ *
+ * @example
+ * const productList = [
+ *   { _id: "1", name: "Product A", category: "Electronics", price: 100, discountPercentage: 10, stock: 5 },
+ *   { _id: "2", name: "Product B", category: "Clothing", price: 50, discountPercentage: 0, stock: 10 },
+ *   // more products...
+ * ];
+ *
+ * const filter = {
+ *   category: "Electronics",
+ *   maxPrice: 80,
+ *   minStock: 3,
+ *   haveDiscount: true,
+ * };
+ *
+ * const filteredProducts = filterProductList(productList, filter);
+ * console.log(filteredProducts);
+ * // Output: [{ _id: "1", name: "Product A", category: "Electronics", price: 100, discountPercentage: 10, stock: 5 }]
+ */
 import { Filter, ProductWithId } from "../types/product";
 
-//This function takes as a list of products and a product filter object
-//Returns a list  of products that meets the filter props
 export default function filterProductList(
   productList: ProductWithId[],
   filter: Filter
