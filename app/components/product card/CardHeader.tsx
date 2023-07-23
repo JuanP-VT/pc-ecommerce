@@ -1,5 +1,15 @@
+/**
+ * The CardHeader component represents the header section of an admin product card.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {string} props.id - The ID of the product associated with the card header.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setIsOnEditMode - A state setter function to toggle edit mode in the parent component.
+ * @returns {JSX.Element} The JSX element representing the CardHeader component.
+ */
 import { BackspaceIcon, PencilSquareIcon } from "@heroicons/react/24/solid";
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import LoadingButton from "../buttons/LoadingButton";
 import handleDeleteProduct from "./admin product card/handleDeleteProduct";
 import { useRouter } from "next/navigation";

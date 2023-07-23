@@ -1,3 +1,13 @@
+/**
+ * Admin Sidebar Filter Component
+ *
+ * @param {Props} props - The props object containing the product filter and the setter function for the filter state.
+ *
+ * This component represents the filter options used in the admin sidebar to filter products based on different criteria.
+ * The component receives a product filter object and a setter function to update the filter state as props.
+ * The product filter object contains various filter criteria for filtering products, such as name, category, price range, and stock range.
+ * The component contains input fields and checkboxes for each filter criteria and uses the `setFilter` function to update the filter state based on user input.
+ */
 import { Filter } from "@/app/types/product";
 import { Dispatch, SetStateAction } from "react";
 
@@ -10,7 +20,9 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
   return (
     <div className="flex flex-col">
       <div className="my-3">
-        <label className="block text-sm font-bold text-gray-700 mb-1">Name</label>
+        <label className="mb-1 block text-sm font-bold text-gray-700">
+          Name
+        </label>
         <input
           className=" focus:shadow-outline w-full appearance-none  rounded border 
           px-3 py-2 text-sm leading-tight text-gray-700 shadow focus:outline-none"
@@ -28,7 +40,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-bold text-gray-700">
           Category
         </label>
         <input
@@ -48,7 +60,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-bold text-gray-700">
           Price Range
         </label>
         <input
@@ -83,7 +95,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
         ></input>
       </div>
       <div className="my-1">
-        <label className="block text-sm font-bold text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-bold text-gray-700">
           Stock Range
         </label>
         <input
@@ -119,7 +131,7 @@ function AdminSidebarFilter({ filter, setFilter }: Props) {
       </div>
 
       <div className="my-1 flex gap-4">
-        <label className="block text-sm font-bold text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-bold text-gray-700">
           On Discount
         </label>
         <input

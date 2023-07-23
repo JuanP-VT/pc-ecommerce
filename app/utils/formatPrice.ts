@@ -1,6 +1,24 @@
 /**
- * Takes a number and return an array with format [integer, float]
- * eg, 10.99 returns [10,99]
+ * Format Price
+ *
+ * This function takes a number and returns an array with two elements representing the integer and decimal
+ * parts of the number. If the number is an integer, the array will contain only the integer part.
+ *
+ * @function
+ * @param {number} price - The number to be formatted.
+ * @returns {[number, number] | [number]} An array with two elements representing the integer and decimal parts
+ *                                       of the number, or an array with only the integer part if the number is an integer.
+ *
+ * @example
+ * const price1 = 10.99;
+ * const formatted1 = formatPrice(price1);
+ * console.log(formatted1);
+ * // Output: [10, 99]
+ *
+ * const price2 = 15;
+ * const formatted2 = formatPrice(price2);
+ * console.log(formatted2);
+ * // Output: [15]
  */
 export default function formatPrice(
   price: number

@@ -1,13 +1,15 @@
-/**
- * this code allows the user to select a star rating by clicking on the stars, and it displays
- * the selected stars in yellow and the unselected stars in a lighter shade of yellow
- */
 "use client";
 import { StarIcon } from "@heroicons/react/20/solid";
+/**
+ * StarOn component represents a highlighted (filled) star icon.
+ *
+ * @param {Object} props - The props passed to the component.
+ * @param {number} props.starRating - The value representing the star's rating.
+ * @returns {JSX.Element} - The JSX element representing the highlighted star icon.
+ */
 type StarProps = {
   starRating: number;
 };
-//Icon of a highlighted star
 export function StarOn({ starRating }: StarProps) {
   return (
     <StarIcon
@@ -16,7 +18,13 @@ export function StarOn({ starRating }: StarProps) {
     />
   );
 }
-//Icon of a opaque star
+/**
+ * StarOff component represents an opaque (unfilled) star icon.
+ *
+ * @param {Object} props - The props passed to the component.
+ * @param {number} props.starRating - The value representing the star's rating.
+ * @returns {JSX.Element} - The JSX element representing the opaque star icon.
+ */
 export function StarOff({ starRating }: StarProps) {
   return (
     <StarIcon
@@ -28,7 +36,14 @@ export function StarOff({ starRating }: StarProps) {
 type Props = {
   starRating: number;
 };
-// Returns an array of star icons
+/**
+ * StarRating component allows the user to select a star rating by clicking on the stars.
+ * It displays the selected stars in yellow (highlighted) and the unselected stars in a lighter shade of yellow (opaque).
+ *
+ * @param {Object} props - The props passed to the component.
+ * @param {number} props.starRating - The current star rating value.
+ * @returns {JSX.Element} - The JSX element representing the star rating component.
+ */
 function StarRating({ starRating }: Props) {
   const renderStars = () => {
     // push highlighted stars first

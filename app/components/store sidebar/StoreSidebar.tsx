@@ -1,3 +1,10 @@
+/**
+ * Component for the store sidebar that allows users to filter products based on various criteria.
+ *
+ * @param {Object} filter - The current filter state object that includes the filtering options.
+ * @param {function} setFilter - A state setter function to update the filter state.
+ * @param {ProductWithId[]} productList - An array of products with unique IDs.
+ */
 import { productList } from "@/__test__/mocks/productListMock";
 import { Filter, ProductWithId } from "@/app/types/product";
 import createCategoryList from "@/app/utils/createCategoryList";

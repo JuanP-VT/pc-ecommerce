@@ -1,3 +1,9 @@
+/**
+ * Page Component to display product details.
+ *
+ * @param params - An object containing the `id` property representing the product ID from the URL.
+ * @returns JSX.Element - The rendered React component to display the product details or a "Page Not Found" message.
+ */
 import ProductPage from "../components/product page/ProductPage";
 import searchProductInDb from "../lib/searchProductInDb";
 import { OPTIONS } from "../api/auth/[...nextauth]/route";

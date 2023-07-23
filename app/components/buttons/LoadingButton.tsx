@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+/**
+ * Loading Button Component
+ *
+ * @param {Props} props - The props object containing the text, isLoading state, and button type.
+ *
+ * This component represents a loading button that can have two states: "normal mode" and "loading mode".
+ * The parent component can change the isLoading state to switch between these two states.
+ * The component receives the text to display on the button, the isLoading state to determine the current mode, and the button type (e.g., "button", "submit", or "reset") as props.
+ * When in "loading mode", the component displays a spinning arrow icon using the ArrowPathIcon from the "@heroicons/react/24/outline" library.
+ * When in "normal mode", the component displays a button with the provided text.
+ */
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import { text } from "stream/consumers";
 //This component will have two states  a "normal mode" and a "loading"
 //Parent component can change this state
 type Props = {

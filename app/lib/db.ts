@@ -1,3 +1,7 @@
+/**
+ * Database connection module for MongoDB.
+ * It exports the database client, connection function, and close function.
+ */
 import { MongoClient, ServerApiVersion } from "mongodb";
 import { config } from "dotenv";
 config();

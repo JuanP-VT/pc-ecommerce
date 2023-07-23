@@ -1,6 +1,12 @@
 /**
- * This component is an icon link to the cart page
- * Also it displays the current number of items in the cart
+ * ShoppingCartLink Component
+ *
+ * This component is an custom icon link to the cart page.
+ * It also displays the current number of items in the cart.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The JSX element representing the ShoppingCartLink component.
  */
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";

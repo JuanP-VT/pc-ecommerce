@@ -1,7 +1,15 @@
 /**
- * Adds or replaces a purchase order in the session cart array
- * Returns the updated cart
- * Triggers custom event once finished so other components can subscribe
+ * Adds or replaces a purchase order in the session cart array.
+ *
+ * @function
+ * @param {string} cartKey - The key used to identify the cart in sessionStorage.
+ * @param {PurchaseOrder} order - The purchase order to be added or replaced in the cart.
+ * @returns {PurchaseOrder[]} - The updated cart as an array of purchase orders.
+ *
+ * @typedef {Object} PurchaseOrder - An object representing a purchase order.
+ * @property {Object} product - The product details associated with the order.
+ * @property {string} product._id - The unique identifier of the product.
+ * @property {number} quantity - The quantity of the product in the order.
  */
 import { PurchaseOrder } from "../types/order";
 import getCartItems from "./getCartItems";

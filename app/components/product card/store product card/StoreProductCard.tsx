@@ -1,7 +1,11 @@
 /**
- * The StoreProductCard component takes a product prop, which is an object that represents a product.
- * The  component uses the product prop to get the name of the product, the price of the product, the stock of the product,
- * and the image of the product.
+ * The StoreProductCard component displays a product card with information about the product.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {ProductWithId} props.product - The product object representing the product to be displayed.
+ * @returns {JSX.Element} The JSX element representing the StoreProductCard component.
  */
 import { ProductWithId } from "@/app/types/product";
 import CardPrice from "./CardPrice";

@@ -1,3 +1,8 @@
+/**
+ * Component for displaying a single user item with a link to its details page.
+ *
+ * @param {ProductWithId} product - The product data with an ID.
+ */
 /* eslint-disable @next/next/no-img-element */
 import { ProductWithId } from "@/app/types/product";
 import Link from "next/link";

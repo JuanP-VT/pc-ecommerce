@@ -1,6 +1,12 @@
 /**
  * The ProductReviewCard component takes a review prop, which is an object that represents a product review.
- * The  component uses the review prop to get the user's name, the star rating of the review, the title of the review, and the comment of the reviewer.
+ * The component uses the review prop to get the user's name, the star rating of the review, the title of the review, and the comment of the reviewer.
+ *
+ * @component
+ *
+ * @param {Review} review - The review object representing the product review.
+ *
+ * @returns {JSX.Element} The JSX element representing the ProductReviewCard component.
  */
 import { Review } from "@/app/types/product";
 import StarRating from "./StarRating";

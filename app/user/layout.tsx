@@ -1,3 +1,8 @@
+/**
+ * User Layout Component
+ *
+ * A layout component to wrap user-related pages or nested layouts.
+ */
 export default function userLayout({
   children, // will be a page or nested layout
 }: {

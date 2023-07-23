@@ -1,8 +1,13 @@
 /**
- * This component will conditionally render  JSX if product has
- * discount on its price or not
+ * This component conditionally renders JSX based on whether the product has a discount on its price or not.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.price - The original price of the product.
+ * @param {number} props.discountPercentage - The discount percentage applied to the product's price.
+ * @returns {JSX.Element} The JSX element representing the CardPrice component.
  */
-
 import PriceTag from "./PriceTag";
 
 type Props = {

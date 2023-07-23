@@ -1,3 +1,9 @@
+/**
+ * Searches for a user in the MongoDB database based on the provided email.
+ *
+ * @param {string | undefined | null} email - The email to search for in the database.
+ * @returns {object | null} The user object if found, otherwise returns null.
+ */
 import { MongoClient } from "mongodb";
 import { config } from "dotenv";
 config();

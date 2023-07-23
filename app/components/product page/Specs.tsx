@@ -1,5 +1,13 @@
+/**
+ * The Specs component displays a list of specifications for the item by rendering multiple "Spec" components.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {SpecType[]} props.specList - An array of SpecType objects representing the list of specifications for the item.
+ * @returns {JSX.Element} The JSX element representing the Specs component.
+ */
 import { Spec as SpecType } from "@/app/types/product";
-import React from "react";
 import Spec from "./Spec";
 
 type Props = {

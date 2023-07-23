@@ -1,3 +1,13 @@
+/**
+ * The ImageFrame component displays a collection of images as frames along with the main product image.
+ * Users can click on the frame buttons to switch between different images.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {string[]} props.images - An array of image URLs representing the frames.
+ * @returns {JSX.Element} The JSX element representing the ImageFrame component.
+ */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";

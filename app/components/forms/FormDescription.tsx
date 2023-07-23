@@ -1,5 +1,19 @@
-// This component dynamically creates text areas and saves its content value in an array of string
-// This array of string is going to be the property "descriptions" in a new product
+/**
+ * Form Description Component
+ *
+ * @param {Props} props - The props object containing the setDescriptions function and an optional product object.
+ *
+ * This component dynamically creates text areas and saves their content value in an array of strings.
+ * The array of strings will be the property "descriptions" in a new product.
+ * The component receives the setDescriptions function to update the "descriptions" state in the parent component.
+ * It also optionally receives a product object, which will be used to pre-fill the text areas with existing descriptions if provided.
+ *
+ * For every "numberOfInputs", the component creates a text area, and each text area will save its content value in the "textAreas" state.
+ * Each text area must have a key to reference its index in the "textAreas" array.
+ * The component provides buttons to add or delete text areas dynamically based on the "numberOfInputs".
+ *
+ * @returns {JSX.Element} The JSX element representing the Form Description component.
+ */
 import { Dispatch, SetStateAction, useState } from "react";
 import handleTextAreaChange from "./handleTextAreaChange";
 import { ProductWithId } from "@/app/types/product";

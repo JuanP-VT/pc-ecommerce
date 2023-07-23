@@ -1,6 +1,11 @@
 /**
- * this code allows the user to select a star rating by clicking on the stars, and it displays
- * the selected stars in yellow and the unselected stars in a lighter shade of yellow
+ * StarOn component represents a highlighted (filled) star icon.
+ * When clicked, it calls the setStarRating function to update the selected rating.
+ *
+ * @param {Object} props - The props passed to the component.
+ * @param {number} props.starRating - The value representing the star's rating.
+ * @param {function} props.setStarRating - The function to update the selected rating.
+ * @returns {JSX.Element} - The JSX element representing the highlighted star icon.
  */
 "use client";
 import { StarIcon } from "@heroicons/react/20/solid";

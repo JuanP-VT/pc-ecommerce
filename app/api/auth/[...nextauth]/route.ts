@@ -1,3 +1,11 @@
+/**
+ * Authentication Configuration for Next.js using NextAuth.js.
+ * This file configures authentication providers, session settings, and authentication callbacks for the application.
+ * It enables authentication using GitHub and Google providers with JWT-based session strategy.
+ * It also includes  signIn, session, and jwt callbacks to handle user authentication and token management.
+ *
+ * @module AuthConfiguration
+ */
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";

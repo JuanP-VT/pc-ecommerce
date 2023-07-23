@@ -1,3 +1,8 @@
+/**
+ * Component for displaying a "Not Found" message along with an image of an angel <3.
+ *
+ * @param {string} message - The message to be displayed.
+ */
 import Image from "next/image";
 import doberDoggo from "../../../public/images/doggo.png";
 type Props = {

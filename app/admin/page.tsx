@@ -1,3 +1,11 @@
+/**
+ * The Page function is responsible for determining whether to display the AdminPage component or show an unauthorized message.
+ * It fetches the user session using NextAuth's getServerSession and OPTIONS configuration.
+ * If the user is authenticated as an "admin," it fetches the product data from an API endpoint and renders the AdminPage component.
+ * If the user is not authenticated as an "admin" or there is no valid session, it renders the NotFound component with an "Unauthorized" message.
+ *
+ * @returns {JSX.Element} - The rendered React component displaying the AdminPage or an unauthorized message.
+ */
 import { ProductWithId } from "../types/product";
 import AdminPage from "./AdminPage";
 import { OPTIONS } from "../api/auth/[...nextauth]/route";

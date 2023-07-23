@@ -1,6 +1,14 @@
 /**
  * Button for the pagination footer
- * Render JSX conditionally based on current page
+ * Render JSX conditionally based on the current page
+ *
+ * @component
+ *
+ * @param {number} page - The page number for the button.
+ * @param {React.Dispatch<React.SetStateAction<number>>} setCurrentPage - The function to update the current page.
+ * @param {boolean} isCurrent - Optional. Indicates whether the button represents the current page.
+ *
+ * @returns {JSX.Element} The JSX element representing the PaginationButton component.
  */
 import { Dispatch, SetStateAction } from "react";
 type Props = {

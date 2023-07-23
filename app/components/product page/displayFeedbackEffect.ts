@@ -1,3 +1,11 @@
+/**
+ * The displayFeedbackEffect function is responsible for showing a feedback animation when an item is successfully added to the cart.
+ * It manipulates the DOM to apply CSS animations and transitions for the feedback effect.
+ *
+ * @function
+ *
+ * @returns {void} This function does not return any value.
+ */
 export default function displayFeedbackEffect() {
   const target = document.querySelector("#feedback");
   if (target) {

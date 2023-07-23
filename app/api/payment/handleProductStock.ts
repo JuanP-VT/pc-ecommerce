@@ -1,15 +1,16 @@
+/**
+ * Handle the update of product stock based on the purchase order.
+ *
+ * @param {PurchaseOrder[]} purchaseOrder - An array of purchase orders, each containing product details and the quantity to be purchased.
+ *
+ * @throws {Error} If there is an error connecting to the product database or if the new stock value goes below 0 for any product.
+ * This should never happen since there a filters to prevent this.
+ */
 import { dbClient } from "@/app/lib/db";
 import { PurchaseOrder } from "@/app/types/order";
 import { ProductWithId } from "@/app/types/product";
 import { ObjectId } from "mongodb";
-/**
- *
- * @param purchaseOrder is an array of type {product:{}, quantity:number},
- * quantity is the amount of products the user wants to buy
- *
- * Connect to the database and subtract the quantity to each product stock
- * Stock can never go below 0,
- */
+
 export default async function handleProductStock(
   purchaseOrder: PurchaseOrder[]
 ) {

@@ -1,3 +1,13 @@
+/**
+ * Form Specs Component
+ *
+ * @param {Props} props - The props object containing the setSpecs function, product object, and mode.
+ *
+ * This component dynamically creates spec inputs and saves their content values in an array of Spec objects.
+ * The array of Spec objects is going to be the property "specs" in a new product.
+ *
+ * @returns {JSX.Element} The JSX element representing the Form Specs component.
+ */
 import { Product, Spec } from "@/app/types/product";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import SpecInput from "./SpecInput";

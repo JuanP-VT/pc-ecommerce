@@ -1,3 +1,8 @@
+/**
+ * Creates a new user in the MongoDB database with the provided user information.
+ *
+ * @param {IUser} user - The user object containing name, email, image, and optional gitID.
+ */
 import { MongoClient } from "mongodb";
 import { config } from "dotenv";
 config();

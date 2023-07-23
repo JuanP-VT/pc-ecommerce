@@ -1,3 +1,14 @@
+/**
+ * Cart Page Component
+ *
+ * @param {Props} props - The props object containing the user session.
+ *
+ * This component represents the shopping cart page. It displays the list of items in the shopping cart
+ * and allows the user to proceed with the payment. The component retrieves the cart items from the session storage
+ * and calculates the total price of the items in the cart using the calculateCartTotalPrice function.
+ * If the cart is empty, it displays the NotFound component with the message "Cart Is Empty".
+ * The handlePayment function is used to handle the payment process when the user clicks on the "Pay" button.
+ */
 "use client";
 export const dynamic = "force-dynamic";
 import { useEffect, useState } from "react";

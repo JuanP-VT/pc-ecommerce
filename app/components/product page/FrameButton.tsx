@@ -1,9 +1,18 @@
+/**
+ * The FrameButton component conditionally returns JSX based on the current index and highlights the currently displayed image frame.
+ * 
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.currentIndex - The index of the currently displayed image frame.
+ * @param {Dispatch<SetStateAction<number>>} props.setCurrentIndex - The state setter function to update the current index.
+ * @param {string} props.image - The image URL for the frame button.
+ * @param {number} props.index - The index of the frame button.
+ * @returns {JSX.Element} The JSX element representing the FrameButton component.
+ */
 /* eslint-disable @next/next/no-img-element */
 import { Dispatch, SetStateAction } from "react";
-/*
- * Conditionally returns JSX based on current index,
- * Highlights the currently displayed image frame
- */
+
 type Props = {
   currentIndex: number;
   setCurrentIndex: Dispatch<SetStateAction<number>>;

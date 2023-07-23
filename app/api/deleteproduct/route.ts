@@ -1,3 +1,10 @@
+/**
+ * Delete a product from the database collection.
+ * Request body type @param {ProductWithId}
+ * @param {Request} request - The request object containing the product data to be deleted.
+ *
+ * @returns {Promise<NextResponse>} A promise that resolves to the NextResponse object containing the result of the delete operation.
+ */
 import { ObjectId, WithId } from "mongodb";
 import { NextResponse } from "next/server";
 import { dbClient } from "../../lib/db";

@@ -1,13 +1,16 @@
 /**
- * The component renders a form with several input fields, labels, and buttons.
- * The form has fields for the product name, category, price, stock, and discount percentage.
- * It includes the FormSpecs, FormDescription, and FormImages components to handle specification,
+ * New Product Form Component
+ *
+ * The component renders a form with input fields, labels, and buttons for adding a new product.
+ * The form includes fields for the product name, category, price, stock, and discount percentage.
+ * It also includes the FormSpecs, FormDescription, and FormImages components to handle specification,
  * description, and image inputs, respectively.
- * 
- * 
+ *
  * The useEffect hook is used to update the newProduct state whenever there are changes to the descriptions, images, or specs states.
  * This ensures that the newProduct state stays in sync with the form inputs.
-
+ *
+ *
+ * @returns {JSX.Element} The JSX element representing the New Product Form component.
  */
 "use client";
 import { useEffect, useState } from "react";

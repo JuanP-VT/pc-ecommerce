@@ -1,8 +1,16 @@
 /**
  * The ReviewForm component allows users who have purchased the product to submit a review.
- * The ReviewForm component uses the StarInput component to get the user's star rating for the product
+ * The ReviewForm component uses the StarInput component to get the user's star rating for the product.
+ * This component submits a ReviewRequest to the review API service.
  *
- * This component submits a ReviewRequest (check types), to the review api service
+ * @component
+ *
+ * @param {Session} session - The session object representing the user's session.
+ * @param {ProductWithId} product - The product object for which the review is being submitted.
+ * @param {AppRouterInstance} router - The router instance to handle navigation.
+ * @param {Dispatch<SetStateAction<boolean>>} setCanReview - A state setter function to update the ability to review.
+ *
+ * @returns {JSX.Element} The JSX element representing the ReviewForm component.
  */
 "use client";
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -24,6 +32,8 @@ type Props = {
 function ReviewForm({ session, product, router, setCanReview }: Props) {
   const [starRating, setStarRating] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+
+  //handling null and undefined values using the nullish coalescing operator
   const user: UserRef = {
     _id: session.user._id ?? "",
     email: session.user.email ?? "",
