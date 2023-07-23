@@ -1,3 +1,12 @@
+/**
+ * React component that represents an admin product card with edit and display modes.
+ *
+ * @component
+
+ * @param {Object} props - The component props.
+ * @param {ProductWithId} props.product - The product object containing information about the product.
+ * @returns {JSX.Element} The JSX element representing the AdminProductCard component.
+ */
 "use client";
 import { useState } from "react";
 import AdminProductCardEdit from "./AdminProductCardEdit";

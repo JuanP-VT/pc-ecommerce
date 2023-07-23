@@ -1,3 +1,13 @@
+/**
+ * React component that represents the display mode of an admin product card.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {ProductWithId} props.product - The product object containing information about the product to be displayed.
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} props.setIsOnEditMode - A state setter function to toggle edit mode.
+ * @returns {JSX.Element} The JSX element representing the AdminProductCardDisplay component.
+ */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { ProductWithId } from "../../../types/product";
