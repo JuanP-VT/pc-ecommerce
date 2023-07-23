@@ -1,9 +1,9 @@
 /**
- * The component takes a data prop, which is an array of product .
- * The component then uses the filterProductList function
- * to filter the product data based on the user's filter criteria.
- * The filtered product data is then used to create a paginated list of products.
- * The component also renders a sidebar that allows the user to filter the product data.
+ * The StorePage component displays a paginated list of products based on the user's filter criteria.
+ *
+ * @param {Props} props - The props for the StorePage component.
+ * @param {ProductWithId[]} props.data - An array of products to be displayed and filtered.
+ * @returns {JSX.Element} - Returns the StorePage component UI.
  */
 "use client";
 import { useEffect, useState } from "react";
