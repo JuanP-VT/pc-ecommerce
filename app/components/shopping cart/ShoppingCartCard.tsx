@@ -1,3 +1,10 @@
+/**
+ * Represents a card for displaying a product in the shopping cart.
+ * It shows the product name, price, quantity, and an option to delete the item from the cart.
+ *
+ * @param {PurchaseOrder} order - The purchase order representing the product in the shopping cart.
+ * @param {Dispatch<SetStateAction<PurchaseOrder[]>>} setCartList - A state setter function to update the cart list after deleting an item.
+ */
 /* eslint-disable @next/next/no-img-element */
 import { PurchaseOrder } from "@/app/types/order";
 import deleteFromCart from "@/app/utils/deleteFromCart";
