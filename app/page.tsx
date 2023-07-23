@@ -1,3 +1,11 @@
+/**
+ * Home Page Component
+ *
+ * The homepage of the website showcasing various products with ImageContainers.
+ *
+ * @module
+ * @returns {JSX.Element} - The JSX markup for the Home page.
+ */
 import ImageContainer from "./components/homepage/ImageContainer";
 
 export const dynamic = "force-dynamic";

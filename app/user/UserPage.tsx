@@ -1,3 +1,19 @@
+/**
+ * UserPage Component
+ *
+ * A component to display user details and purchased items.
+ *
+ * @module components/user page/UserPage
+ * @param {Object} Props - The props for the UserPage component.
+ * @param {Object} Props.user - The user object containing user details.
+ * @param {string} Props.user.name - The name of the user.
+ * @param {string} Props.user.email - The email address of the user.
+ * @param {string|null} Props.user.image - The URL of the user's profile image (nullable).
+ * @param {string} Props.user.rol - The role of the user (e.g., "admin", "customer").
+ * @param {number} Props.user.cash - The current balance of the user .
+ * @param {Array} Props.user.items - An array of purchased items.
+ * @returns {JSX.Element} - The JSX markup for the UserPage component.
+ */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
