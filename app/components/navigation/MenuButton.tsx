@@ -1,3 +1,14 @@
+/**
+ * Menu Button Component
+ *
+ * The component renders a button with a three-bar icon that can be used to toggle a hidden menu on a responsive layout.
+ *
+ * @component
+ * @param {Object} Props - The component props.
+ * @param {React.MutableRefObject<null | HTMLDivElement>} containerRef - A mutable ref object that points to the menu container.
+ *
+ * @returns {JSX.Element} The JSX element representing the Menu Button component.
+ */
 "use client";
 import { Bars3BottomLeftIcon } from "@heroicons/react/24/solid";
 type Props = {

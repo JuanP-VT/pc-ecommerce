@@ -1,3 +1,18 @@
+/**
+ * NavLink Component
+ *
+ * A reusable component for rendering navigation links in the navigation bar.
+ * It takes an SVG icon, a description, and a URL as props.
+ *
+ * @component
+ *
+ * @param {Object} Props - The component props.
+ * @param {string} href - The URL of the page to which the link should navigate.
+ * @param {React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>} icon - The SVG icon component representing the visual icon for the link.
+ * @param {string} description - A string representing the description or tooltip text for the link.
+ *
+ * @returns {JSX.Element} The JSX element representing the NavLink component.
+ */
 "use client";
 import Link from "next/link";
 import React from "react";

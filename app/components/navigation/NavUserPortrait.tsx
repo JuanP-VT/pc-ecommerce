@@ -1,8 +1,14 @@
 /**
+ * NavUserPortrait Component
+ *
  * The NavUserPortrait component renders a user portrait in the navigation bar.
- * The  component uses the useSession hook to check if the user is signed in.
+ * It uses the useSession hook to check if the user is signed in.
  * If the user is signed in, the NavUserPortrait component renders the user's first name and a button to sign out.
  * If the user is not signed in, the NavUserPortrait component renders a button to sign in.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The JSX element representing the NavUserPortrait component.
  */
 "use client";
 import { useSession, signIn, signOut } from "next-auth/react";

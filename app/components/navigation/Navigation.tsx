@@ -1,7 +1,16 @@
 /**
- * This is the main navigation bar of the site, it is displayed in every page of this app.
- * It is always in the top of the screen and have links to other functionalities
- * (Store, ShoppingCart, Admin Controls, Sign In)
+ * Navigation Component
+ *
+ * The component is the main navigation bar of the site and is displayed on every page of the app.
+ * It contains links to various functionalities, such as Home, Store, ShoppingCart, Admin Controls, and Sign In.
+ * The navigation bar is always positioned at the top of the screen.
+ *
+ * @component
+ *
+ * @param {Object} Props - The component props.
+ * @param {Session | null} session - The user session, obtained from NextAuth's SessionProvider.
+ *
+ * @returns {JSX.Element} The JSX element representing the Navigation component.
  */
 "use client";
 import NavLink from "./NavLink";
