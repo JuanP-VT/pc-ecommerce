@@ -1,4 +1,20 @@
-import { ProductWithId, Spec } from "@/app/types/product";
+/**
+ * Spec Input Component
+ *
+ * The component renders a set of input fields for a single product specification (key-value pair).
+ * It allows users to enter the key and value for the specification.
+ * The `mode` prop determines the layout mode of the input fields (column or row).
+ * The component updates the product specification state when the input values change.
+ *
+ * @param {number} index - The index of the product specification in the array of specifications.
+ * @param {React.Dispatch<React.SetStateAction<Spec[]>>} setSpecs - Function to update the array of specifications.
+ * @param {Spec[]} productSpecs - The current array of product specifications.
+ * @param {React.Dispatch<React.SetStateAction<Spec[]>>} setProductSpecs - Function to update the array of product specifications.
+ * @param {"col" | "row"} mode - The layout mode of the input fields (column or row).
+ *
+ * @returns {JSX.Element} The JSX element representing the Spec Input component.
+ */
+import { Spec } from "@/app/types/product";
 import React, { useState } from "react";
 
 type Props = {

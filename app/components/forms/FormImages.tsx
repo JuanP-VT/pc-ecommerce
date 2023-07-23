@@ -1,5 +1,13 @@
-// This component dynamically creates text inputs and saves its content value in an array of string
-// This array of string is going to be the property "descriptions" in a new product
+/**
+ * Form Images Component
+ *
+ * @param {Props} props - The props object containing the setImages function and optional product object.
+ *
+ * This component dynamically creates text inputs for images and saves their content values in an array of strings.
+ * The array of strings is going to be the property "images" in a new product.
+ *
+ * @returns {JSX.Element} The JSX element representing the Form Images component.
+ */
 import { Dispatch, SetStateAction, useState } from "react";
 import handleImageInputChange from "./handleImageInputChange";
 import { ProductWithId } from "@/app/types/product";
