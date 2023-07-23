@@ -1,5 +1,14 @@
-import React from "react";
-
+/**
+ * The Spec component displays a single specification of the item, including its key and value.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {Object} props.spec - An object representing the specification with a `key` and `value`.
+ * @param {string} props.spec.key - The key of the specification.
+ * @param {string} props.spec.value - The value of the specification.
+ * @returns {JSX.Element} The JSX element representing the Spec component.
+ */
 type Props = {
   spec: {
     key: string;

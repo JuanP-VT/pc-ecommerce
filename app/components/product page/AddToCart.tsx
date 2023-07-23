@@ -1,3 +1,13 @@
+/**
+ * The AddToCart component allows users to add a product to the cart by selecting the 
+ * quantity and clicking the "Add to Cart" button.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {ProductWithId} props.product - The product object representing the product to be added to the cart.
+ * @returns {JSX.Element} The JSX element representing the AddToCart component.
+ */
 "use client";
 import { ProductWithId } from "@/app/types/product";
 import { useState } from "react";

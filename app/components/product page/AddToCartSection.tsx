@@ -1,5 +1,15 @@
-import React from "react";
-import CardPrice from "../product card/store product card/CardPrice";
+/**
+ * The AddToCartSection component displays the product information, price, stock status, and an "Add to Cart" section.
+ * If the user is signed in (valid session), the component shows the product details and the "Add to Cart" functionality.
+ * If the user is not signed in (invalid session), the component displays a message prompting the user to sign in to use the cart.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {ProductWithId} props.product - The product object representing the product for which to display the "Add to Cart" section.
+ * @param {Session | null | undefined} props.session - The user session information, which is used to check if the user is signed in.
+ * @returns {JSX.Element} The JSX element representing the AddToCartSection component.
+ */
 import { ProductWithId } from "@/app/types/product";
 import PriceTag from "../product card/store product card/PriceTag";
 import StockTag from "../product card/store product card/StockTag";

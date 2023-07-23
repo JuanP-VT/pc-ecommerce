@@ -1,3 +1,12 @@
+/**
+ * The ProductAbout component displays information about the item by rendering multiple "About" components.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {string[]} props.description - An array of strings representing the description of the item.
+ * @returns {JSX.Element} The JSX element representing the ProductAbout component.
+ */
 import About from "./About";
 
 type Props = {
