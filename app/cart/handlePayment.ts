@@ -4,6 +4,8 @@
  * @returns feedback as  JSON response from the API
  *
  * Sends the purchase order to the backend
+ * Displays feedback in the DOM using  the document API, query selectors, i feel is an okay move
+ * with react since it is going to be a very simple Dom manipulation.
  */
 import { Dispatch, SetStateAction } from "react";
 import { PurchaseOrder } from "../types/order";
@@ -28,8 +30,18 @@ export default async function handlePayment(
   });
   const feedBack = await res.json();
   setIsLoading(false);
-  console.log(feedBack);
+  //if user has not enough cash
+  if (feedBack === "User has not enough cash") {
+    const feedbackDom = document.querySelector("#paymentFeed");
+    if (feedbackDom) {
+      feedbackDom.textContent = "Not Enough Cash";
+      setTimeout(() => {
+        feedbackDom.textContent = "";
+      }, 2000);
+    }
+  }
   if (feedBack === "Success") {
+    //on success payment
     sessionStorage.clear();
     const storageUpdateEvent = new Event("storageUpdate");
     window.dispatchEvent(storageUpdateEvent);

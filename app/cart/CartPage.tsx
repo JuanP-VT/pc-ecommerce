@@ -25,7 +25,6 @@ function CartPage({ session }: Props) {
     const list = getCartItems(key);
     setCartList(list);
   }, []);
-  console.log(session);
   const cartIsEmpty = cartList.length === 0 ? true : false;
   if (cartIsEmpty) {
     return <NotFound message="Cart Is Empty" />;
@@ -50,6 +49,7 @@ function CartPage({ session }: Props) {
       >
         <div className="flex flex-col">
           <p className=" p-2 text-xl font-semibold">Total ${priceTotal}</p>
+          <p id="paymentFeed"></p>
           <LoadingButton text="Pay" isLoading={isLoading} type="button" />
         </div>
       </div>
