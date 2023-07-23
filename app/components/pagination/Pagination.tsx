@@ -1,9 +1,20 @@
-"use client";
 /**
- * The component takes a numberOfPages prop, which is the total number of pages, and a currentPage prop,
- *  which is the current page number. The component then renders a pagination bar with buttons that allow the user to navigate
- *  to different pages.
+ * Pagination Component
+ *
+ * The component takes a `numberOfPages` prop, which is the total number of pages,
+ * and a `currentPage` prop, which is the current page number.
+ * The component then renders a pagination bar with buttons that allow the user to navigate
+ * to different pages.
+ *
+ * @component
+ *
+ * @param {number} numberOfPages - The total number of pages.
+ * @param {number} currentPage - The current page number.
+ * @param {React.Dispatch<React.SetStateAction<number>>} setCurrentPage - The function to update the current page.
+ *
+ * @returns {JSX.Element} The JSX element representing the Pagination component.
  */
+"use client";
 import { Dispatch, SetStateAction } from "react";
 import PaginationButton from "./PaginationButton";
 import PaginationFillerDots from "./PaginationFillerDots";

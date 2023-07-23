@@ -1,6 +1,11 @@
-type Props = {};
-
-function PaginationFillerDots({}: Props) {
+/**
+ * Component to represent filler dots in the pagination footer.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The JSX element representing the PaginationFillerDots component.
+ */
+function PaginationFillerDots() {
   return (
     <button
       data-testid="dots"
