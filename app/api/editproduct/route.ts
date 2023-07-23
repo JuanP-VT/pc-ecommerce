@@ -1,3 +1,11 @@
+/**
+ * Update a product in the database collection.
+ * Request body type @param {ProductWithId}
+ *
+ * @param {Request} request - The request object containing the updated product data.
+ *
+ * @returns {Promise<NextResponse>} A promise that resolves to the NextResponse object containing the result of the update operation.
+ */
 import { ObjectId } from "mongodb";
 import { NextResponse } from "next/server";
 import { dbClient } from "../../lib/db";

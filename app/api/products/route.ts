@@ -1,3 +1,12 @@
+/**
+ * Get all products from the database.
+ *
+ *
+ * @returns {Promise<NextResponse>} A promise that resolves to the NextResponse object containing all products fetched from the database.
+ *
+ * This function fetches all products from the database and returns them as a JSON response with a status of 200 (OK).
+ * If an error occurs during the database query, it logs the error to the console.
+ */
 import { NextResponse } from "next/server";
 import { dbClient } from "../../lib/db";
 import { Product } from "../../types/product";

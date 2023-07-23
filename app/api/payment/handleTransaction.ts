@@ -1,3 +1,17 @@
+/**
+ * Handle the final step in the payment process and update user balance and product stock in the database.
+ *
+ * @param {PurchaseOrder[]} purchaseOrder - An array of purchase orders, each containing product details and the quantity to be purchased.
+ * @param {User} user - The user object making the request.
+ *
+ * @returns {Promise<NextResponse>} A promise that resolves to the NextResponse object with the status of the transaction.
+ *
+ * This function handles the logic and updates the user balance and product stock in the database. It is the final step in the payment process.
+ * The function first checks if the user has enough balance to complete the purchase transaction.
+ * Then, it handles the product stock update in the database using the handleProductStock function.
+ * If the user has sufficient balance and the product stock update is successful, the function updates the user's item list and cash balance in the database.
+ * If the user is not found (null), it returns a NextResponse object with a status of 404 (Not Found).
+ */
 import { dbClient } from "@/app/lib/db";
 import { PurchaseOrder } from "@/app/types/order";
 import { User } from "@/app/types/user";
@@ -5,16 +19,7 @@ import calculateCartTotalPrice from "@/app/utils/calculateCartTotalPrice";
 import { Collection } from "mongodb";
 import { NextResponse } from "next/server";
 import handleProductStock from "./handleProductStock";
-/**
- *
- * @param purchaseOrder is an array of type {product:{}, quantity:number}, the product
- * and how many of it the user wants
- * @param user is the user object that is making the request
- * @returns NextJs Response with the status
- *
- * This is the final step in the payment process, this functions handles the logic
- * and updates the user balance and product stock in the database
- */
+
 export async function handleTransaction(
   purchaseOrder: PurchaseOrder[],
   user: User

@@ -1,3 +1,19 @@
+/**
+ * Handle the creation of a new review for a product.
+ * Request body type @param {ReviewRequest}
+ * @param {Request} request - The request object containing the review data in its body.
+ *
+ * @returns {Promise<NextResponse>} A promise that resolves to the NextResponse object containing the result of the review creation process.
+ *
+ * This function handles the creation of a new review for a product. It first retrieves the review data from the request body.
+ * It then validates the authorization header using the validateAuthHeader function.
+ * If the header is valid, it searches for the product in the database using the provided product ID from the review request.
+ * If the product is found, it checks if the user has already reviewed the product.
+ * If the user has already reviewed the product, it returns a NextResponse object with a message indicating that the user has already reviewed the item.
+ * If the user has not reviewed the product, it adds the new review to the product's reviews array and updates the product in the database.
+ * If the review is successfully added, it returns a NextResponse object with a success message.
+ * If there is an error during the review creation process or if the authorization header is invalid, it returns a NextResponse object with a message of "invalid".
+ */
 import { NextResponse } from "next/server";
 import { config } from "dotenv";
 import { ProductWithId, Review, ReviewRequest } from "@/app/types/product";
