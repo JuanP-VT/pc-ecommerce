@@ -1,5 +1,11 @@
 /**
- * Renders JSX conditionally if the price is whole integer or not
+ * Renders JSX conditionally based on whether the price is a whole integer or a fractional value.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.price - The price value to be formatted and displayed.
+ * @returns {JSX.Element} The JSX element representing the PriceTag component.
  */
 import formatPrice from "@/app/utils/formatPrice";
 

@@ -1,9 +1,15 @@
 /**
- * Renders JSX conditionally of Stock
- * Currently there are three states:
- * 1- No Stock
- * 2- Low Stock -- arbitrary set to 22
- * 3- Above Low Stock -- above 22
+ * Renders JSX conditionally based on the stock quantity.
+ * The component has three states:
+ * 1. No Stock: When the stock quantity is 0.
+ * 2. Low Stock: When the stock quantity is less than 22.
+ * 3. Above Low Stock: When the stock quantity is 22 or more.
+ *
+ * @component
+ *
+ * @param {Object} props - The component props.
+ * @param {number} props.stock - The quantity of stock for the product.
+ * @returns {JSX.Element} The JSX element representing the StockTag component.
  */
 type Props = {
   stock: number;
