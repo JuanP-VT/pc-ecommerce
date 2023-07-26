@@ -4,6 +4,8 @@
  * @param {Props} props - The props for the StorePage component.
  * @param {ProductWithId[]} props.data - An array of products to be displayed and filtered.
  * @returns {JSX.Element} - Returns the StorePage component UI.
+ *
+ * Displays feedback if no product matches the filter criteria
  */
 "use client";
 import { useEffect, useState } from "react";
@@ -14,11 +16,12 @@ import filterProductList from "../utils/filterProductList";
 import { productList } from "@/__test__/mocks/productListMock";
 import createPagination from "../utils/createPagination";
 import Pagination from "../components/pagination/Pagination";
+import NotFound from "../components/unauthorized/NotFound";
 
 type Props = { data: ProductWithId[] };
 
 export default function StorePage({ data }: Props) {
-  const [filter, setFilter] = useState<Filter>({});
+  const [filter, setFilter] = useState<Filter>({ haveDiscount: false });
   const [currentPage, setCurrentPage] = useState(1);
   const filteredList = filterProductList(data, filter);
   const ItemsPerPage = 4;
@@ -33,6 +36,8 @@ export default function StorePage({ data }: Props) {
       setCurrentPage(1); // Set current page to the first page
     }
   }, [currentPage, numOfPages]);
+  //If no product matches filter criteria
+
   return (
     <div className="relative flex h-full w-full justify-center">
       <StoreSidebar
@@ -41,6 +46,14 @@ export default function StorePage({ data }: Props) {
         productList={productList}
       />
       <div className="flex w-4/5 flex-col p-5">
+        {
+          //If no product matches the filter criteria
+          pagination.length === 0 ? (
+            <NotFound message="No Product Match The Filter Criteria" />
+          ) : (
+            ""
+          )
+        }
         {pagination[currentPage - 1]?.map((prod, index) => (
           <StoreProductCard product={prod} key={`storeItem${index}`} />
         ))}
