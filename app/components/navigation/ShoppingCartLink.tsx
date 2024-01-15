@@ -9,7 +9,6 @@
  * @returns {JSX.Element} The JSX element representing the ShoppingCartLink component.
  */
 import Link from "next/link";
-import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import getCartItems from "@/app/utils/getCartItems";
 
@@ -34,22 +33,36 @@ function ShoppingCartLink() {
     };
   }, []);
   return (
-    <Link href="/cart" className="my-3 flex w-auto justify-center">
-      <span className="tooltip relative flex" data-tooltip="ShoppingCart">
-        <ShoppingCartIcon className="tooltip h-9 w-9  fill-slate-400 hover:animate-pulse" />
-        {cartCount > 0 ? (
-          <p
-            className="absolute bottom-1/4 left-1/3 z-30  flex h-4 w-4  items-center
-         justify-center rounded-full bg-yellow-500 p-2.5 text-center font-mono text-xs font-bold text-slate-900"
-          >
-            {cartCount}
-          </p>
-        ) : (
-          ""
-        )}
-      </span>
+    <Link className="group flex items-center py-1 font-semibold " href="/cart">
+      <ShoppingCartIcon />
+      {cartCount > 0 ? (
+        <p className=" ml-2 flex items-center justify-center text-center text-sm font-bold text-slate-900 group-hover:text-blue-500 ">
+          {cartCount}
+        </p>
+      ) : (
+        ""
+      )}
     </Link>
   );
 }
-
+function ShoppingCartIcon() {
+  return (
+    <svg
+      className="group-hover:text-blue-500"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="8" cy="21" r="1" />
+      <circle cx="19" cy="21" r="1" />
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+    </svg>
+  );
+}
 export default ShoppingCartLink;
