@@ -6,7 +6,7 @@ import { OPTIONS } from "./api/auth/[...nextauth]/route";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "PB PC Hub",
+  title: "PC HUB",
   description: "PC master race eCommerce",
 };
 
