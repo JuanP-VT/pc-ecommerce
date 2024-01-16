@@ -35,15 +35,15 @@ function Navigation({ session }: Props) {
           <MenuButton containerRef={containerRef} />
           <div
             ref={containerRef}
-            className="absolute top-10 z-20 flex w-full -translate-y-96 flex-col items-center justify-center  bg-slate-200
-            px-3 transition sm:relative sm:top-0 sm:w-full  sm:-translate-y-0 sm:flex-row  lg:gap-x-32"
+            className="absolute top-10 z-20 flex w-full -translate-y-96 flex-col items-center justify-center gap-x-10
+             bg-slate-200 transition sm:relative sm:top-0 sm:w-full  sm:-translate-y-0 sm:flex-row  lg:gap-x-32"
           >
             <Link
-              className="flex items-center gap-2 py-1 font-semibold hover:text-blue-500"
+              className="flex items-center gap-x-2 py-1 font-semibold hover:text-blue-500"
               href="#"
             >
               <GamepadIcon />
-              <span className="text-lg">PC HUB</span>
+              <span className="whitespace-nowrap text-lg">PC HUB</span>
             </Link>
             <Link
               className="flex items-center  py-1 font-semibold hover:text-blue-500"
