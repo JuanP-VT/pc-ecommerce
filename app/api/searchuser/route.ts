@@ -19,6 +19,9 @@ export const dynamic = "force-dynamic";
 export async function POST(request: Request) {
   try {
     const res: WithId<Request> = await request.json();
+    if (!res._id) {
+      return NextResponse.json(null);
+    }
     const targetId = new ObjectId(res._id.toString());
     const collection = dbClient.db("Cluster0").collection("users");
     const product = await collection.findOne({ _id: targetId });

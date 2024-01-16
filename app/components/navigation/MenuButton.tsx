@@ -18,7 +18,7 @@ function MenuButton({ containerRef }: Props) {
   return (
     <>
       <div
-        className="flex w-full cursor-pointer justify-center  bg-slate-950 p-3 sm:hidden"
+        className="flex w-full cursor-pointer justify-center bg-slate-200  p-3 sm:hidden"
         onClick={() => {
           const container = containerRef.current as HTMLDivElement;
           if (container.classList.contains("-translate-y-96")) {
@@ -33,7 +33,7 @@ function MenuButton({ containerRef }: Props) {
           }
         }}
       >
-        <Bars3BottomLeftIcon className=" h-9 w-9 fill-slate-400 hover:animate-pulse " />
+        <Bars3BottomLeftIcon className=" h-5 w-5 fill-slate-800 hover:animate-pulse hover:text-blue-500 " />
       </div>
     </>
   );

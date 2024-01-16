@@ -14,6 +14,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "../../components/ui/button";
 function NavUserPortrait() {
   const { data: session } = useSession();
   if (session) {
@@ -21,7 +22,7 @@ function NavUserPortrait() {
     const nameAsArray = session?.user.name?.split(" ") as String[];
     const firstName = nameAsArray[0];
     return (
-      <div className="sm:bg-slate-950-300 flex h-14 justify-center p-2 sm:w-96 sm:justify-evenly">
+      <div className="flex h-14 justify-center gap-x-5 py-2 sm:w-96 sm:justify-center">
         <div className=" items-center justify-between  sm:flex ">
           <Link href="user">
             <Image
@@ -37,18 +38,13 @@ function NavUserPortrait() {
         </div>
         <Link
           href="user"
-          className="hidden items-center justify-center text-xs text-white underline sm:flex lg:text-base"
+          className="hidden items-center justify-center text-xs font-bold hover:text-blue-500 sm:flex lg:text-base"
         >
           {firstName}
         </Link>
-        <button
-          role="button"
-          onClick={() => signOut()}
-          className="rounded border border-slate-500 bg-transparent px-4
-          text-center text-xs font-semibold text-white hover:border-transparent hover:bg-slate-500 lg:text-base"
-        >
+        <Button size="sm" onClick={() => signOut()}>
           Sign Out
-        </button>
+        </Button>
       </div>
     );
   }
@@ -58,14 +54,9 @@ function NavUserPortrait() {
         <div className="hidden items-center justify-between whitespace-nowrap text-slate-500 underline sm:flex ">
           You are not Signed in
         </div>
-        <button
-          name="Sign In "
-          onClick={() => signIn()}
-          className="rounded border border-slate-500 bg-transparent
-               px-4 py-2 font-semibold text-white hover:border-transparent hover:bg-slate-500"
-        >
+        <Button size="sm" onClick={() => signIn()}>
           Sign In
-        </button>
+        </Button>
       </div>
     </>
   );
