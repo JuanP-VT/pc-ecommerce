@@ -1,7 +1,7 @@
 /**
  * Home Page Component
  *
- * The homepage of the website showcasing various products with ImageContainers.
+ * The homepage of the website .
  *
  * @module
  * @returns {JSX.Element} - The JSX markup for the Home page.
@@ -9,14 +9,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
-import {
-  CardTitle,
-  CardDescription,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  Card,
-} from "@/app/components/ui/card";
+
 import FeaturedProductCard from "./components/homepage/FeaturedProductCard";
 
 export const dynamic = "force-dynamic";
@@ -25,7 +18,9 @@ export default async function Home() {
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
         <section className="relative h-[500px] md:h-[700px]">
-          <img
+          <Image
+            width={5000}
+            height={5000}
             alt="Gaming PC"
             className="absolute inset-0 h-full w-full object-cover"
             src="https://i.ibb.co/2dGDfsJ/i9-13th.jpg"
@@ -40,7 +35,8 @@ export default async function Home() {
                 Discover high-performance PC components for gamers, by gamers.
               </p>
               <Link
-                className="inline-flex h-10 items-center justify-center rounded-md bg-blue-600 px-6 text-sm font-medium text-white hover:bg-blue-700"
+                className="inline-flex h-10 items-center justify-center rounded-md
+                 bg-blue-600 px-6 text-sm font-medium text-white hover:bg-blue-700"
                 href="/store"
               >
                 Shop Now

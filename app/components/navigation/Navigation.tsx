@@ -26,7 +26,6 @@ type Props = {
 };
 
 function Navigation({ session }: Props) {
-  const rol = session?.user.rol;
   const containerRef = useRef(null);
   return (
     <>
@@ -51,7 +50,7 @@ function Navigation({ session }: Props) {
             >
               <span>Store</span>
             </Link>
-            <ShoppingCartLink />
+            {session ? <ShoppingCartLink /> : ""}
             <NavUserPortrait />
           </div>
         </div>
