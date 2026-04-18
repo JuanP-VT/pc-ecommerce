@@ -1,68 +1,50 @@
-# Elección del Idioma
+# PC-Hub | E-Commerce Prototype
 
-El inglés es mi segunda lengua y constantemente estoy trabajando en mejorar mis habilidades. Por esta razón, he decidido desarrollar este y todos mis proyectos completamente en inglés. Trabajar en inglés no solo me permite practicar el idioma, sino que también garantiza que el código y la documentación sean coherentes para una audiencia más amplia.
+A fully functional e-commerce prototype designed and built from scratch to explore full-stack architecture, complex state management, and API design. 
 
-Creo que utilizar el inglés en este proyecto proporciona claridad y facilita la colaboración con desarrolladores de diferentes orígenes lingüísticos. Además, demuestra mi capacidad de adaptación y mi compromiso con perfeccionar mis habilidades en el idioma.
+## 📌 Project Overview
+PC-Hub was developed as a comprehensive technical sandbox to move beyond simple CRUD applications and tackle the real-world business logic required for an online storefront. The project handles the complete user journey, from product discovery and cart management to simulated checkout flows.
 
-Agradezco su comprensión.
+## ⚙️ Technical Architecture
+* **Framework:** Next.js 13 (React)
+* **Database:** MongoDB
+* **State Management:** Zustand
+* **Styling:** Tailwind CSS
 
-Gracias,
-Juan Pablo Valdez
+## 🛠️ Engineering Highlights
 
-## PC-Hub: Prototipo Funcional De Una App ECommerce
+### 1. Data Modeling & Inventory Logic
+Designed a document schema in MongoDB to handle the complexities of a hardware storefront.
+* Handled product variations, stock availability, and dynamic pricing models.
+* Structured the database queries to ensure efficient retrieval of catalog data and user cart states.
 
-¡Hola! En este repositorio, te presento mi proyecto PC-Hub, un prototipo funcional de una aplicación tipo eCommerce que te permite registrar usuarios, manejar inventarios y vender productos.
+### 2. State Management & Cart Synchronization
+Implemented robust state management to ensure a seamless shopping experience without heavy boilerplate.
+* **Challenge:** Maintaining accurate cart state across different components and preventing data loss during page reloads without overloading the database.
+* **Solution:** Utilized **Zustand** for lightweight, scalable global state. Implemented middleware to synchronize the cart state directly with local storage, persisting the user session seamlessly across hard refreshes.
 
-### Por qué realicé este proyecto
+### 3. API Design & Routing
+Architected a clean backend API via Next.js Route Handlers to decouple the presentation layer from the business logic.
+* Developed RESTful endpoints to manage user authentication, product fetching, and simulated order processing.
 
-Este proyecto representa mi impresionante progreso como desarrollador web, desde mis inicios como novato hasta la creación de un prototipo funcional de eCommerce. Comencé mi viaje a inicio de 2022, aprendiendo HTML y CSS para construir páginas estáticas. Con el tiempo, me desafié a desarrollar juegos y mejorar mis habilidades en lógica y programación.
+## 🚀 Getting Started
 
-Mi entusiasmo me llevó a aprender ReactJS y TypeScript, lo que impulsó aún más mi pasión por el desarrollo web. Progresé con proyectos que abarcaron diferentes conceptos y tecnologías, desde manipulación del DOM hasta el manejo de APIs y el desarrollo de aplicaciones con backend en NodeJS.
+### Prerequisites
+* Node.js (v16+)
+* MongoDB Instance (Local or Atlas)
 
-El deseo de enfrentar un reto mayor y demostrar mis habilidades me llevó a crear este prototipo funcional de eCommerce. Fue una experiencia enriquecedora, enfrentando desafíos desconocidos como la autenticación de usuarios y la personalización del contenido.
+### Installation
 
-Este proyecto es una prueba de mi dedicación y crecimiento, transformándome desde un principiante hasta un desarrollador capaz de construir aplicaciones web completas y funcionales. Estoy emocionado de seguir mejorando y enfrentando nuevos desafíos en mi camino como desarrollador web.
+```bash
+# Clone the repository
+git clone [https://github.com/JuanP-VT/pc-ecommerce.git](https://github.com/JuanP-VT/pc-ecommerce.git)
 
-## Features
+# Install dependencies
+npm install
 
-1. Responsive Design
-2. Autentificación y autorización de usuarios con proveedores
-3. Tienda
-   1. Catalogo de productos
-   2. Filtros de búsqueda
-   3. Paginación
-4. Pagina para productos
-5. Sistema de carrito de compras
-6. Proceso de pago
-7. Perfil del usuario
-8. Reviews de usuarios
-9. Admin
-   1. Agregar producto a la base de datos
-   2. Filtros de búsqueda
-   3. Editar producto
+# Setup environment variables
+# Copy the example file and add your MongoDB connection string
+cp .env.example .env
 
-### Tecnologías utilizadas
-
-TypeScript: Esta tecnología nos brinda tipos estáticos e integración con el IDE, lo que mejora mucho la experiencia de desarrollo y evita errores comunes.
-
-NextJS: Es un framework para ReactJS que ofrece diversas ventajas para la construcción de aplicaciones web. Proporciona funcionalidades como enrutamiento, rendimiento mejorado, optimización para motores de búsqueda (SEO) y muchas otras características útiles.
-
-#### Backend:
-
-Utilizamos los React server components de NextJS para crear API endpoints en el mismo proyecto, lo cual se conoce como arquitectura serverless. Esta opción es ideal para este prototipo funcional que no espera un tráfico intenso.
-
-MongoDB: Para el almacenamiento de datos, utilizamos MongoDB como base de datos NoSQL. Su modelo se basa en BSON, que es casi idéntico al JSON de JavaScript, lo que lo hace muy intuitivo de utilizar.
-
-#### FrontEnd:
-
-ReactJS: Es una de las librerías de JavaScript más famosas del mundo y la he utilizado para construir la interfaz de usuario. ReactJS proporciona una excelente experiencia de desarrollo, escalabilidad, reusabilidad y rendimiento en la aplicación.
-
-TailwindCSS: En lugar de utilizar un framework de CSS como Bootstrap, decidí darle un toque personal utilizando TailwindCSS. Es la primera vez que lo utilizo, y sin duda es una opción que me ha encantado para trabajar el CSS. Se encuentra a medio camino entre frameworks como Bootstrap y CSS puro, y permite estilizar componentes de manera sencilla a través de clases.
-
-Jest: una librería sencilla y útil, para realizar unit testing en JavaScript.
-
-Git - GitHub: Como sistema de control de versiones y almacenamiento del repositorio.
-
-Vercel - Deployment: Utilicé Vercel para implementar y desplegar el proyecto.
-
-# https://store-juanp-vt.vercel.app/
+# Run the development server
+npm run dev
